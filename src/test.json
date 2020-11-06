@@ -1,0 +1,12 @@
+﻿{
+
+  "syslogdb":[{
+    "“db_user”": "“xxx”",
+    "“db_password”": "“yyy”",
+    "“db_type”": "“ORACLE”",
+    "“db_ip”": "“172.16.1.248”",
+    "“db_port”": "“1521”",
+    "“db_name”": "“orcl”",
+    "“sql”": "select * from syslog"
+  }]
+}
