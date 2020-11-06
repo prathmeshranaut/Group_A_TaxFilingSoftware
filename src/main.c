@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-#include<cJSON.h>
-#include<conio.h>
+#include "cJSON.h"
 #include "test.h"
 int displayGuide(void);
 cJSON* dofile(char* filename);
@@ -17,13 +16,13 @@ int main(void)
 	printf("\t\t#######################################################################################\n");
 menu:printf("\n\n\t\t\tMain Menu\n\n");
 	printf("\t\t\t\t1.File New Tax\n\t\t\t\t2.Guide\n\t\t\t\t3.Exit\n");
-	
+
 	printf("\n\n\tEnter the choice : \n\t\t");
 	scanf("%d",&choice);
 	switch(choice){
-	case 1 : 
+	case 1 :
 		printf("\t\t\t\tFile New Tax\n\n\n");
-		show_files();
+		//show_files();
 		//do_test("test1");
 		dofile("./data/testJSON.json");
 		break;
@@ -41,8 +40,8 @@ menu:printf("\n\n\t\t\tMain Menu\n\n");
 		printf("\t\t\t\tInvalid entry\n\n\n");
 		goto menu;
 	}
-	
-	exit: 
+
+	exit:
 	printf("\t\t#######################################################################################\n");
 	printf("\n\n\t\t\t\t\tThankyou for using Tax Filing Software\n\n\n");
 	printf("\t\t#######################################################################################\n");

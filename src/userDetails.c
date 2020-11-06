@@ -3,7 +3,6 @@
 #include <sys/types.h>
 #include <stdlib.h>
 #include "cJSON.h"
-#include <dirent.h>
 
 typedef struct
 {
@@ -210,20 +209,20 @@ void dofile(char* filename)
 }
 
 
-int show_files(void) {
-	DIR* dir;
-	struct dirent* ent;
-	if ((dir = opendir(".\\data\\")) != NULL) {
-		/* print all the files and directories within directory */
-		while ((ent = readdir(dir)) != NULL) {
-			printf("%s\n", ent->d_name);
-		}
-		closedir(dir);
-	}
-	else {
-		/* could not open directory */
-		perror("");
-		return EXIT_FAILURE;
-	}
-}
+//int show_files(void) {
+//	DIR* dir;
+//	struct dirent* ent;
+//	if ((dir = opendir(".\\data\\")) != NULL) {
+//		/* print all the files and directories within directory */
+//		while ((ent = readdir(dir)) != NULL) {
+//			printf("%s\n", ent->d_name);
+//		}
+//		closedir(dir);
+//	}
+//	else {
+//		/* could not open directory */
+//		perror("");
+//		return EXIT_FAILURE;
+//	}
+//}
 

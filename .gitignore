@@ -1,3 +1,5 @@
 Debug/*
 .vs/*
 .idea/*
+build/*.o
+*.o
