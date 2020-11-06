@@ -1,0 +1,9 @@
+﻿  userDetails.c
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(111,17): warning C4101:  'arrayItem': unreferenced local variable
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(111,38): warning C4101:  'object': unreferenced local variable
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(111,30): warning C4101:  'item': unreferenced local variable
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(111,9): warning C4101:  'json': unreferenced local variable
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(186,1): warning C4996:  'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message :  see declaration of 'fopen'
+C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\src\userDetails.c(228): warning C4715:  'show_files': not all control paths return a value
+  TaxFilingSoftware.vcxproj -> C:\Users\buzzr\Documents\Group_A_TaxFilingSoftware\Debug\TaxFilingSoftware.exe
