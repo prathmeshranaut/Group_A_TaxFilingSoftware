@@ -1,14 +1,18 @@
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 CC=gcc
-INCLUDE= -I./include/
+INCLUDE= -I../include/
 CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors $(INCLUDE)
-SRC = src/guide.c src/userDetails.c
+_SRC = src/main.c src/guide.c src/userDetails.c
 LIBOBJ = cJSON.o
 
 _OBJS = build/cJSON.o
-OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
+SRC = $(patsubst %,$(ROOT_DIR)/%,$(_SRC))
 
 libs: include/cJSON.c
-	$(CC) $(CFLAGS) -c $?
+	mkdir -p build && cd build && $(CC) $(CFLAGS) -c $(ROOT_DIR)/$?
 
-all: src/main.c $(SRC)
-	$(CC) $(CFLAGS) $(LIBOBJ) $? -o tax
+all: $(SRC)
+	mkdir -p build && cd build && $(CC) $(CFLAGS) $(LIBOBJ) $? -o tax
+
+clean:
+	rm -rf build/*
