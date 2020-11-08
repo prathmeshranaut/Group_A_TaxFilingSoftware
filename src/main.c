@@ -5,7 +5,8 @@
 int displayGuide(void);
 
 cJSON *dofile(char *filename);
-void printJson(char* root);
+
+void printJson(char *root);
 
 int input_new_TaxFile(cJSON *root);
 
@@ -36,10 +37,10 @@ int main(void) {
 //		entry_status(root);
 //		world_income(root);
 //		maritial_status(root);
-//		t4_documents(root);
+            input_t4_details(root);
 //		otb_benefits(root);
 //		calculate_tax(root);
-		printJson(root);
+            printJson(root);
             //Write to a file
             //create_NewTaxFile();
             //dofile("./data/testJSON.json");
