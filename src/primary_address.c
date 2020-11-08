@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include "cJSON.h"
 #include "headers/primary_address.h"
 
 int input_primary_residence(cJSON *root) {

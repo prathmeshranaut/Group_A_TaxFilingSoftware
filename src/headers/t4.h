@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "cJSON.h"
+
 #ifndef GROUP_A_TAXFILINGSOFTWARE_T4_H
 #define GROUP_A_TAXFILINGSOFTWARE_T4_H
 
