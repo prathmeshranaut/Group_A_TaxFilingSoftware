@@ -14,15 +14,15 @@ int input_entry_status(cJSON *root) {
     printf("Enter your Current Province:");
     scanf("%s", status.current_province);
 
-    printf("Are you a resident of Canada in current tax filing year?");
+    printf("Are you a resident of Canada in current tax filing year? (y/n)");
     scanf("%s", status.is_resident_in_tax_filing_year);
 
     
     cJSON *status_object = cJSON_CreateObject();
 
-    cJSON_AddItemToObject(status_object, DATE_OF_ENTRY, cJSON_CreateString(address.date_of_entry));
-    cJSON_AddItemToObject(status_object, CURRENT_PROVINCE, cJSON_CreateString(address.current_province));
-    cJSON_AddItemToObject(status_object, IS_RESIDENT_IN_TAX_FILING_YEAR, cJSON_CreateString(address.is_resident_in_tax_filing_year));
+    cJSON_AddItemToObject(status_object, DATE_OF_ENTRY, cJSON_CreateString(status.date_of_entry));
+    cJSON_AddItemToObject(status_object, CURRENT_PROVINCE, cJSON_CreateString(status.current_province));
+    cJSON_AddItemToObject(status_object, IS_RESIDENT_IN_TAX_FILING_YEAR, cJSON_CreateString(status.is_resident_in_tax_filing_year));
    
 
     cJSON_AddItemToObject(root, ENTRY_STATUS_KEY, status_object);
