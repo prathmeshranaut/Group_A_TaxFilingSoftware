@@ -7,7 +7,7 @@ int input_maritial_status(cJSON *root) {
     printf("\n#######################################################################################\n");
 
     printf("Enter Amount for your Canadian Source of Income (CAD): ");
-    scanf("%lf, income.canadian_source_of_income);
+    scanf("%lf", income.canadian_source_of_income);
 
     printf("Enter Amount for your Foreign Source of Income (CAD): (if applicable)");
     scanf("%lf", income.foreign_source_of_income);
