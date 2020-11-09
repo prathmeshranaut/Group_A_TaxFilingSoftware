@@ -1,5 +1,7 @@
 #include "headers/entry_status.h"
 
+//This function gets details from user about thier entry status in Canada
+
 int input_entry_status(cJSON *root) {
     entry_status status;
     printf("\n#######################################################################################\n");
