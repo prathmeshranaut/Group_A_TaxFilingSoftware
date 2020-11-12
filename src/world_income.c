@@ -22,8 +22,8 @@ int input_maritial_status(cJSON *root) {
     
     cJSON *income_object = cJSON_CreateObject();
 
-    cJSON_AddItemToObject(income_object, CANADIAN_SOURCE_OF_INCOME, cJSON_CreateString(income.canadian_source_of_income));
-    cJSON_AddItemToObject(income_object, FOREIGN_SOURCE_OF_INCOME, cJSON_CreateString(income.foreign_source_of_income));
+    cJSON_AddItemToObject(income_object, CANADIAN_SOURCE_OF_INCOME, cJSON_CreateNumber(income.canadian_source_of_income));
+    cJSON_AddItemToObject(income_object, FOREIGN_SOURCE_OF_INCOME, cJSON_CreateNumber(income.foreign_source_of_income));
     
 
     cJSON_AddItemToObject(root, WORLD_INCOME_KEY, income_object);
