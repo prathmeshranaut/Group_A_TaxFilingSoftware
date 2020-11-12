@@ -24,6 +24,8 @@ make all
 
 #### Run the tests
 
+**Prerequisites: Ruby 2.0+**
+
 This will compile and run the generated test binary
 
 ```
