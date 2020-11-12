@@ -11,7 +11,7 @@
 
 
 typedef struct {
-    char maritial_status[32];
+    char current_maritial_status[32];
     char is_change_of_status[5];
     char date_of_change[12];
 } maritial_status;
