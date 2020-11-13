@@ -1,6 +1,9 @@
 #include "headers/t4.h"
+#include <assert.h>
 
 int input_t4_details(cJSON *root) {
+    assert(root != NULL);
+
     char has_details = 'y';
 
     printf("Do you wish to enter T4 details? (y/n)");
@@ -11,91 +14,91 @@ int input_t4_details(cJSON *root) {
     while ('y' == has_details) {
         t4 t4_details = {"", "ON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         printf("\n#######################################################################################\n");
-        printf("Enter your T4 details\n");
+        printf("Enter your T4 details");
         printf("\n#######################################################################################\n");
 
-        printf("Enter your Employers Name:");
+        printf("\nEnter your Employers Name:");
         scanf("%s", t4_details.employer_name);
 
-        printf("Enter your Employment Income(Field 14):");
+        printf("\nEnter your Employment Income(Field 14):");
         while (scanf("%lf", &t4_details.employment_income) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Employees CPP contribution(Field 16):");
+        printf("\nEnter your Employees CPP contribution(Field 16):");
         while (scanf("%lf", &t4_details.employees_cpp_contribution) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Employees QPP contribution(Field 17):");
+        printf("\nEnter your Employees QPP contribution(Field 17):");
         while (scanf("%lf", &t4_details.employees_qpp_contribution) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Employees EI Premiums(Field 18):");
+        printf("\nEnter your Employees EI Premiums(Field 18):");
         while (scanf("%lf", &t4_details.employees_ei_premiums) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your RPP Contributions(Field 20):");
+        printf("\nEnter your RPP Contributions(Field 20):");
         while (scanf("%lf", &t4_details.rpp_contributions) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Income Tax Deducted(Field 22):");
+        printf("\nEnter your Income Tax Deducted(Field 22):");
         while (scanf("%lf", &t4_details.income_tax_deducted) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your EI Insurable Earnings(Field 24):");
+        printf("\nEnter your EI Insurable Earnings(Field 24):");
         while (scanf("%lf", &t4_details.ei_insurable_earnings) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your CPP/QPP Pensionable Earnings(Field 26):");
+        printf("\nEnter your CPP/QPP Pensionable Earnings(Field 26):");
         while (scanf("%lf", &t4_details.cpp_qpp_pensionable_earnings) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Union Dues(Field 44):");
+        printf("\nEnter your Union Dues(Field 44):");
         while (scanf("%lf", &t4_details.union_dues) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Charitable Donations(Field 46):");
+        printf("\nEnter your Charitable Donations(Field 46):");
         while (scanf("%lf", &t4_details.charitable_donations) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your RPP/DSSP Registation Number (Field 50):");
+        printf("\nEnter your RPP/DSSP Registation Number (Field 50):");
         while (scanf("%lf", &t4_details.rpp_dssp_registation_number) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Pension Adjustment(Field 52):");
+        printf("\nEnter your Pension Adjustment(Field 52):");
         while (scanf("%lf", &t4_details.pension_adjustment) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your Employees PPIP Premiums(Field 55):");
+        printf("\nEnter your Employees PPIP Premiums(Field 55):");
         while (scanf("%lf", &t4_details.employees_ppip_premiums) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
         }
 
-        printf("Enter your PPIP insurable earnings(Field 56):");
+        printf("\nEnter your PPIP insurable earnings(Field 56):");
         while (scanf("%lf", &t4_details.ppip_insurable_earnings) == 0) {
             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
             scanf("%*s");
@@ -132,7 +135,7 @@ int input_t4_details(cJSON *root) {
 
         cJSON_AddItemToArray(t4_details_array, t4_details_object);
 
-        printf("Do you wish to enter more T4 details? (y/n)");
+        printf("\nDo you wish to enter more T4 details? (y/n)");
         scanf(" %c", &has_details);
     }
 
