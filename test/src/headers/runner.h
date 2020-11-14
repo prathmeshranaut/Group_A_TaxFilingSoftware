@@ -3,8 +3,16 @@
 
 //Primary Address Tests
 extern void test_input_primary_address_aborts_if_root_passed_is_null();
+extern void test_input_primary_address_details_add_primary_address_key_to_json();
+extern void test_input_primary_address_details_correctly_and_returns();
+extern void test_input_primary_address_correctly_adds_value_for_fields();
 
 //T4 Tests
 extern void test_input_t4_details_aborts_if_root_passed_is_null();
+extern void test_input_t4_details_add_t4_key_to_json();
+extern void test_input_t4_details_correctly_increases_array_size();
+extern void test_input_t4_details_correctly_and_returns();
+extern void test_input_t4_details_correctly_adds_value_for_fields();
+extern void test_input_t4_details_incorrectly_retries_3_times();
 
 #endif //GROUP_A_TAXFILINGSOFTWARE_RUNNER_H

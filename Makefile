@@ -28,3 +28,4 @@ tests: all compile-tests
 
 clean:
 	rm -rf build/*
+	rm -rf bin/*

@@ -3,22 +3,22 @@
 int input_primary_residence(cJSON *root) {
     primary_address address;
     printf("\n#######################################################################################\n");
-    printf("Enter your Primary Address\n");
-    printf("\n#######################################################################################\n");
+    printf("Enter your Primary Address");
+    printf("\n#######################################################################################");
 
-    printf("Enter your Street Number:");
+    printf("\nEnter your Street Number:");
     scanf("%s", address.street_number);
 
-    printf("Enter your Street Name");
+    printf("\nEnter your Street Name");
     scanf("%s", address.street_name);
 
-    printf("Enter your City:");
+    printf("\nEnter your City:");
     scanf("%s", address.city);
 
-    printf("Enter your Province:");
+    printf("\nEnter your Province:");
     scanf("%s", address.province);
 
-    printf("Enter your Postal Code:");
+    printf("\nEnter your Postal Code:");
     scanf("%s", address.postal_code);
 
     cJSON *address_object = cJSON_CreateObject();
