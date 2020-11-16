@@ -18,7 +18,7 @@ libs: $(LIB_SRC)
 	mkdir -p build && cd build && $(CC) $(CFLAGS) -c $?
 
 compile: $(SRC)
-	mkdir -p build && cd build && $(CC) $(CFLAGS) $(LIBOBJ) $? -o ../bin/tax
+	mkdir -p build && mkdir -p bin && cd build && $(CC) $(CFLAGS) $(LIBOBJ) $? -o ../bin/tax
 
 compile-tests: $(TEST_SRC)
 	mkdir -p build && cd build && $(CC) $(CFLAGS) $(TEST_LIBOBJ) $? -o tax_test
