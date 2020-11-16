@@ -1,6 +1,6 @@
 #include "headers/world_income.h"
 
-int input_maritial_status(cJSON *root) {
+int input_world_income(cJSON *root) {
     world_income income;
     printf("\n#######################################################################################\n");
     printf("Enter Details for your Sources of Income\n");
