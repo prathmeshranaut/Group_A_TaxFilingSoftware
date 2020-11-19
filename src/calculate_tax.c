@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "headers/calculate_tax.h"
-#include "../../src/headers/t4.h"
+#include "headers/t4.h"
 
 
 int calculate_tax(cJSON* root)
