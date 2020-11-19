@@ -1,0 +1,56 @@
+{
+	"basic":	{
+		"first_name":	"a",
+		"last_name":	"a",
+		"email":	"a",
+		"sin":	"a",
+		"date_of_birth":	"a"
+	},
+	"mailing_address":	{
+		"street_number":	"a",
+		"street_name":	"a",
+		"city":	"a",
+		"province":	"a",
+		"postal_code":	"a",
+		"contact_number":	"a"
+	},
+	"primary_address":	{
+		"street_number":	"43",
+		"street_name":	"asd",
+		"city":	"ew",
+		"province":	"asd",
+		"postal_code":	"ds"
+	},
+	"entry_status":	{
+		"date_of_entry":	"43",
+		"current_province":	"asd",
+		"is_resident_in_tax_filing_year":	"y"
+	},
+	"world_income":	{
+		"canadian_source_of_income":	43,
+		"foreign_source_of_income":	54
+	},
+	"maritial_status":	{
+		"current_maritial_status":	"as",
+		"is_change_of_status":	"n",
+		"date_of_change":	"43"
+	},
+	"t4":	[{
+			"employer_name":	"rt",
+			"province":	"ON",
+			"employment_income":	14000,
+			"employees_cpp_contribution":	32,
+			"employees_qpp_contribution":	32,
+			"employees_ei_premiums":	32,
+			"rpp_contributions":	32,
+			"income_tax_deducted":	23,
+			"ei_insurable_earnings":	23,
+			"cpp_qpp_pensionable_earnings":	23,
+			"union_dues":	32,
+			"charitable_donations":	32,
+			"rpp_dssp_registation_number":	32,
+			"pension_adjustment":	32,
+			"employees_ppip_premiums":	32,
+			"ppip_insurable_earnings":	32
+		}]
+}
