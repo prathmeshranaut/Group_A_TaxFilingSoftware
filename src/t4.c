@@ -1,7 +1,22 @@
+/**
+ * @file t4.c
+ *
+ * @brief Contains the definition for getting users T4 details
+ * */
+
 #include "headers/t4.h"
 #include <assert.h>
 
 #define MAX_RETRIES 3
+
+/** @brief Gets T4 details from the user
+ *
+ * @detail Asks user to fill in details of his T4 form so that can be used in calculation of tax
+ *
+ * @param[in,out] JSON root element
+ *
+ * @return 0 in case of success or 1 in case of failure
+ * */
 
 int input_t4_details(cJSON *root) {
     assert(root != NULL);

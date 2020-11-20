@@ -1,4 +1,19 @@
+/**
+ * @file primary_address.c
+ *
+ * @brief Contains the definition for getting users primary address details
+ * */
+
 #include "headers/primary_address.h"
+
+/** @brief Gets primary address details from the user
+ *
+ * @detail Asks user to fill in details of their primary address and adds it the JSON structure
+ *
+ * @param[in,out] JSON root element
+ *
+ * @return 0 in case of success
+ * */
 
 int input_primary_residence(cJSON *root) {
     primary_address address;
