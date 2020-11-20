@@ -35,7 +35,7 @@ int display_guide(void)
 	char choice;
 	
 	printf("\t\t#######################################################################################\n");
-	printf("\n\n\t\t\t\t\t\tWelcome to Tax Filing software\n\n\n");
+	printf("\n\n\t\t\t\t\t\tGuide - Tax Filing software\n\n\n");
 	printf("\t\t#######################################################################################\n");
 
 guide:
