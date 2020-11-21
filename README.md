@@ -1,38 +1,98 @@
-# Group_A_TaxFilingSoftware
-Software Development in C Project - Testing changes made via PR
+# Tax_Filing_Software
 
-# Problem Statement:
-International students face a lot of problems in Canada when filing the taxes as they need to indulge with the rules and regulations of a new country. Apart from this, when you complete your tax return by hand, you must tally up all the numbers yourself in a spreadsheet or using a calculator. As it is the responsibility of the taxpayer to claim any tax credit or deduction that he/she is entitled to, any missed amount can have costly consequences. When you file your own tax return, you are responsible for ensuring that all of your information is organized and completed accurately throughout each form. Not only can you easily enter in incorrect numbers or make typos, but you may mistakenly calculate credits, deductions and other relevant amounts.
-Hence, the main motive of the project is to develop an easy-to-go tax filing software which helps students to file taxes through a simple interview process without involving themselves into complicated maths. Also, when you file using tax preparation software, you will be asked a series of questions to determine if you qualify for certain tax deductions and credits. With tax preparation software, however, not only are all of the necessary calculations completed for you, but any special forms are automatically filled out with your verified personal information as well.
-Summing up, this tax filing software for international students will save up their precious time and easily file the tax returns.
+Tax_Filing_Software is a software that helps students in Ontario, CA to file taxes for the year 2019 with the maximum benefits.
 
+# Authors
 
+- Prathmesh Ranaut - Carleton University
+- Ragunath Anbarasu - Carleton University
+- Shreya Dhanani  - Carleton University
+- Tirth Vyas - Carleton University
 
-# How to run the software (Requires CygWin on Windows)
+# Installation
 
-#### Compile the software
+Installation steps are mentioned in [INSTALL.md](INSTALL.md)
 
-```
-make all
-```
+# Usage
 
-#### Run the software
+To run, you must first compile the repository. Follow the instructions in [INSTALL.md](INSTALL.md).Then you can follow instructions mentioned in
+[User_Manual.md](doc/User_Manual.md).
 
-```
-./bin/tax
-```
+# File Structure
 
-#### Run the tests
-
-This will compile and run the generated test binary
+The correct file structure
 
 ```
-make tests
+├── INSTALL.md 	-> Installation Guide
+├── LICENSE 	-> License file
+├── Makefile 	-> Makefile
+├── README.md 	-> Readme file
+├── doc
+│   ├── html 	-> Doxygen documentation
+│   ├── latex   -> Doxygen documentation in latex
+│   ├── man     -> Doxygen documentation in man
+│   ├── rtf     -> Doxygen documentation in rtf
+│   ├── xml     -> Doxygen documentation in xml
+│   ├── Developer_Manual.md -> Developer Manual
+│   ├── Doxyfile -> Doxygen configuration file
+│   └── User_Manual.md      -> User Manual
+├── include 	-> Header files
+│   ├── calculate_tax.h
+│   ├── commons.h
+│   ├── entry_status.h
+│   ├── mailing_address.h
+│   ├── maritial_status.h
+│   ├── new_taxfile.h
+│   ├── primary_address.h
+│   ├── t4.h
+│   ├── t2202.h
+│   └── world_income.h
+├── obj 	-> Object files
+├── src 	-> Source files for Tax_Filing_Software
+│   ├── calculate_tax.c
+│   ├── create_new_taxfile.c
+│   ├── display_guide.c
+│   ├── entry_status.c
+│   ├── input_mailing_address.c
+│   ├── input_new_taxfile.c
+│   ├── main.c
+│   ├── maritial_status.c
+│   ├── primary_address.c
+│   ├── t4.c
+│   ├── world_income.c
+│   └── input_t2202.c
+└── test
+│    ├── data
+│    │   ├── primary_address_1.txt
+│    │   ├── t4_1.txt
+│    │   ├── t4_2.txt
+│    │   └── main.c
+│    ├── include
+│    │   ├── unity.c
+│    │   ├── unity.h
+│    │   ├── unity_internals.h
+│    │   └── main.c
+│    ├── src
+│    │   ├── headers
+│    │   │   ├── primary_address.h
+│    │   │   ├── runner.h
+│    │   │   ├── t4.h
+│    │   │   └── commons.h
+│    │   ├── primary_address.c
+│    │   ├── runner.c
+│    │   └── t4.c
+│    └──
+└──
 ```
 
-To run the tests from the generated binary
+# For Developers
 
-```
-./bin/tax_tests
-```
+The developer manual is available [here](doc/Developer_Manual.md).
 
+# License
+
+This project is licensed under the GPL 2.0 License - see the LICENSE.md file for details
+
+# Acknowledgements
+
+Thank to Dr. Cristina Ruiz Martin for providing guidance on how to develop the software.
