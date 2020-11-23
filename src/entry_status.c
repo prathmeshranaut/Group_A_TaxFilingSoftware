@@ -8,7 +8,7 @@ int input_entry_status(cJSON *root) {
     printf("Enter your Details for Entry Status\n");
     printf("\n#######################################################################################\n");
 
-    printf("Enter your Date of Entry in Canada:");
+    printf("Enter your Date of Entry in Canada (YYYY-MM-DD):");
     scanf("%s", status.date_of_entry);
 
     printf("Enter your Current Province:");
