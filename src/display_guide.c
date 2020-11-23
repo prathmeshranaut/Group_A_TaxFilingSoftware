@@ -45,7 +45,7 @@ guide:
 		printf("\t\t\t\ta.Basic Tax filing\n\t\t\t\tb.Child Benifits\n\t\t\t\tc.Ontario Trillium Benifits\n\t\t\t\td.GST/HST Credits\n\t\t\t\te.Return to Main menu\n");
 		printf("You have %d attempts", max_attempt - attempt);
 		printf("\n\n\tEnter the choice : \n\t\t");
-		scanf("%c", &choice);
+		scanf(" %c", &choice);
 		attempt++;
 		if (attempt > max_attempt)
 			goto exit;
