@@ -1,4 +1,5 @@
 #include "headers/maritial_status.h"
+#include<string.h>
 
 int input_maritial_status(cJSON *root) {
     maritial_status m_status;
@@ -12,8 +13,10 @@ int input_maritial_status(cJSON *root) {
     printf("Is change of Maritial Status in tax filing year? (y/n) :");
     scanf("%s", m_status.is_change_of_status);
 
-    printf("Enter Date of change in status (YYYY-MM-DD) (if applicable) :");
-    scanf("%s", m_status.date_of_change);
+    if(strcmp(m_status.is_change_of_status,"y")==0) {
+        printf("Enter Date of change in status (YYYY-MM-DD):");
+        scanf("%s", m_status.date_of_change);
+    }
 
     
     cJSON *m_status_object = cJSON_CreateObject();
