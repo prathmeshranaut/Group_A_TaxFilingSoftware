@@ -25,4 +25,7 @@ int create_new_taxfile(cJSON* root);
 void print_json(char* root);
 int display_guide(void);
 int display_file(char* filename);
+int spc_email_isvalid(const char* address);
+int string_isvalid(const char* address);
+int sin_isvalid(const char* address);
 #endif //GROUP_A_TAXFILINGSOFTWARE_NEW_TAXFILE_H

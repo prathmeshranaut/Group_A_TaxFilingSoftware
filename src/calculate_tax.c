@@ -126,5 +126,6 @@ int calculate_tax(cJSON* root)
 		cJSON_AddItemToObject(root, "tax", obj_person);
 
 	}
+	return 0;
 
 }

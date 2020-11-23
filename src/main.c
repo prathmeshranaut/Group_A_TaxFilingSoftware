@@ -18,6 +18,8 @@ int main(void) {
 	//Declaring and initializing variabless
 	int attempt, max_attempt = 5;
 	char choice;
+topmenu:
+	
 	printf("\t\t#######################################################################################\n");
 	printf("\n\n\t\t\t\t\t\tWelcome to Tax Filing software\n\n\n");
 	printf("\t\t#######################################################################################\n");
@@ -29,7 +31,7 @@ menu:
 		printf("\t\t\t\ta.File New Tax\n\t\t\t\tb.Guide\n\t\t\t\tc.Exit\n");
 		printf("You have %d attempts", max_attempt - attempt);
 		printf("\n\n\tEnter the choice : \n\t\t");
-		scanf("%c", &choice);
+		scanf(" %c", &choice);
 		attempt++;
 		if (attempt > max_attempt)
 			goto exit;
@@ -49,7 +51,7 @@ menu:
 		calculate_tax(root); //Calculate tax of user
 		print_json(root); // display JSON details (developer feature)
 		create_new_taxfile(root); //Write details to JSON file
-		goto menu;
+		goto topmenu;
 		break;
 	case 'b':
 		printf("\t\t\t\tGuide\n\n\n");
