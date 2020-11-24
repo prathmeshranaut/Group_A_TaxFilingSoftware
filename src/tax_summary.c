@@ -8,7 +8,7 @@
 int display_tax_summary(cJSON *root)
 {
    printf("\n#######################################################################################\n");
-   printf("\Tax Summary:");
+   printf("Tax Summary:");
    printf("\n#######################################################################################\n");
    basic personal_details;
    //t4 t4_details;
