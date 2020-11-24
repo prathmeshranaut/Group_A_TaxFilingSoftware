@@ -1,0 +1,7 @@
+Debug/*
+.vs/*
+.idea/*
+build/*
+*.o
+tax
+tax.exe
