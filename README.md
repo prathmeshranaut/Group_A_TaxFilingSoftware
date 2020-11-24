@@ -37,18 +37,22 @@ The correct file structure
 │   ├── Doxyfile -> Doxygen configuration file
 │   └── User_Manual.md      -> User Manual
 ├── include 	-> Header files
-│   ├── calculate_tax.h
-│   ├── commons.h
-│   ├── entry_status.h
-│   ├── mailing_address.h
-│   ├── maritial_status.h
-│   ├── new_taxfile.h
-│   ├── primary_address.h
-│   ├── t4.h
-│   ├── t2202.h
-│   └── world_income.h
 ├── obj 	-> Object files
 ├── src 	-> Source files for Tax_Filing_Software
+│   ├── headers
+│   │   ├── calculate_tax.h
+│   │   ├── commons.h
+│   │   ├── entry_status.h
+│   │   ├── mailing_address.h
+│   │   ├── maritial_status.h
+│   │   ├── new_taxfile.h
+│   │   ├── primary_address.h
+│   │   ├── t4.h
+│   │   ├── t2202.h
+│   │   ├── world_income.h
+│   │   ├── dependent_details.h
+│   │   ├── t2202.h
+│   │   └── spouse_details.h
 │   ├── calculate_tax.c
 │   ├── create_new_taxfile.c
 │   ├── display_guide.c
@@ -60,24 +64,24 @@ The correct file structure
 │   ├── primary_address.c
 │   ├── t4.c
 │   ├── world_income.c
-│   └── input_t2202.c
+│   ├── dependent_details.c
+│   ├── spouse_details.c
+│   ├── t2202.c
+│   └── tax_summary.c
 └── test
 │    ├── data
+│    │   ├── mailing_address_1.txt
 │    │   ├── primary_address_1.txt
 │    │   ├── t4_1.txt
-│    │   ├── t4_2.txt
-│    │   └── main.c
+│    │   └── t4_2.txt
 │    ├── include
 │    │   ├── unity.c
 │    │   ├── unity.h
-│    │   ├── unity_internals.h
-│    │   └── main.c
+│    │   └── unity_internals.h
 │    ├── src
 │    │   ├── headers
-│    │   │   ├── primary_address.h
-│    │   │   ├── runner.h
-│    │   │   ├── t4.h
-│    │   │   └── commons.h
+│    │   │   └──runner.h
+│    │   ├── mailing_details.c
 │    │   ├── primary_address.c
 │    │   ├── runner.c
 │    │   └── t4.c

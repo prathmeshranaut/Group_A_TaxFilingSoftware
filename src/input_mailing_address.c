@@ -12,49 +12,43 @@ int input_mailing_address(cJSON* root)
 	printf("\t\t#######################################################################################\n");
 	printf("\n\n\t\t\t\t\t\tMailing Address Details\n\n\n");
 	printf("\t\t#######################################################################################\n");
-	printf("Enter your Street number: ");
+	printf("\nEnter your Street number: ");
 	scanf("%s", worker.street_number);
-	printf("Enter your Street name: ");
+	printf("\nEnter your Street name: ");
 	scanf("%s", worker.street_name);
-	printf("Enter the City name: ");
+	printf("\nEnter the City name: ");
 	scanf("%s", worker.city);
-	printf("Enter the Provice: ");
+	printf("\nEnter the Provice: ");
 	scanf("%s", worker.province);
-	printf("Enter your Postal code: ");
+	printf("\nEnter your Postal code: ");
 	scanf("%s", worker.postal_code);
-	printf("Enter your Contact number: ");
+	printf("\nEnter your Contact number: ");
 	scanf("%s", worker.contact_number);
+	
+	cJSON* obj_person = cJSON_CreateObject();
 
-	if (!root)
-	{
-		printf("Error before: [%s]\n", cJSON_GetErrorPtr());
-		return -1;
-	}
-	else
-	{
-		cJSON* obj_person = cJSON_CreateObject();
+	cJSON* item = cJSON_CreateString(worker.street_number);
+	cJSON_AddItemToObject(obj_person, "street_number", item);
 
-		cJSON* item = cJSON_CreateString(worker.street_number);
-		cJSON_AddItemToObject(obj_person, "street_number", item);
+	item = cJSON_CreateString(worker.street_name);
+	cJSON_AddItemToObject(obj_person, "street_name", item);
 
-		item = cJSON_CreateString(worker.street_name);
-		cJSON_AddItemToObject(obj_person, "street_name", item);
+	item = cJSON_CreateString(worker.city);
+	cJSON_AddItemToObject(obj_person, "city", item);
 
-		item = cJSON_CreateString(worker.city);
-		cJSON_AddItemToObject(obj_person, "city", item);
+	item = cJSON_CreateString(worker.province);
+	cJSON_AddItemToObject(obj_person, "province", item);
 
-		item = cJSON_CreateString(worker.province);
-		cJSON_AddItemToObject(obj_person, "province", item);
+	item = cJSON_CreateString(worker.postal_code);
+	cJSON_AddItemToObject(obj_person, "postal_code", item);
 
-		item = cJSON_CreateString(worker.postal_code);
-		cJSON_AddItemToObject(obj_person, "postal_code", item);
+	item = cJSON_CreateString(worker.contact_number);
+	cJSON_AddItemToObject(obj_person, "contact_number", item);
 
-		item = cJSON_CreateString(worker.contact_number);
-		cJSON_AddItemToObject(obj_person, "contact_number", item);
+	cJSON_AddItemToObject(root, "mailing_address", obj_person);
 
-		cJSON_AddItemToObject(root, "mailing_address", obj_person);
+		
 
-	}
 
 	return 0;
 }
