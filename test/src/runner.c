@@ -29,6 +29,18 @@ int main() {
     RUN_TEST(test_input_primary_address_details_add_primary_address_key_to_json);
     RUN_TEST(test_input_primary_address_details_correctly_and_returns);
     RUN_TEST(test_input_primary_address_correctly_adds_value_for_fields);
+    
+    return_value = UNITY_END();
+    if (return_value)
+        return return_value;
+
+
+    UnityBegin("test/src/mailing_details.c");
+
+    RUN_TEST(test_input_mailing_address_aborts_if_root_passed_is_null);
+    RUN_TEST(test_input_mailing_address_details_add_primary_address_key_to_json);
+    RUN_TEST(test_input_mailing_address_details_correctly_and_returns);
+    RUN_TEST(test_input_mailing_address_correctly_adds_value_for_fields);
 
     return UNITY_END();
 }
