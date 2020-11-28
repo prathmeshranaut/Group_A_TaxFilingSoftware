@@ -12,6 +12,7 @@ int calculate_tax(cJSON* root)
 	cJSON* t4_object = cJSON_GetObjectItem(root, T4_KEY);
 	cJSON* first_t4_details = cJSON_GetArrayItem(t4_object, 0);
 	cJSON* t2202_object = cJSON_GetObjectItem(root, T2202_KEY);
+	cJSON* first_t2202_details = cJSON_GetArrayItem(t2202_object, 0);
 
 	cJSON* json;
 	double c_employment_income = 0;
@@ -34,7 +35,7 @@ int calculate_tax(cJSON* root)
 
 	c_employment_income = cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble;
 	c_income_tax_deducted = cJSON_GetObjectItem(first_t4_details, INCOME_TAX_DEDUCTED)->valuedouble;
-	c_tuition = cJSON_GetObjectItem(t2202_object, AMOUNT )->valuedouble;
+	c_tuition = cJSON_GetObjectItem(first_t2202_details, AMOUNT )->valuedouble;
 
 	if (c_income_tax <= 0)
 	{
