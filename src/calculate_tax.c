@@ -97,8 +97,6 @@ int calculate_tax(cJSON* root)
 
 	}
 
-	char* out = NULL;
-
 	if (!root)
 	{
 		printf("Error before: [%s]\n", cJSON_GetErrorPtr());
