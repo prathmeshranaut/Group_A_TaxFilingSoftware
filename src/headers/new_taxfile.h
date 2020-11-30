@@ -22,7 +22,7 @@ typedef struct
 
 int input_new_taxfile(cJSON* root);
 int create_new_taxfile(cJSON* root);
-void print_json(char* root);
+void print_json(cJSON* root);
 int display_guide(void);
 int display_file(char* filename);
 int spc_email_isvalid(const char* address);

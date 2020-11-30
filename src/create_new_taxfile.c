@@ -7,7 +7,7 @@
 int create_new_taxfile(cJSON* root)
 {
 	
-	int len=0;
+	//int len=0;
 	//time_t rawtime;
 	//char* buffer[255];
 	//time(&rawtime);
@@ -41,7 +41,7 @@ int create_new_taxfile(cJSON* root)
 	printf("%s\n", file_path);*/
 	f = fopen("./data/taxfile_new.json", "w");
 	fseek(f, 0, SEEK_END);
-	len = ftell(f);
+	ftell(f);
 	fseek(f, 0, SEEK_SET);
 	out = cJSON_Print(root);
 	fwrite(out, 1, strlen(out), f);
