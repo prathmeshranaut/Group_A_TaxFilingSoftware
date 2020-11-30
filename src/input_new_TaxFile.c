@@ -60,7 +60,7 @@ int input_new_taxfile(cJSON* root)
 	return 0;
 }
 
-void print_json(char* root) {
+void print_json(cJSON* root) {
 	char* out = cJSON_Print(root);
 	printf("JSON Output:%s\n", out);
 }
