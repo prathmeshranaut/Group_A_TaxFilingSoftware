@@ -51,7 +51,7 @@ int display_tax_summary(cJSON *root)
    printf("\n EI Insurable Earnings = %lf",c_ei_insurable_earnings);
    printf("\n Total Tax = %lf",c_income_tax);
    printf("\n Payable Amount = %lf",c_payable);
-   printf("\n Refund Amount = %lf",c_refund);
+   printf("\n Refund Amount = %lf\n\n",c_refund);
 
 return 0;
 }
