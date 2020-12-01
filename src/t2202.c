@@ -1,14 +1,15 @@
+<<<<<<< HEAD
+=======
+/***** This function will take the tuition details from the user*/
+>>>>>>> 1e1f2ee (weaks)
 #include "headers/t2202.h"
 
 int input_t2202_details(cJSON *root) {
     char has_details = 'y';
-    printf("Do you wish to enter T22 details? (y/n)");
+    printf("Are you a post secondary student? (y/n)");
     scanf(" %c", &has_details);
-    printf("Done waiting");
 
-    cJSON *t2202_details_array = cJSON_CreateArray();
-
-    while ('y' == has_details) {
+    if(has_details == 'y'){
         t2202 t2202_details;
         printf("\n#######################################################################################\n");
         printf("Enter your T2202 details\n");
@@ -31,8 +32,7 @@ int input_t2202_details(cJSON *root) {
 
         printf("Enter your Amount:");
         scanf("%lf", &t2202_details.amount);
-
-    
+      
 
         cJSON *t2202_details_object = cJSON_CreateObject();
 
@@ -43,12 +43,9 @@ int input_t2202_details(cJSON *root) {
         cJSON_AddItemToObject(t2202_details_object, SESSION, cJSON_CreateString(t2202_details.session));
         cJSON_AddItemToObject(t2202_details_object, AMOUNT, cJSON_CreateNumber(t2202_details.amount));
     
-        cJSON_AddItemToArray(t2202_details_array, t2202_details_object);
 
-        printf("Do you wish to enter more T2202 details? (y/n)");
-        scanf(" %c", &has_details);
-    }
-
-    cJSON_AddItemToObject(root, T2202_KEY, t2202_details_array);
+        cJSON_AddItemToObject(root, "t2202", t2202_details_object);
+     }
+  
     return 0;
 } 
