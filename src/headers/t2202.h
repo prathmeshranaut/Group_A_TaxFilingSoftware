@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include "cJSON.h"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1e1f2ee (weaks)
 #ifndef GROUP_A_TAXFILINGSOFTWARE_T2202_H
 #define GROUP_A_TAXFILINGSOFTWARE_T2202_H
 
@@ -10,6 +14,7 @@
 #define COURSE "course"
 #define SESSION "session"
 #define AMOUNT "amount"
+#define CHILD_CARE_BENEFITS "child_care_benefits"
 
 typedef struct {
     char institute_name[1024];
@@ -17,7 +22,8 @@ typedef struct {
     char student_number[32];
     char course[32];
     char session[32];
-    double amount;
+    double amount; 
+    char child_care_benefits[1024];
 } t2202;
 
 int input_t2202_details(cJSON *root);
