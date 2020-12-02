@@ -54,8 +54,9 @@ menu:
 		input_t2202_details(root);
 		
 		calculate_tax(root); //Calculate tax of user
-		print_json(root); // display JSON details (developer feature)
+		//print_json(root); // display JSON details (developer feature)
 		create_new_taxfile(root); //Write details to JSON file
+		display_tax_summary(root);
 		goto topmenu;
 		break;
 	case 'b':
