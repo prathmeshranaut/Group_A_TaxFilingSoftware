@@ -9,17 +9,8 @@
 #include "headers/maritial_status.h"
 #include "headers/world_income.h"
 #include "headers/t2202.h"
-<<<<<<< HEAD
-#include "headers/dependent_details.h"
-#include "headers/spouse_details.h"
-=======
 #include "headers/spouse_details.h"
 #include "headers/dependent_details.h"
-
-
-
->>>>>>> 1e1f2ee (weaks)
-
 
 //void do_test(const char* test_name);
 //int show_files(void);
@@ -55,15 +46,10 @@ menu:
 		//input_entry_status(root); //Get entry status details from user
 		//input_world_income(root); //Get world income details from user
 		//input_maritial_status(root); //Get maritial status details from user
-		//input_t4_details(root); //Get t4 details from user
+		input_t4_details(root); //Get t4 details from user
 		input_t2202_details(root); //Get t2202 details from user
-		input_spouse_details(root); // Get spouse details from user
-		input_dependent_details(root); //Get dependent details from user
+
 		//otb_benefits(root);
-		input_dependent_details(root);
-		input_spouse_details(root);
-		input_t2202_details(root);
-		
 		calculate_tax(root); //Calculate tax of user
 		//print_json(root); // display JSON details (developer feature)
 		create_new_taxfile(root); //Write details to JSON file
