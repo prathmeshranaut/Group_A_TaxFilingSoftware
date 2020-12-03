@@ -42,7 +42,11 @@ int input_t2202_details(cJSON *root) {
   
         cJSON_AddItemToObject(root, "t2202", t2202_details_object);
         
-         
+          char has_details = 'y';
+        printf("Do you like to Claim Childcare Benefits? (y/n)");
+        scanf("%c",&has_details);
+
+        if(has_details =='y'){
         input_spouse_details(root); // Get spouse details from user
 		input_dependent_details(root); //Get dependent details from user
         
