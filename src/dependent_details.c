@@ -1,3 +1,4 @@
+/***** This function will take the dependent details from the user*/
 #include "headers/dependent_details.h"
 
 int input_dependent_details(cJSON *root) {
@@ -6,7 +7,7 @@ int input_dependent_details(cJSON *root) {
      printf("Enter your Dependent Details\n");
      printf("\n#######################################################################################\n");
 
-     printf("Enter your Dependent Name:");
+     printf("\nEnter your Dependent Name:\n");
      scanf("%s", details.dependent_name);
 
      printf("Enter your Relationship:");
@@ -15,7 +16,7 @@ int input_dependent_details(cJSON *root) {
      printf("Enter your Dependent Date of birth(YYYY-MM-DD)");
      scanf("%s", details.dependent_dob);
 
-     printf("Enter your Net Income:");
+     printf("Enter your Dependent Net Income:");
      scanf("%lf", &details.net_income);
    
 
@@ -25,12 +26,8 @@ int input_dependent_details(cJSON *root) {
      cJSON_AddItemToObject(dependent_details_object, RELATIONSHIP, cJSON_CreateString(details.relationship));
      cJSON_AddItemToObject(dependent_details_object, DEPENDENT_DOB, cJSON_CreateString(details.dependent_dob));
      cJSON_AddItemToObject(dependent_details_object, NET_INCOME, cJSON_CreateNumber(details.net_income));
-<<<<<<< HEAD
-     cJSON_AddItemToObject(dependent_details_object, DISABILITY, cJSON_CreateString(details.disability));
-     cJSON_AddItemToObject(dependent_details_object, CLAIM_CHILD_CARE_BENEFITS, cJSON_CreateString(details.claim_child_care_benefits));
-=======
      
->>>>>>> 1e1f2ee (weaks)
+
 
      cJSON_AddItemToObject(root, DEPENDENT_DETAILS_KEY, dependent_details_object);
 

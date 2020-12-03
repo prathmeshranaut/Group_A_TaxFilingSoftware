@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include "cJSON.h"
-<<<<<<< HEAD
-=======
 
->>>>>>> 1e1f2ee (weaks)
 #ifndef GROUP_A_TAXFILINGSOFTWARE_T2202_H
 #define GROUP_A_TAXFILINGSOFTWARE_T2202_H
 
