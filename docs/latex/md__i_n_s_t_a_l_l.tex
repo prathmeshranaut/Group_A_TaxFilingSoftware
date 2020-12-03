@@ -1,0 +1,27 @@
+\hypertarget{md__i_n_s_t_a_l_l_autotoc_md1}{}\doxysection{Supported Platforms\+:}\label{md__i_n_s_t_a_l_l_autotoc_md1}
+Windows and Cygwin.\hypertarget{md__i_n_s_t_a_l_l_autotoc_md2}{}\doxysection{Prerequisite}\label{md__i_n_s_t_a_l_l_autotoc_md2}
+G\+CC Compiler, G\+NU make. Cygwin for windows.\hypertarget{md__i_n_s_t_a_l_l_autotoc_md3}{}\doxysection{Dependent External Libraries}\label{md__i_n_s_t_a_l_l_autotoc_md3}
+C\+J\+S\+ON -\/ \href{https://github.com/DaveGamble/cJSON}{\texttt{ https\+://github.\+com/\+Dave\+Gamble/c\+J\+S\+ON}} Unity -\/ \href{https://github.com/ThrowTheSwitch/Unity}{\texttt{ https\+://github.\+com/\+Throw\+The\+Switch/\+Unity}}
+
+All external libraries are included in the software package. \hypertarget{md__i_n_s_t_a_l_l_autotoc_md4}{}\doxysection{Build Project\+:}\label{md__i_n_s_t_a_l_l_autotoc_md4}
+Running make will compile tax filing software and tests programs. The test program will test the program functions and display results.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make all}
+\end{DoxyCode}
+
+
+If you just want the tests program. run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make tests}
+\end{DoxyCode}
+
+
+Executable binaries \char`\"{}tax.\+exe\char`\"{} and \char`\"{}tests.\+exe\char`\"{}(in windows) files will be placed in bin folder of the project. For cygwin. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bin/tax.exe}
+\end{DoxyCode}
+ 
