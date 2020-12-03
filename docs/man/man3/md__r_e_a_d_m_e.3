@@ -1,0 +1,104 @@
+.TH "md__r_e_a_d_m_e" 3 "Thu Dec 3 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__r_e_a_d_m_e \- Tax_Filing_Software 
+Tax_Filing_Software is a software that helps students in Ontario, CA to file taxes for the year 2019 with the maximum benefits\&.
+.SH "Authors"
+.PP
+.IP "\(bu" 2
+Prathmesh Ranaut - Carleton University
+.IP "\(bu" 2
+Ragunath Anbarasu - Carleton University
+.IP "\(bu" 2
+Shreya Dhanani - Carleton University
+.IP "\(bu" 2
+Tirth Vyas - Carleton University
+.PP
+.SH "Installation"
+.PP
+Installation steps are mentioned in \fBINSTALL\&.md\fP
+.SH "Usage"
+.PP
+To run, you must first compile the repository\&. Follow the instructions in \fBINSTALL\&.md\fP\&.Then you can follow instructions mentioned in \fBUser_Manual\&.md\fP\&.
+.SH "File Structure"
+.PP
+The correct file structure
+.PP
+.PP
+.nf
+├── INSTALL\&.md  -> Installation Guide
+├── LICENSE     -> License file
+├── Makefile    -> Makefile
+├── README\&.md   -> Readme file
+├── doc
+│   ├── html    -> Doxygen documentation
+│   ├── latex   -> Doxygen documentation in latex
+│   ├── man     -> Doxygen documentation in man
+│   ├── rtf     -> Doxygen documentation in rtf
+│   ├── xml     -> Doxygen documentation in xml
+│   ├── Developer_Manual\&.md -> Developer Manual
+│   ├── Doxyfile -> Doxygen configuration file
+│   └── User_Manual\&.md      -> User Manual
+├── include     -> Header files
+├── obj     -> Object files
+├── src     -> Source files for Tax_Filing_Software
+│   ├── headers
+│   │   ├── calculate_tax\&.h
+│   │   ├── commons\&.h
+│   │   ├── entry_status\&.h
+│   │   ├── mailing_address\&.h
+│   │   ├── maritial_status\&.h
+│   │   ├── new_taxfile\&.h
+│   │   ├── primary_address\&.h
+│   │   ├── t4\&.h
+│   │   ├── t2202\&.h
+│   │   ├── world_income\&.h
+│   │   ├── dependent_details\&.h
+│   │   ├── t2202\&.h
+│   │   └── spouse_details\&.h
+│   ├── calculate_tax\&.c
+│   ├── create_new_taxfile\&.c
+│   ├── display_guide\&.c
+│   ├── entry_status\&.c
+│   ├── input_mailing_address\&.c
+│   ├── input_new_taxfile\&.c
+│   ├── main\&.c
+│   ├── maritial_status\&.c
+│   ├── primary_address\&.c
+│   ├── t4\&.c
+│   ├── world_income\&.c
+│   ├── dependent_details\&.c
+│   ├── spouse_details\&.c
+│   ├── t2202\&.c
+│   └── tax_summary\&.c
+└── test
+│    ├── data
+│    │   ├── mailing_address_1\&.txt
+│    │   ├── primary_address_1\&.txt
+│    │   ├── t4_1\&.txt
+│    │   └── t4_2\&.txt
+│    ├── include
+│    │   ├── unity\&.c
+│    │   ├── unity\&.h
+│    │   └── unity_internals\&.h
+│    ├── src
+│    │   ├── headers
+│    │   │   └──runner\&.h
+│    │   ├── mailing_details\&.c
+│    │   ├── primary_address\&.c
+│    │   ├── runner\&.c
+│    │   └── t4\&.c
+│    └──
+└──
+.fi
+.PP
+.SH "For Developers"
+.PP
+The developer manual is available \fBhere\fP\&.
+.SH "License"
+.PP
+This project is licensed under the GPL 2\&.0 License - see the LICENSE\&.md file for details
+.SH "Acknowledgements"
+.PP
+Thank to Dr\&. Cristina Ruiz Martin for providing guidance on how to develop the software\&. 

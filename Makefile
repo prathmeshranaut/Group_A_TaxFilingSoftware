@@ -24,6 +24,9 @@ compile-tests: $(TEST_SRC)
 	mkdir -p build && cd build && $(CC) $(CFLAGS) $(TEST_LIBOBJ) $? -o tax_test
 	./build/tax_test
 
+docs:
+	doxygen Doxyfile
+
 tests: all compile-tests
 
 clean:

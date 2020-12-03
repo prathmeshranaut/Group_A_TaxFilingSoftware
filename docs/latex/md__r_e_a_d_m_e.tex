@@ -1,0 +1,83 @@
+Tax\+\_\+\+Filing\+\_\+\+Software is a software that helps students in Ontario, CA to file taxes for the year 2019 with the maximum benefits.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Authors}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Prathmesh Ranaut -\/ Carleton University
+\item Ragunath Anbarasu -\/ Carleton University
+\item Shreya Dhanani -\/ Carleton University
+\item Tirth Vyas -\/ Carleton University
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{Installation}\label{md__r_e_a_d_m_e_autotoc_md7}
+Installation steps are mentioned in \mbox{\hyperlink{md__i_n_s_t_a_l_l}{I\+N\+S\+T\+A\+LL.md}}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{Usage}\label{md__r_e_a_d_m_e_autotoc_md8}
+To run, you must first compile the repository. Follow the instructions in \mbox{\hyperlink{md__i_n_s_t_a_l_l}{I\+N\+S\+T\+A\+LL.md}}.Then you can follow instructions mentioned in \mbox{\hyperlink{md_doc__user__manual}{User\+\_\+\+Manual.md}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{File Structure}\label{md__r_e_a_d_m_e_autotoc_md9}
+The correct file structure
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├── INSTALL.md  -\/> Installation Guide}
+\DoxyCodeLine{├── LICENSE     -\/> License file}
+\DoxyCodeLine{├── Makefile    -\/> Makefile}
+\DoxyCodeLine{├── README.md   -\/> Readme file}
+\DoxyCodeLine{├── doc}
+\DoxyCodeLine{│   ├── html    -\/> Doxygen documentation}
+\DoxyCodeLine{│   ├── latex   -\/> Doxygen documentation in latex}
+\DoxyCodeLine{│   ├── man     -\/> Doxygen documentation in man}
+\DoxyCodeLine{│   ├── rtf     -\/> Doxygen documentation in rtf}
+\DoxyCodeLine{│   ├── xml     -\/> Doxygen documentation in xml}
+\DoxyCodeLine{│   ├── Developer\_Manual.md -\/> Developer Manual}
+\DoxyCodeLine{│   ├── Doxyfile -\/> Doxygen configuration file}
+\DoxyCodeLine{│   └── User\_Manual.md      -\/> User Manual}
+\DoxyCodeLine{├── include     -\/> Header files}
+\DoxyCodeLine{├── obj     -\/> Object files}
+\DoxyCodeLine{├── src     -\/> Source files for Tax\_Filing\_Software}
+\DoxyCodeLine{│   ├── headers}
+\DoxyCodeLine{│   │   ├── calculate\_tax.h}
+\DoxyCodeLine{│   │   ├── commons.h}
+\DoxyCodeLine{│   │   ├── entry\_status.h}
+\DoxyCodeLine{│   │   ├── mailing\_address.h}
+\DoxyCodeLine{│   │   ├── maritial\_status.h}
+\DoxyCodeLine{│   │   ├── new\_taxfile.h}
+\DoxyCodeLine{│   │   ├── primary\_address.h}
+\DoxyCodeLine{│   │   ├── t4.h}
+\DoxyCodeLine{│   │   ├── t2202.h}
+\DoxyCodeLine{│   │   ├── world\_income.h}
+\DoxyCodeLine{│   │   ├── dependent\_details.h}
+\DoxyCodeLine{│   │   ├── t2202.h}
+\DoxyCodeLine{│   │   └── spouse\_details.h}
+\DoxyCodeLine{│   ├── calculate\_tax.c}
+\DoxyCodeLine{│   ├── create\_new\_taxfile.c}
+\DoxyCodeLine{│   ├── display\_guide.c}
+\DoxyCodeLine{│   ├── entry\_status.c}
+\DoxyCodeLine{│   ├── input\_mailing\_address.c}
+\DoxyCodeLine{│   ├── input\_new\_taxfile.c}
+\DoxyCodeLine{│   ├── main.c}
+\DoxyCodeLine{│   ├── maritial\_status.c}
+\DoxyCodeLine{│   ├── primary\_address.c}
+\DoxyCodeLine{│   ├── t4.c}
+\DoxyCodeLine{│   ├── world\_income.c}
+\DoxyCodeLine{│   ├── dependent\_details.c}
+\DoxyCodeLine{│   ├── spouse\_details.c}
+\DoxyCodeLine{│   ├── t2202.c}
+\DoxyCodeLine{│   └── tax\_summary.c}
+\DoxyCodeLine{└── test}
+\DoxyCodeLine{│    ├── data}
+\DoxyCodeLine{│    │   ├── mailing\_address\_1.txt}
+\DoxyCodeLine{│    │   ├── primary\_address\_1.txt}
+\DoxyCodeLine{│    │   ├── t4\_1.txt}
+\DoxyCodeLine{│    │   └── t4\_2.txt}
+\DoxyCodeLine{│    ├── include}
+\DoxyCodeLine{│    │   ├── unity.c}
+\DoxyCodeLine{│    │   ├── unity.h}
+\DoxyCodeLine{│    │   └── unity\_internals.h}
+\DoxyCodeLine{│    ├── src}
+\DoxyCodeLine{│    │   ├── headers}
+\DoxyCodeLine{│    │   │   └──runner.h}
+\DoxyCodeLine{│    │   ├── mailing\_details.c}
+\DoxyCodeLine{│    │   ├── primary\_address.c}
+\DoxyCodeLine{│    │   ├── runner.c}
+\DoxyCodeLine{│    │   └── t4.c}
+\DoxyCodeLine{│    └──}
+\DoxyCodeLine{└──}
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{For Developers}\label{md__r_e_a_d_m_e_autotoc_md10}
+The developer manual is available \mbox{\hyperlink{md_doc__developer__manual}{here}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{License}\label{md__r_e_a_d_m_e_autotoc_md11}
+This project is licensed under the G\+PL 2.\+0 License -\/ see the L\+I\+C\+E\+N\+S\+E.\+md file for details\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{Acknowledgements}\label{md__r_e_a_d_m_e_autotoc_md12}
+Thank to Dr. Cristina Ruiz Martin for providing guidance on how to develop the software. 

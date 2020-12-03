@@ -1,0 +1,43 @@
+.TH "md__i_n_s_t_a_l_l" 3 "Thu Dec 3 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__i_n_s_t_a_l_l \- Installation 
+
+.SH "Supported Platforms:"
+.PP
+Windows and Cygwin\&.
+.SH "Prerequisite"
+.PP
+GCC Compiler, GNU make\&. Cygwin for windows\&.
+.SH "Dependent External Libraries"
+.PP
+CJSON - https://github.com/DaveGamble/cJSON Unity - https://github.com/ThrowTheSwitch/Unity
+.PP
+All external libraries are included in the software package\&. 
+.SH "Build Project:"
+.PP
+Running make will compile tax filing software and tests programs\&. The test program will test the program functions and display results\&.
+.PP
+.PP
+.nf
+make all
+.fi
+.PP
+.PP
+If you just want the tests program\&. run:
+.PP
+.PP
+.nf
+make tests
+.fi
+.PP
+.PP
+Executable binaries 'tax\&.exe' and 'tests\&.exe'(in windows) files will be placed in bin folder of the project\&. For cygwin\&. 
+.PP
+.nf
+bin/tax\&.exe
+
+.fi
+.PP
+ 
