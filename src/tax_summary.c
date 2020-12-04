@@ -27,7 +27,7 @@ int display_tax_summary(cJSON *root)
    c_employment_income = cJSON_GetObjectItem(t4_details, EMPLOYMENT_INCOME)->valuedouble;
    c_income_tax_deducted = cJSON_GetObjectItem(t4_details, INCOME_TAX_DEDUCTED)->valuedouble;
    c_ei_insurable_earnings = cJSON_GetObjectItem(t4_details, EI_INSURABLE_EARNINGS)->valuedouble;
-   
+
 
    cJSON* tax_object = cJSON_GetObjectItem(root, "tax");
    c_income_tax = cJSON_GetObjectItem(tax_object, INCOME_TAX)->valuedouble;
@@ -55,4 +55,3 @@ int display_tax_summary(cJSON *root)
 
 return 0;
 }
-
