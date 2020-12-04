@@ -1,0 +1,52 @@
+\hypertarget{t4_8c}{}\doxysection{src/t4.c File Reference}
+\label{t4_8c}\index{src/t4.c@{src/t4.c}}
+
+
+Contains the definition for getting users T4 details.  
+
+
+{\ttfamily \#include \char`\"{}headers/t4.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{t4_8c_aecf13b8dc783db2202ca5c34fe117fc3}\label{t4_8c_aecf13b8dc783db2202ca5c34fe117fc3}} 
+\#define {\bfseries M\+A\+X\+\_\+\+R\+E\+T\+R\+I\+ES}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{t4_8c_ae9dfe11e1e562619c462fe4ce0017222}{input\+\_\+t4\+\_\+details}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Gets T4 details from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the definition for getting users T4 details. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{t4_8c_ae9dfe11e1e562619c462fe4ce0017222}\label{t4_8c_ae9dfe11e1e562619c462fe4ce0017222}} 
+\index{t4.c@{t4.c}!input\_t4\_details@{input\_t4\_details}}
+\index{input\_t4\_details@{input\_t4\_details}!t4.c@{t4.c}}
+\doxysubsubsection{\texorpdfstring{input\_t4\_details()}{input\_t4\_details()}}
+{\footnotesize\ttfamily int input\+\_\+t4\+\_\+details (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Gets T4 details from the user. 
+
+@detail Asks user to fill in details of his T4 form so that can be used in calculation of tax
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file t4.\+c.
+
