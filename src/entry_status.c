@@ -8,13 +8,13 @@ int input_entry_status(cJSON *root) {
     printf("Enter your Details for Entry Status\n");
     printf("\n#######################################################################################\n");
 
-    printf("Enter your Date of Entry in Canada (YYYY-MM-DD):");
+    printf("\nEnter your Date of Entry in Canada (YYYY-MM-DD):");
     scanf("%s", status.date_of_entry);
 
-    printf("Enter your Current Province:");
+    printf("\nEnter your Current Province:");
     scanf("%s", status.current_province);
 
-    printf("Are you a resident of Canada in current tax filing year? (y/n) :");
+    printf("\nAre you a resident of Canada in current tax filing year? (y/n) :");
     scanf("%s", status.is_resident_in_tax_filing_year);
 
     
