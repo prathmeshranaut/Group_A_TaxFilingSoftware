@@ -7,14 +7,14 @@ int input_maritial_status(cJSON *root) {
     printf("Enter Details for your Maritial Status as of 31st December 2019\n");
     printf("\n#######################################################################################\n");
 
-    printf("Enter your Current Maritial Status:");
+    printf("\nEnter your Current Maritial Status:");
     scanf("%s", m_status.current_maritial_status);
 
-    printf("Is change of Maritial Status in tax filing year? (y/n) :");
+    printf("\nIs change of Maritial Status in tax filing year? (y/n) :");
     scanf("%s", m_status.is_change_of_status);
 
     if(strcmp(m_status.is_change_of_status,"y")==0) {
-        printf("Enter Date of change in status (YYYY-MM-DD):");
+        printf("\nEnter Date of change in status (YYYY-MM-DD):");
         scanf("%s", m_status.date_of_change);
     }
 
