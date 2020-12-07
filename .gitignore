@@ -5,3 +5,4 @@ build/*
 *.o
 tax
 tax.exe
+tax_details.pdf

@@ -2,6 +2,7 @@
  * @file t4.c
  *
  * @brief Contains the definition for getting users T4 details
+ * @author Prathmesh Ranaut
  * */
 
 #include "headers/t4.h"
