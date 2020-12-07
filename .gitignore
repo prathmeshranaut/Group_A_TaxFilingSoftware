@@ -6,3 +6,4 @@ build/*
 tax
 tax.exe
 tax_details.pdf
+data/*

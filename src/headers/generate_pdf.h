@@ -24,4 +24,6 @@ int generate_pdf(cJSON *root);
 
 void add_string_to_pdf(cJSON *object, char *key, char *name, struct pdf_doc *pdf, int *y_offset);
 
+void add_long_to_pdf(cJSON *object, char *key, char *name, struct pdf_doc *pdf, int *y_offset);
+
 #endif
