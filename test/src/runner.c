@@ -33,6 +33,43 @@ int main() {
     return_value = UNITY_END();
     if (return_value)
         return return_value;
+    
+    
+    UnityBegin("test/src/entry_status.c");
+
+    RUN_TEST(test_input_entry_status_aborts_if_root_passed_is_null);
+    RUN_TEST(test_input_entry_status_details_add_entry_status_key_to_json);
+    RUN_TEST(test_input_entry_status_details_correctly_and_returns);
+    RUN_TEST(test_input_entry_status_correctly_adds_value_for_fields);
+    
+    return_value = UNITY_END();
+    if (return_value)
+        return return_value;
+
+
+    UnityBegin("test/src/maritial_status.c");
+
+    RUN_TEST(test_input_maritial_status_aborts_if_root_passed_is_null);
+    RUN_TEST(test_input_maritial_status_details_add_maritial_status_key_to_json);
+    RUN_TEST(test_input_maritial_status_details_correctly_and_returns);
+    RUN_TEST(test_input_maritial_status_correctly_adds_value_for_fields);
+    
+    return_value = UNITY_END();
+    if (return_value)
+        return return_value;
+
+
+    UnityBegin("test/src/world_income.c");
+
+    RUN_TEST(test_input_world_income_aborts_if_root_passed_is_null);
+    RUN_TEST(test_input_world_income_details_add_world_income_key_to_json);
+    RUN_TEST(test_input_world_income_details_correctly_and_returns);
+    RUN_TEST(test_input_world_income_correctly_adds_value_for_fields);
+    
+    return_value = UNITY_END();
+    if (return_value)
+        return return_value;
+
 
 
     UnityBegin("test/src/mailing_details.c");
