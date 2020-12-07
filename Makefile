@@ -4,9 +4,9 @@ INCLUDE= -I../include/
 CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors $(INCLUDE)
 _SRC = $(wildcard src/*.c)
 _TEST_SRC = $(wildcard test/src/*.c) $(filter-out src/main.c, $(wildcard src/*.c))
-_LIB_SRC= include/cJSON.c test/include/unity.c
-LIBOBJ = cJSON.o
-TEST_LIBOBJ = cJSON.o unity.o
+_LIB_SRC= include/cJSON.c include/pdfgen.c test/include/unity.c
+LIBOBJ = cJSON.o pdfgen.o
+TEST_LIBOBJ = cJSON.o unity.o pdfgen.o
 
 SRC = $(patsubst %,$(ROOT_DIR)/%,$(_SRC))
 TEST_SRC = $(patsubst %,$(ROOT_DIR)/%,$(_TEST_SRC))

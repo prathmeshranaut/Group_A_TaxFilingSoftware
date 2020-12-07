@@ -2,6 +2,7 @@
  * @file primary_address.c
  *
  * @brief Contains the definition for getting users primary address details
+ * @author Prathmesh Ranaut
  * */
 
 #include "headers/primary_address.h"
