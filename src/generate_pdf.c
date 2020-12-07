@@ -31,8 +31,7 @@ int generate_pdf(cJSON *root) {
     cJSON *t4_array = cJSON_GetObjectItem(root, T4_KEY);
     cJSON *t4_details = cJSON_GetArrayItem(t4_array, 0);
 
-    cJSON *t2202_array = cJSON_GetObjectItem(root, T2202_KEY);
-    cJSON *t2202_details = cJSON_GetArrayItem(t2202_array, 0);
+    cJSON *t2202_details = cJSON_GetObjectItem(root, T2202_KEY);
 
     struct pdf_info info = {
             .creator = "Tax Filing Software",
@@ -88,8 +87,8 @@ int generate_pdf(cJSON *root) {
     /**
      * World Income (Long)
      */
-    add_string_to_pdf(world_income_object, CANADIAN_SOURCE_OF_INCOME, "Canadian Source of Income", pdf, y_offset);
-    add_string_to_pdf(world_income_object, FOREIGN_SOURCE_OF_INCOME, "Foreign Source of Income Province", pdf, y_offset);
+    add_long_to_pdf(world_income_object, CANADIAN_SOURCE_OF_INCOME, "Canadian Source of Income", pdf, y_offset);
+    add_long_to_pdf(world_income_object, FOREIGN_SOURCE_OF_INCOME, "Foreign Source of Income Province", pdf, y_offset);
 
     /**
      * Martial Status
@@ -101,11 +100,32 @@ int generate_pdf(cJSON *root) {
     /**
      * T4 Details
      */
-
+    add_string_to_pdf(t4_details, EMPLOYER_NAME, "Employer Name", pdf, y_offset);
+    add_string_to_pdf(t4_details, PROVINCE, "Province", pdf, y_offset);
+    add_long_to_pdf(t4_details, EMPLOYMENT_INCOME, "Employment Income", pdf, y_offset);
+    add_long_to_pdf(t4_details, EMPLOYEES_CPP_CONTRIBUTION, "CPP Contribution", pdf, y_offset);
+    add_long_to_pdf(t4_details, EMPLOYEES_QPP_CONTRIBUTION, "QPP Contribution", pdf, y_offset);
+    add_long_to_pdf(t4_details, EMPLOYEES_EI_PREMIUMS, "EI Premium", pdf, y_offset);
+    add_long_to_pdf(t4_details, RPP_CONTRIBUTIONS, "RPP Contribution", pdf, y_offset);
+    add_long_to_pdf(t4_details, INCOME_TAX_DEDUCTED, "Income Tax Deducted", pdf, y_offset);
+    add_long_to_pdf(t4_details, EI_INSURABLE_EARNINGS, "EI Insurable Earnings", pdf, y_offset);
+    add_long_to_pdf(t4_details, CPP_QPP_PENSIONABLE_EARNINGS, "CCP/QPP Pensionable earning", pdf, y_offset);
+    add_long_to_pdf(t4_details, UNION_DUES, "Union Dues", pdf, y_offset);
+    add_long_to_pdf(t4_details, CHARITABLE_DONATIONS, "Charitable Donations", pdf, y_offset);
+    add_long_to_pdf(t4_details, RPP_DSSP_REGISTRATION_NUMBER, "RPP/DSSP Regisration Number", pdf, y_offset);
+    add_long_to_pdf(t4_details, PENSION_ADJUSTMENT, "Pension adjustment", pdf, y_offset);
+    add_long_to_pdf(t4_details, EMPLOYEES_PPIP_PREMIUMS, "Employees PPIP Premiums", pdf, y_offset);
+    add_long_to_pdf(t4_details, PPIP_INSURABLE_EARNINGS, "PPIP Insurable Earnings", pdf, y_offset);
 
     /**
      * T2202 Details
      */
+    add_string_to_pdf(t2202_details, INSTITUTION_NAME, "Institution Name", pdf, y_offset);
+    add_string_to_pdf(t2202_details, SCHOOL_TYPE, "School Type", pdf, y_offset);
+    add_string_to_pdf(t2202_details, STUDENT_NUMBER, "Student Number", pdf, y_offset);
+    add_string_to_pdf(t2202_details, COURSE, "Course", pdf, y_offset);
+    add_string_to_pdf(t2202_details, SESSION, "Session", pdf, y_offset);
+    add_long_to_pdf(t2202_details, AMOUNT, "Amount", pdf, y_offset);
 
     pdf_save(pdf, "tax_details.pdf");
 
@@ -120,6 +140,27 @@ int generate_pdf(cJSON *root) {
     pdf_destroy(pdf);
 
     return 0;
+}
+
+void add_long_to_pdf(cJSON *object, char *key, char *name, struct pdf_doc *pdf, int *y_offset) {
+    if (object == NULL) {
+        return;
+    }
+
+    cJSON *detail_object = cJSON_GetObjectItem(object, key);
+    if (detail_object != NULL && cJSON_IsNumber(detail_object)) {
+        char *value = malloc(1024 * sizeof(char));
+        sprintf(value, "%s: %0.2lf", name, detail_object->valuedouble);
+        pdf_add_text(pdf, NULL,
+                     value, 12,
+                     50, *y_offset, PDF_BLACK);
+        *y_offset = *y_offset - 20;
+    }
+
+    if (*y_offset < 40) {
+        pdf_append_page(pdf);
+        *y_offset = 740;
+    }
 }
 
 void add_string_to_pdf(cJSON *object, char *key, char *name, struct pdf_doc *pdf, int *y_offset) {
