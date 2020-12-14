@@ -47,6 +47,8 @@ int main(void) {
             input_entry_status(root); //Get entry status details from user
             input_world_income(root); //Get world income details from user
             input_maritial_status(root); //Get maritial status details from user
+			input_dependent_details(root); //Get dependent details from user
+			input_spouse_details(root); //Get spouse details from user
             input_t4_details(root); //Get t4 details from user
             input_t2202_details(root); //Get t2202 details from user
 

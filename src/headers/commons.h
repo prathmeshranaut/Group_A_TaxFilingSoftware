@@ -13,4 +13,5 @@
     } \
 }
 
+
 #endif //GROUP_A_TAXFILINGSOFTWARE_COMMONS_H

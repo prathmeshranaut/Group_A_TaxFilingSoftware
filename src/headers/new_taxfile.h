@@ -11,6 +11,12 @@
 #define SIN "sin"
 #define DATE_OF_BIRTH "date_of_birth"
 
+typedef struct {
+	int year;
+	int month;
+	int day;
+}MYDAY;
+
 typedef struct
 {
 	char first_name[32];
@@ -29,4 +35,6 @@ int display_file(char* filename);
 int spc_email_isvalid(const char* address);
 int string_isvalid(const char* address);
 int sin_isvalid(const char* address);
+int validate_date(MYDAY md);
+char* struct2str(MYDAY md);
 #endif //GROUP_A_TAXFILINGSOFTWARE_NEW_TAXFILE_H
