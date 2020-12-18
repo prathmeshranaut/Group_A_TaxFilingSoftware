@@ -18,7 +18,7 @@
   * */
 
 int input_maritial_status(cJSON* root) {
-	maritial_status m_status = { "", "", ""};
+	maritial_status m_status = { "", "n", ""};
 	MYDAY md;
 	printf("\n\t\t#######################################################################################\n");
 	printf("\n\n\t\t\t\tMarital Status as of 31st December 2019\n\n\n");
