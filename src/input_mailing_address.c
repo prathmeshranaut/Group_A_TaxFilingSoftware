@@ -1,30 +1,55 @@
-/*** The function gets the details of mailing address from the user and stores it in the JSON object(root)*/
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "headers/mailing_address.h"
+/**
+ * @file input_mailing_address.c
+ *
+ * @brief Contains the definition for getting users Mailing address details
+ * */
 
+#include "headers/mailing_address.h"
+#include <assert.h>
+#include "headers/commons.h"
+#define MAX_RETRIES 3
+ /** @brief Gets Mailing address details from the user
+  *
+  * @detail Asks user to fill in details of their mailing address so that can be used in calculation of tax
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
 
 int input_mailing_address(cJSON* root)
 {
-	
-	mailing_address worker;
+
+	mailing_address worker = { "", "", "Ottawa", "ON", "", ""};
+	printf("\n\t\t#######################################################################################\n");
+	printf("\n\n\t\t\t\t\tMailing Address Details\n\n\n");
 	printf("\t\t#######################################################################################\n");
-	printf("\n\n\t\t\t\t\t\tMailing Address Details\n\n\n");
-	printf("\t\t#######################################################################################\n");
-	printf("\nEnter your Street number: ");
+
+	do {
+	printf("\n\t\tEnter your Street number : ");
 	scanf("%s", worker.street_number);
-	printf("\nEnter your Street name: ");
+	} while (!number_isvalid(worker.street_number));
+	do {
+	printf("\n\t\tEnter your Street name : ");
 	scanf("%s", worker.street_name);
-	printf("\nEnter the City name: ");
+	} while (!string_isvalid(worker.street_name));
+	do {
+	printf("\n\t\tEnter the City name : ");
 	scanf("%s", worker.city);
-	printf("\nEnter the Provice: ");
+	} while (!string_isvalid(worker.city));
+	do {
+	printf("\n\t\tEnter the Provice : ");
 	scanf("%s", worker.province);
-	printf("\nEnter your Postal code: ");
+	} while (!string_isvalid(worker.province));
+	do {
+	printf("\n\t\tEnter your Postal code : ");
 	scanf("%s", worker.postal_code);
-	printf("\nEnter your Contact number: ");
+	} while (!zip_isvalid(worker.postal_code));
+	do {
+	printf("\n\t\tEnter your Contact number (10 digits) : ");
 	scanf("%s", worker.contact_number);
-	
+	} while (!phone_isvalid(worker.contact_number));
+
 	cJSON* obj_person = cJSON_CreateObject();
 
 	cJSON* item = cJSON_CreateString(worker.street_number);
@@ -47,7 +72,7 @@ int input_mailing_address(cJSON* root)
 
 	cJSON_AddItemToObject(root, "mailing_address", obj_person);
 
-		
+
 
 
 	return 0;

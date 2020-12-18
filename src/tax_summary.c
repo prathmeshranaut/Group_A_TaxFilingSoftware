@@ -1,19 +1,30 @@
-#include<stdio.h>
+/**
+ * @file tax_summary.c
+ *
+ * @brief Contains the definition for displaying the tax summary
+ * */
+
 #include<string.h>
 #include "headers/new_taxfile.h"
 #include "headers/calculate_tax.h"
 #include "headers/t4.h"
 
+ /** @brief Display tax summary
+  *
+  * @detail Displays the summary of the tax calculated
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
 
 int display_tax_summary(cJSON *root)
 {
-   printf("\n#######################################################################################\n");
-   printf("Tax Summary:");
-   printf("\n#######################################################################################\n");
-   basic personal_details;
-   //t4 t4_details;
-   //tax tax_details;
-
+	basic personal_details;
+	printf("\t\t#######################################################################################\n");
+	printf("\n\n\t\t\t\t\t\tTax Summary\n\n\n");
+	printf("\t\t#######################################################################################\n");
+   
    double c_employment_income = 0.0;
    double c_income_tax_deducted = 0.0;
    double c_ei_insurable_earnings = 0.0;
@@ -40,18 +51,16 @@ int display_tax_summary(cJSON *root)
    strcpy(personal_details.date_of_birth,cJSON_GetObjectItem(personal_details_object, DATE_OF_BIRTH)->valuestring);
    strcpy(personal_details.sin,cJSON_GetObjectItem(personal_details_object, SIN)->valuestring);
 
-
-
-   printf("\n First Name = %s",personal_details.first_name);
-   printf("\n Last Name = %s",personal_details.last_name);
-   printf("\n Date of Birth = %s",personal_details.date_of_birth);
-   printf("\n SIN Number = %s",personal_details.sin);
-   printf("\n Employment Income = %lf",c_employment_income);
-   printf("\n Income Tax Deducted = %lf",c_income_tax_deducted);
-   printf("\n EI Insurable Earnings = %lf",c_ei_insurable_earnings);
-   printf("\n Total Tax = %lf",c_income_tax);
-   printf("\n Payable Amount = %lf",c_payable);
-   printf("\n Refund Amount = %lf\n\n",c_refund);
+   printf("\n\t\t\t First Name = %s", personal_details.first_name);
+   printf("\n\t\t\t Last Name = %s", personal_details.last_name);
+   printf("\n\t\t\t Date of Birth = %s", personal_details.date_of_birth);
+   printf("\n\t\t\t SIN Number = %s", personal_details.sin);
+   printf("\n\t\t\t Employment Income = %lf", c_employment_income);
+   printf("\n\t\t\t Income Tax Deducted = %lf", c_income_tax_deducted);
+   printf("\n\t\t\t EI Insurable Earnings = %lf", c_ei_insurable_earnings);
+   printf("\n\t\t\t Total Tax = %lf", c_income_tax);
+   printf("\n\t\t\t Payable Amount = %lf", c_payable);
+   printf("\n\t\t\t Refund Amount = %lf\n\n", c_refund);
 
 return 0;
 }
