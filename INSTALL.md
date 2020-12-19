@@ -13,6 +13,11 @@ CJSON - https://github.com/DaveGamble/cJSON
 Unity - https://github.com/ThrowTheSwitch/Unity
 
 All external libraries are included in the software package.
+
+## Download software
+
+You can clone the GitHub repository or download release 2 zip from our GitHub project page.
+
 ## Build Project:
 
 Running make will compile tax filing software and tests programs. The test program will test the program functions and display results.
