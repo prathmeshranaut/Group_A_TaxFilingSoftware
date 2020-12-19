@@ -29,7 +29,7 @@ int input_spouse_details(cJSON *root) {
     printf("\t\t#######################################################################################\n");
 
     do {
-        printf("\n\t\tWould you like to enter Dependent details (y/n) : ");
+        printf("\n\t\tWould you like to enter Spouse details (y/n) : ");
         scanf(" %c", &opt);
     } while (opt != 'y' && opt != 'n');
 
@@ -41,6 +41,7 @@ int input_spouse_details(cJSON *root) {
 
         re_date:
 
+        printf("\n\t\tEnter your Spouse date of birth : ");
         if ((scanf("%4d-%2d-%2d", &md.year, &md.month, &md.day)) != 3) {
             scanf("%*[^\n]");
             scanf("%*c");
