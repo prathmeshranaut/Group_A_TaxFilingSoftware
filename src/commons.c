@@ -77,12 +77,11 @@ int string_isvalid(const char *address) {
 
     int count_num = 0, count = 0;
     const char *c;
-    for (c = address; *c != '\0'; c++) {
+    for (c = address; *c; c++) {
         if ((*c >= 'a' && *c <= 'z') || (*c >= 'A' && *c <= 'Z'))
             count++;
         else {
             count_num++;
-            break;
         }
     }
     if (count_num)
