@@ -12,8 +12,8 @@
 
 typedef struct {
     char current_maritial_status[32];
-    char is_change_of_status[5];
-    char date_of_change[12];
+    char is_change_of_status[1];
+    char date_of_change[10];
 } maritial_status;
 
 int input_maritial_status(cJSON *root);

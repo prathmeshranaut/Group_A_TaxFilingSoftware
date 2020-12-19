@@ -39,8 +39,8 @@ void test_input_maritial_status_correctly_adds_value_for_fields() {
     cJSON *maritial_status = cJSON_GetObjectItem(root, MARITIAL_STATUS_KEY);
 
     TEST_ASSERT_EQUAL_STRING("MARRIED", cJSON_GetObjectItem(maritial_status, CURRENT_MARITIAL_STATUS)->valuestring);
-    TEST_ASSERT_EQUAL_STRING("y", cJSON_GetObjectItem(maritial_status, IS_CHANGE_OF_STATUS)->valuestring);
-    TEST_ASSERT_EQUAL_STRING("2020-08-12", cJSON_GetObjectItem(maritial_status, DATE_OF_CHANGE)->valuestring);
+    TEST_ASSERT_EQUAL_STRING("n", cJSON_GetObjectItem(maritial_status, IS_CHANGE_OF_STATUS)->valuestring);
+    TEST_ASSERT_EQUAL_STRING("", cJSON_GetObjectItem(maritial_status, DATE_OF_CHANGE)->valuestring);
     
 
     fclose(stdin);

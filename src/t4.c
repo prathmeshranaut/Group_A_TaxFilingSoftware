@@ -24,60 +24,57 @@ int input_t4_details(cJSON *root) {
 
     char has_details = 'y';
 
-    printf("Do you wish to enter T4 details? (y/n)");
-    scanf(" %c", &has_details);
-
     cJSON *t4_details_array = cJSON_CreateArray();
 
     while ('y' == has_details) {
         t4 t4_details = {"", "ON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        printf("\n#######################################################################################\n");
-        printf("Enter your T4 details");
-        printf("\n#######################################################################################\n");
+		printf("\n\t\t#######################################################################################\n");
+        printf("\n\n\t\t\t\t\t\tT4 details");
+        printf("\n\n\t\t#######################################################################################\n");
 
-        printf("\nEnter your Employers Name:");
+        printf("\n\t\tEnter your Employers Name: ");
         scanf("%s", t4_details.employer_name);
 
-        printf("\nEnter your Employment Income(Field 14):");
+        printf("\n\t\tEnter your Employment Income(Field 14): ");
         DOUBLE_VALUE_INPUT(&t4_details.employment_income);
 
-        printf("\nEnter your Employees CPP contribution(Field 16):");
+        printf("\n\t\tEnter your Employees CPP contribution(Field 16): ");
         DOUBLE_VALUE_INPUT(&t4_details.employees_cpp_contribution);
 
-        printf("\nEnter your Employees QPP contribution(Field 17):");
+        printf("\n\t\tEnter your Employees QPP contribution(Field 17): ");
         DOUBLE_VALUE_INPUT(&t4_details.employees_qpp_contribution);
 
-        printf("\nEnter your Employees EI Premiums(Field 18):");
+        printf("\n\t\tEnter your Employees EI Premiums(Field 18): ");
         DOUBLE_VALUE_INPUT(&t4_details.employees_ei_premiums);
 
-        printf("\nEnter your RPP Contributions(Field 20):");
+        printf("\n\t\tEnter your RPP Contributions(Field 20): ");
         DOUBLE_VALUE_INPUT(&t4_details.rpp_contributions);
 
-        printf("\nEnter your Income Tax Deducted(Field 22):");
+        printf("\n\t\tEnter your Income Tax Deducted(Field 22): ");
         DOUBLE_VALUE_INPUT(&t4_details.income_tax_deducted);
 
-        printf("\nEnter your EI Insurable Earnings(Field 24):");
+        printf("\n\t\tEnter your EI Insurable Earnings(Field 24): ");
         DOUBLE_VALUE_INPUT(&t4_details.ei_insurable_earnings);
 
-        printf("\nEnter your CPP/QPP Pensionable Earnings(Field 26):");
+        printf("\n\t\tEnter your CPP/QPP Pensionable Earnings(Field 26): ");
         DOUBLE_VALUE_INPUT(&t4_details.cpp_qpp_pensionable_earnings);
 
-        printf("\nEnter your Union Dues(Field 44):");
+        printf("\n\t\tEnter your Union Dues(Field 44): ");
         DOUBLE_VALUE_INPUT(&t4_details.union_dues);
 
-        printf("\nEnter your Charitable Donations(Field 46):");
+        printf("\n\t\tEnter your Charitable Donations(Field 46): ");
         DOUBLE_VALUE_INPUT(&t4_details.charitable_donations);
 
-        printf("\nEnter your RPP/DSSP Registation Number (Field 50):");
+        printf("\n\t\tEnter your RPP/DSSP Registation Number (Field 50): ");
         DOUBLE_VALUE_INPUT(&t4_details.rpp_dssp_registation_number);
 
-        printf("\nEnter your Pension Adjustment(Field 52):");
+        printf("\n\t\tEnter your Pension Adjustment(Field 52): ");
         DOUBLE_VALUE_INPUT(&t4_details.pension_adjustment);
 
-        printf("\nEnter your Employees PPIP Premiums(Field 55):");
+        printf("\n\t\tEnter your Employees PPIP Premiums(Field 55): ");
         DOUBLE_VALUE_INPUT(&t4_details.employees_ppip_premiums);
 
-        printf("\nEnter your PPIP insurable earnings(Field 56):");
+        printf("\n\t\tEnter your PPIP insurable earnings(Field 56): ");
         DOUBLE_VALUE_INPUT(&t4_details.ppip_insurable_earnings);
 
         cJSON *t4_details_object = cJSON_CreateObject();
@@ -111,8 +108,10 @@ int input_t4_details(cJSON *root) {
 
         cJSON_AddItemToArray(t4_details_array, t4_details_object);
 
-        printf("\nDo you wish to enter more T4 details? (y/n)");
+		do {
+        printf("\n\n\t\tDo you wish to enter more T4 details? (y/n) : ");
         scanf(" %c", &has_details);
+		} while (!(has_details == 'y' || has_details == 'n') || (has_details == 'Y' || has_details == 'N'));
     }
 
     cJSON_AddItemToObject(root, T4_KEY, t4_details_array);

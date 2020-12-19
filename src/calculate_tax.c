@@ -1,10 +1,22 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+/**
+ * @file calculate_tax.c
+ *
+ * @brief Contains the definition for calculating basic tax
+ * @author Ragunath Anbarasu
+ * */
+
 #include "headers/calculate_tax.h"
 #include "headers/t4.h"
 #include "headers/t2202.h"
 
+ /** @brief Contains the definition for calculating basic tax
+  *
+  * @detail Uses the details collected before to calcualte the tax
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
 
 
 int calculate_tax(cJSON* root)
@@ -25,6 +37,7 @@ int calculate_tax(cJSON* root)
 
 	tax worker;
 
+
 	json = root;	//Convert text string to cJSON object
 	if (NULL == json)	//If text is not in json format
 	{
@@ -32,9 +45,30 @@ int calculate_tax(cJSON* root)
 		return -1;
 	}
 
-	c_employment_income = cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble;
-	c_income_tax_deducted = cJSON_GetObjectItem(first_t4_details, INCOME_TAX_DEDUCTED)->valuedouble;
-	c_tuition = cJSON_GetObjectItem(t2202_object, AMOUNT )->valuedouble;
+	if (cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble) {
+		c_employment_income = cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble;
+	}
+	else {
+		c_employment_income = 0;
+	}
+		
+
+
+	if (cJSON_GetObjectItem(first_t4_details, INCOME_TAX_DEDUCTED)->valuedouble) {
+		c_income_tax_deducted = cJSON_GetObjectItem(first_t4_details, INCOME_TAX_DEDUCTED)->valuedouble;
+	}
+	else {
+		c_income_tax_deducted = 0;
+	}
+		
+
+	if (cJSON_GetObjectItem(t2202_object, AMOUNT)->valuedouble) {
+		c_tuition = cJSON_GetObjectItem(t2202_object, AMOUNT)->valuedouble;
+	}
+	else {
+		c_tuition = 0;
+	}
+		
 
 	if (c_income_tax <= 0)
 	{
@@ -82,7 +116,7 @@ int calculate_tax(cJSON* root)
 
 
 		c_income_tax = c_federal_tax + c_provencial_tax - c_income_tax_deducted;
-		printf("\n\n\tThe income tax is calculated as %f\n", c_income_tax);
+		//printf("\n\n\tThe income tax is calculated as %f\n", c_income_tax);
 
 		if (c_income_tax <= (12069+c_tuition))
 		{

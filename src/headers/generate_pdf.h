@@ -14,6 +14,8 @@
 #include "t2202.h"
 #include "spouse_details.h"
 #include "dependent_details.h"
+#include "ot_benefits.h"
+#include "gst_hst.h"
 #include <stdlib.h>
 #include "../../include/pdfgen.h"
 

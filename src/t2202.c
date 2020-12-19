@@ -1,36 +1,59 @@
-/***** This function will take the tuition details from the user*/
+/**
+ * @file t2202.c
+ *
+ * @brief Contains the definition for getting users T2202 details
+ * */
 #include "headers/t2202.h"
-#include "headers/spouse_details.h"
-#include "headers/dependent_details.h"
+#include <assert.h>
+#include "headers/commons.h"
+#define MAX_RETRIES 3
+ /** @brief Gets T2202 details from the user
+  *
+  * @detail Asks user to fill in details of their T2202 form so that can be used in calculation of tax
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
 
 int input_t2202_details(cJSON *root) {
     char has_details = 'y';
-    printf("Are you a post secondary student? (y/n)");
-    scanf(" %c", &has_details);
 
     if (has_details == 'y') {
-        t2202 t2202_details;
-        printf("\n#######################################################################################\n");
-        printf("Enter your T2202 details\n");
-        printf("\n#######################################################################################\n");
+        t2202 t2202_details = { "", "", "", "", "", 0 };
+		printf("\n\t\t#######################################################################################\n");
+		printf("\n\n\t\t\t\t\t\tT2202 details\n\n\n");
+		printf("\t\t#######################################################################################\n");
 
-        printf("Enter your Institution Name:");
+		do {
+		printf("\n\t\tEnter your Institution Name : ");
         scanf("%s", t2202_details.institute_name);
+		} while (!string_isvalid(t2202_details.institute_name));
 
-        printf("Enter your School Type:");
+		do {
+		printf("\n\t\tEnter your School Type : ");
         scanf("%s", t2202_details.school_type);
+		} while (!string_isvalid(t2202_details.school_type));
 
-        printf("Enter your Student Number:");
+		do {
+		printf("\n\t\tEnter your Student Number : ");
         scanf("%s", t2202_details.student_number);
+		} while (!number_isvalid(t2202_details.student_number));
 
-        printf("Enter your Course Detail:");
+		do {
+		printf("\n\t\tEnter your Course Detail : ");
         scanf("%s", t2202_details.course);
+		} while (!string_isvalid(t2202_details.course));
 
-        printf("Enter your Session:");
+		do {
+		printf("\n\t\tEnter your Session (f/w/s) : ");
         scanf("%s", t2202_details.session);
+		} while (!string_isvalid(t2202_details.session));
 
-        printf("Enter your Amount:");
-        scanf("%lf", &t2202_details.amount);
+
+		printf("\n\t\tEnter your tution Amount(CAD) : ");
+		DOUBLE_VALUE_INPUT(&t2202_details.amount);
+
 
 
         cJSON *t2202_details_object = cJSON_CreateObject();
@@ -42,16 +65,7 @@ int input_t2202_details(cJSON *root) {
         cJSON_AddItemToObject(t2202_details_object, SESSION, cJSON_CreateString(t2202_details.session));
         cJSON_AddItemToObject(t2202_details_object, AMOUNT, cJSON_CreateNumber(t2202_details.amount));
 
-        cJSON_AddItemToObject(root, "t2202", t2202_details_object);
-
-        char has_details = 'y';
-        printf("Do you like to Claim Childcare Benefits? (y/n)");
-        scanf("%c", &has_details);
-
-        if (has_details == 'y') {
-            input_spouse_details(root); // Get spouse details from user
-            input_dependent_details(root); //Get dependent details from user
-        }
+        cJSON_AddItemToObject(root, T2202_KEY, t2202_details_object);
 
     }
         return 0;
