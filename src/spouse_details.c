@@ -41,7 +41,7 @@ int input_spouse_details(cJSON *root) {
 
         re_date:
 
-        printf("\n\t\tEnter your Spouse date of birth : ");
+        printf("\n\t\tEnter your Spouse date of birth (YYYY-MM-DD) : ");
         if ((scanf("%4d-%2d-%2d", &md.year, &md.month, &md.day)) != 3) {
             scanf("%*[^\n]");
             scanf("%*c");
