@@ -23,12 +23,15 @@ int input_world_income(cJSON *root) {
 	printf("\t\t#######################################################################################\n");
 
 	printf("\n\t\tEnter Amount for your Canadian Source of Income (CAD) : ");
+
     while (scanf("%lf", &income.canadian_source_of_income) == 0) {
              printf("Invalid input. Please enter a number, such as 1.5, or 3:");
              scanf("%*s");
          }
 
+
 	printf("\n\t\tEnter Amount for your Foreign Source of Income (CAD)(if applicable) : ");
+
     while (scanf("%lf", &income.foreign_source_of_income) == 0) {
              printf("Invalid input. Please enter a number, such as 1.5, or 3:");
              scanf("%*s");

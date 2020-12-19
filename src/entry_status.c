@@ -44,7 +44,6 @@ re_date:
 
 	}
 
-
 	do {
 	printf("\n\t\tEnter your Current Province : ");
 	scanf("%s", status.current_province);
@@ -56,6 +55,7 @@ re_date:
 	} while (!string_isyn(status.is_resident_in_tax_filing_year));
 
 	cJSON* status_object = cJSON_CreateObject();
+
 
 	cJSON_AddItemToObject(status_object, DATE_OF_ENTRY, cJSON_CreateString(status.date_of_entry));
 	cJSON_AddItemToObject(status_object, CURRENT_PROVINCE, cJSON_CreateString(status.current_province));

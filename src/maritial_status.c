@@ -51,11 +51,8 @@ int input_maritial_status(cJSON* root) {
 			}
 			else
 				goto re_date;
-
-		}
-	}
-
-
+    }
+  }
 	cJSON* m_status_object = cJSON_CreateObject();
 
 	cJSON_AddItemToObject(m_status_object, CURRENT_MARITIAL_STATUS, cJSON_CreateString(m_status.current_maritial_status));
