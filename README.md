@@ -11,12 +11,11 @@ Tax_Filing_Software is a software that helps students in Ontario, CA to file tax
 
 # Installation
 
-Installation steps are mentioned in [INSTALL.md](INSTALL.md)
+Installation steps are mentioned in [User_Manual.md](https://github.com/prathmeshranaut/Group_A_TaxFilingSoftware/wiki/User_Manual)
 
 # Usage
 
-To run, you must first compile the repository. Follow the instructions in [INSTALL.md](INSTALL.md).Then you can follow instructions mentioned in
-[User_Manual.md](doc/User_Manual.md).
+To run, you must first compile the repository. Follow the instructions in [User_Manual.md](https://github.com/prathmeshranaut/Group_A_TaxFilingSoftware/wiki/User_Manual).
 
 # File Structure
 
@@ -91,7 +90,7 @@ The correct file structure
 
 # For Developers
 
-The developer manual is available [here](doc/Developer_Manual.md).
+The developer manual is available [here](https://github.com/prathmeshranaut/Group_A_TaxFilingSoftware/wiki/Developer-Manual).
 
 # License
 
