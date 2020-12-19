@@ -1,4 +1,4 @@
-.TH "spouse_details" 3 "Thu Dec 3 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.TH "spouse_details" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,21 +13,24 @@ spouse_details
 .RI "char \fBspouse_name\fP [1024]"
 .br
 .ti -1c
-.RI "char \fBspouse_dob\fP [10]"
+.RI "char \fBspouse_dob\fP [20]"
 .br
 .ti -1c
-.RI "long int \fBsin\fP"
+.RI "double \fBspouse_net_income\fP"
 .br
 .ti -1c
-.RI "double \fBnet_income\fP"
+.RI "char \fBspouse_sin\fP [20]"
 .br
 .ti -1c
-.RI "char \fBchild_care_benefits\fP [1024]"
+.RI "char \fBspouse_care_benefits\fP [5]"
+.br
+.ti -1c
+.RI "int \fBspouse_age\fP"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line 13 of file spouse_details\&.h\&.
+Definition at line 16 of file spouse_details\&.h\&.
 
 .SH "Author"
 .PP 

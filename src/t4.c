@@ -28,7 +28,7 @@ int input_t4_details(cJSON *root) {
 
     while ('y' == has_details) {
         t4 t4_details = {"", "ON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		printf("\n\t\t#######################################################################################\n");
+        printf("\n\t\t#######################################################################################\n");
         printf("\n\n\t\t\t\t\t\tT4 details");
         printf("\n\n\t\t#######################################################################################\n");
 
@@ -108,10 +108,10 @@ int input_t4_details(cJSON *root) {
 
         cJSON_AddItemToArray(t4_details_array, t4_details_object);
 
-		do {
-        printf("\n\n\t\tDo you wish to enter more T4 details? (y/n) : ");
-        scanf(" %c", &has_details);
-		} while (!(has_details == 'y' || has_details == 'n') || (has_details == 'Y' || has_details == 'N'));
+        do {
+            printf("\n\n\t\tDo you wish to enter more T4 details? (y/n) : ");
+            scanf(" %c", &has_details);
+        } while (!(has_details == 'y' || has_details == 'n') || (has_details == 'Y' || has_details == 'N'));
     }
 
     cJSON_AddItemToObject(root, T4_KEY, t4_details_array);

@@ -1,0 +1,55 @@
+.TH "pdf_info" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pdf_info
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pdfgen\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBcreator\fP [64]"
+.br
+.RI "Software used to create the PDF\&. "
+.ti -1c
+.RI "char \fBproducer\fP [64]"
+.br
+.RI "Software used to create the PDF\&. "
+.ti -1c
+.RI "char \fBtitle\fP [64]"
+.br
+.RI "window bar when viewing) "
+.ti -1c
+.RI "char \fBauthor\fP [64]"
+.br
+.RI "Who created the PDF\&. "
+.ti -1c
+.RI "char \fBsubject\fP [64]"
+.br
+.RI "What is the PDF about\&. "
+.ti -1c
+.RI "char \fBdate\fP [64]"
+.br
+.RI "The date the PDF was created\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBpdf_info\fP describes the metadata to be inserted into the header of the output PDF 
+.PP
+Definition at line 61 of file pdfgen\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char pdf_info::title[64]"
+
+.PP
+window bar when viewing) The title of the PDF (typically displayed in the 
+.PP
+Definition at line 64 of file pdfgen\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

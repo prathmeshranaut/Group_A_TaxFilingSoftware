@@ -1,0 +1,67 @@
+.TH "src/tax_summary.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tax_summary.c \- Contains the definition for displaying the tax summary\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'headers/new_taxfile\&.h'\fP
+.br
+\fC#include 'headers/calculate_tax\&.h'\fP
+.br
+\fC#include 'headers/t4\&.h'\fP
+.br
+\fC#include 'headers/ot_benefits\&.h'\fP
+.br
+\fC#include 'headers/gst_hst\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBdisplay_tax_summary\fP (\fBcJSON\fP *root)"
+.br
+.RI "Display tax summary\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for displaying the tax summary\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Shreya Dhanani 
+.RE
+.PP
+
+.PP
+Definition in file \fBtax_summary\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int display_tax_summary (\fBcJSON\fP * root)"
+
+.PP
+Display tax summary\&. @detail Displays the summary of the tax calculated
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file tax_summary\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

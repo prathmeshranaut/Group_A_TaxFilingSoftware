@@ -1,0 +1,56 @@
+\hypertarget{input__mailing__address_8c}{}\doxysection{src/input\+\_\+mailing\+\_\+address.c File Reference}
+\label{input__mailing__address_8c}\index{src/input\_mailing\_address.c@{src/input\_mailing\_address.c}}
+
+
+Contains the definition for getting users Mailing address details.  
+
+
+{\ttfamily \#include \char`\"{}headers/mailing\+\_\+address.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/commons.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{input__mailing__address_8c_aecf13b8dc783db2202ca5c34fe117fc3}\label{input__mailing__address_8c_aecf13b8dc783db2202ca5c34fe117fc3}} 
+\#define {\bfseries M\+A\+X\+\_\+\+R\+E\+T\+R\+I\+ES}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{input__mailing__address_8c_a00e683de88872b9e90f4d282f1f1c7d0}{input\+\_\+mailing\+\_\+address}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Gets Mailing address details from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the definition for getting users Mailing address details. 
+
+\begin{DoxyAuthor}{Author}
+Ragunath Anbarasu 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{input__mailing__address_8c_a00e683de88872b9e90f4d282f1f1c7d0}\label{input__mailing__address_8c_a00e683de88872b9e90f4d282f1f1c7d0}} 
+\index{input\_mailing\_address.c@{input\_mailing\_address.c}!input\_mailing\_address@{input\_mailing\_address}}
+\index{input\_mailing\_address@{input\_mailing\_address}!input\_mailing\_address.c@{input\_mailing\_address.c}}
+\doxysubsubsection{\texorpdfstring{input\_mailing\_address()}{input\_mailing\_address()}}
+{\footnotesize\ttfamily int input\+\_\+mailing\+\_\+address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Gets Mailing address details from the user. 
+
+@detail Asks user to fill in details of their mailing address so that can be used in calculation of tax
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file input\+\_\+mailing\+\_\+address.\+c.
+

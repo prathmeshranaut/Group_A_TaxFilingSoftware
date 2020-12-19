@@ -1,0 +1,57 @@
+\hypertarget{entry__status_8c}{}\doxysection{src/entry\+\_\+status.c File Reference}
+\label{entry__status_8c}\index{src/entry\_status.c@{src/entry\_status.c}}
+
+
+Contains the definition for getting users entry status details.  
+
+
+{\ttfamily \#include \char`\"{}headers/entry\+\_\+status.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/commons.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entry__status_8c_aecf13b8dc783db2202ca5c34fe117fc3}\label{entry__status_8c_aecf13b8dc783db2202ca5c34fe117fc3}} 
+\#define {\bfseries M\+A\+X\+\_\+\+R\+E\+T\+R\+I\+ES}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{entry__status_8c_ad71752f37b4c86405f3fa7cfc0fe1990}{input\+\_\+entry\+\_\+status}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Gets Entry details from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the definition for getting users entry status details. 
+
+\begin{DoxyAuthor}{Author}
+Shreya Dhanani 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{entry__status_8c_ad71752f37b4c86405f3fa7cfc0fe1990}\label{entry__status_8c_ad71752f37b4c86405f3fa7cfc0fe1990}} 
+\index{entry\_status.c@{entry\_status.c}!input\_entry\_status@{input\_entry\_status}}
+\index{input\_entry\_status@{input\_entry\_status}!entry\_status.c@{entry\_status.c}}
+\doxysubsubsection{\texorpdfstring{input\_entry\_status()}{input\_entry\_status()}}
+{\footnotesize\ttfamily int input\+\_\+entry\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Gets Entry details from the user. 
+
+@detail Asks user to fill in details of their entry to the country for tax calculation
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file entry\+\_\+status.\+c.
+

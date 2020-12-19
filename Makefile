@@ -29,6 +29,9 @@ docs:
 
 tests: all compile-tests
 
+test: tests
+
 clean:
 	rm -rf build/*
 	rm -rf bin/*
+	rm test.log

@@ -1,0 +1,61 @@
+.TH "src/create_new_taxfile.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/create_new_taxfile.c \- Contains the definition for writing the data collected and computed into a json file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'headers/new_taxfile\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcreate_new_taxfile\fP (\fBcJSON\fP *root)"
+.br
+.RI "Writes data into json file\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for writing the data collected and computed into a json file\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Ragunath Anbarasu 
+.RE
+.PP
+
+.PP
+Definition in file \fBcreate_new_taxfile\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int create_new_taxfile (\fBcJSON\fP * root)"
+
+.PP
+Writes data into json file\&. @detail Writes the data collected from user and the tax summary calculated into a json file
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file create_new_taxfile\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

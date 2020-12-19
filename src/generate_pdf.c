@@ -33,9 +33,9 @@ int generate_pdf(cJSON *root) {
 
     cJSON *t2202_details = cJSON_GetObjectItem(root, T2202_KEY);
 
-	cJSON* tax_details = cJSON_GetObjectItem(root, CALCULATE_TAX_KEY);
-	cJSON* otb_details = cJSON_GetObjectItem(root, OTB_CALCULATE_KEY);
-	cJSON* gst_hst_details = cJSON_GetObjectItem(root, GST_HST_KEY);
+    cJSON *tax_details = cJSON_GetObjectItem(root, CALCULATE_TAX_KEY);
+    cJSON *otb_details = cJSON_GetObjectItem(root, OTB_CALCULATE_KEY);
+    cJSON *gst_hst_details = cJSON_GetObjectItem(root, GST_HST_KEY);
 
     struct pdf_info info = {
             .creator = "Tax Filing Software",
@@ -85,7 +85,8 @@ int generate_pdf(cJSON *root) {
      */
     add_string_to_pdf(entry_status_object, DATE_OF_ENTRY, "Date of Entry", pdf, y_offset);
     add_string_to_pdf(entry_status_object, CURRENT_PROVINCE, "Current Province", pdf, y_offset);
-    add_string_to_pdf(entry_status_object, IS_RESIDENT_IN_TAX_FILING_YEAR, "Is Resident in tax filing year", pdf, y_offset);
+    add_string_to_pdf(entry_status_object, IS_RESIDENT_IN_TAX_FILING_YEAR, "Is Resident in tax filing year", pdf,
+                      y_offset);
 
 
     /**
@@ -131,22 +132,22 @@ int generate_pdf(cJSON *root) {
     add_string_to_pdf(t2202_details, SESSION, "Session", pdf, y_offset);
     add_long_to_pdf(t2202_details, AMOUNT, "Amount", pdf, y_offset);
 
-	/**
-	 * Tax calculate Details
-	 */
-	add_long_to_pdf(tax_details, INCOME_TAX, "Income Tax calculated", pdf, y_offset);
-	add_long_to_pdf(tax_details, REFUND, "Refundable Amount", pdf, y_offset);
-	add_long_to_pdf(tax_details, PAYABLE, "Payable Amount", pdf, y_offset);
+    /**
+     * Tax calculate Details
+     */
+    add_long_to_pdf(tax_details, INCOME_TAX, "Income Tax calculated", pdf, y_offset);
+    add_long_to_pdf(tax_details, REFUND, "Refundable Amount", pdf, y_offset);
+    add_long_to_pdf(tax_details, PAYABLE, "Payable Amount", pdf, y_offset);
 
-	/**
-	 * Ontario Trillium Benefits Details
-	 */
-	add_long_to_pdf(otb_details, CALCULATED_OTB, "Calculated OTB credit", pdf, y_offset);
+    /**
+     * Ontario Trillium Benefits Details
+     */
+    add_long_to_pdf(otb_details, CALCULATED_OTB, "Calculated OTB credit", pdf, y_offset);
 
-	/**
-	 * GST/HST Details
-	 */
-	add_long_to_pdf(gst_hst_details, GST_HST_CREDIT, "Calculated GST/HST credit", pdf, y_offset);
+    /**
+     * GST/HST Details
+     */
+    add_long_to_pdf(gst_hst_details, GST_HST_CREDIT, "Calculated GST/HST credit", pdf, y_offset);
 
     pdf_save(pdf, "tax_details.pdf");
 

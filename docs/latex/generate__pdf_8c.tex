@@ -1,0 +1,74 @@
+\hypertarget{generate__pdf_8c}{}\doxysection{src/generate\+\_\+pdf.c File Reference}
+\label{generate__pdf_8c}\index{src/generate\_pdf.c@{src/generate\_pdf.c}}
+
+
+Generate the P\+DF.  
+
+
+{\ttfamily \#include \char`\"{}headers/generate\+\_\+pdf.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{generate__pdf_8c_a7aaf1953926b3354517ae14b3f7ed64d}{generate\+\_\+pdf}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Generates the P\+DF file from tax data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{generate__pdf_8c_a55691de77f6d5c1ceea41827f1b15fa3}\label{generate__pdf_8c_a55691de77f6d5c1ceea41827f1b15fa3}} 
+void {\bfseries add\+\_\+long\+\_\+to\+\_\+pdf} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$object, char $\ast$key, char $\ast$name, struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, int $\ast$y\+\_\+offset)
+\item 
+\mbox{\Hypertarget{generate__pdf_8c_a74e92c7ad31519864a7b9fab3fd7b526}\label{generate__pdf_8c_a74e92c7ad31519864a7b9fab3fd7b526}} 
+void {\bfseries add\+\_\+string\+\_\+to\+\_\+pdf} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$object, char $\ast$key, char $\ast$name, struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, int $\ast$y\+\_\+offset)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generate the P\+DF. 
+
+\begin{DoxyAuthor}{Author}
+Prathmesh Ranaut 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{generate__pdf_8c_a7aaf1953926b3354517ae14b3f7ed64d}\label{generate__pdf_8c_a7aaf1953926b3354517ae14b3f7ed64d}} 
+\index{generate\_pdf.c@{generate\_pdf.c}!generate\_pdf@{generate\_pdf}}
+\index{generate\_pdf@{generate\_pdf}!generate\_pdf.c@{generate\_pdf.c}}
+\doxysubsubsection{\texorpdfstring{generate\_pdf()}{generate\_pdf()}}
+{\footnotesize\ttfamily int generate\+\_\+pdf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Generates the P\+DF file from tax data. 
+
+@detail Uses the J\+S\+ON root object to generate a P\+DF for the user so he can easily verify and keep details for future
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+Personal Details
+
+Mailing Address
+
+Primary Residence
+
+Entry Status
+
+World Income (Long)
+
+Martial Status
+
+T4 Details
+
+T2202 Details
+
+Tax calculate Details
+
+Ontario Trillium Benefits Details
+
+G\+S\+T/\+H\+ST Details
+
+Definition at line 19 of file generate\+\_\+pdf.\+c.
+

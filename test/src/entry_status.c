@@ -41,7 +41,7 @@ void test_input_entry_status_correctly_adds_value_for_fields() {
     TEST_ASSERT_EQUAL_STRING("2019-08-18", cJSON_GetObjectItem(entry_status, DATE_OF_ENTRY)->valuestring);
     TEST_ASSERT_EQUAL_STRING("ON", cJSON_GetObjectItem(entry_status, CURRENT_PROVINCE)->valuestring);
     TEST_ASSERT_EQUAL_STRING("y", cJSON_GetObjectItem(entry_status, IS_RESIDENT_IN_TAX_FILING_YEAR)->valuestring);
-    
+
 
     fclose(stdin);
 }

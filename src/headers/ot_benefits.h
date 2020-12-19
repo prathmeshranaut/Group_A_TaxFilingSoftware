@@ -11,7 +11,7 @@
 #define SOCIAL_ASSISTANE_RECEIVE "social_assistance_receive"
 #define SOCIAL_ASSISTANCE_REPAY "social_assistance_repay"
 #define SPOUSE "spouse"
-#define SPOUSE_AGE "spouse_age" 
+#define SPOUSE_AGE "spouse_age"
 #define SPOUSE_INCOME "spouse_income"
 #define SPOUSE_SOCIAL_ASSISTANCE "spouse_social_assistance"
 #define SPOUSE_SOCIAL_ASSISTANCE_RECEIVE "spouse_social_assistance_receive"
@@ -68,17 +68,18 @@ typedef struct {
     char first_nations_reserve[5];
     double first_nations_reserve_energy_cost;
     char northern_ontario[5];
-    
+
 } ot_benefits;
 
 typedef struct {
-	double energy_benefits;
-	double sales_tax_benefits;
-	double northern_benefits;
-	double calcualted_otb;
+    double energy_benefits;
+    double sales_tax_benefits;
+    double northern_benefits;
+    double calcualted_otb;
 } otb_calculate;
 
 int input_ot_benefits(cJSON *root);
-int calcualte_otbenefits(cJSON* root);
+
+int calcualte_otbenefits(cJSON *root);
 
 #endif //GROUP_A_TAXFILINGSOFTWARE_OT_BENEFITS_H

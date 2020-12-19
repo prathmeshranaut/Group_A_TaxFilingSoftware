@@ -1,0 +1,74 @@
+.TH "pdf_path_operation" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pdf_path_operation
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pdfgen\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBop\fP"
+.br
+.ti -1c
+.RI "float \fBx1\fP"
+.br
+.ti -1c
+.RI "float \fBy1\fP"
+.br
+.ti -1c
+.RI "float \fBx2\fP"
+.br
+.ti -1c
+.RI "float \fBy2\fP"
+.br
+.ti -1c
+.RI "float \fBx3\fP"
+.br
+.ti -1c
+.RI "float \fBy3\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBpdf_path_operation\fP holds information about a path drawing operation\&. See PDF reference for detailed usage\&. 
+.PP
+Definition at line 76 of file pdfgen\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char pdf_path_operation::op"
+Operation command\&. Possible operators are: m = move to, l = line to, c = cubic bezier curve with two control points, v = cubic bezier curve with one control point fixed at first point, y = cubic bezier curve with one control point fixed at second point, h = close path 
+.PP
+Definition at line 77 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::x1"
+X offset of the first point\&. Used with: m, l, c, v, y 
+.PP
+Definition at line 82 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::x2"
+X offset of the second point\&. Used with: c, v, y 
+.PP
+Definition at line 84 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::x3"
+X offset of the third point\&. Used with: c 
+.PP
+Definition at line 86 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::y1"
+Y offset of the first point\&. Used with: m, l, c, v, y 
+.PP
+Definition at line 83 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::y2"
+Y offset of the second point\&. Used with: c, v, y 
+.PP
+Definition at line 85 of file pdfgen\&.h\&.
+.SS "float pdf_path_operation::y3"
+Y offset of the third point\&. Used with: c 
+.PP
+Definition at line 87 of file pdfgen\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

@@ -1,0 +1,91 @@
+.TH "src/commons.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/commons.c \- Contains the definition for common functions used in the software\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include '\&.\&./include/cJSON\&.h'\fP
+.br
+\fC#include 'headers/commons\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_json\fP (\fBcJSON\fP *root)"
+.br
+.RI "Common functions used in the software\&. "
+.ti -1c
+.RI "int \fBspc_email_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBstring_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBzip_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBsin_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBnumber_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBphone_isvalid\fP (const char *address)"
+.br
+.ti -1c
+.RI "int \fBvalidate_date\fP (\fBMYDAY\fP md)"
+.br
+.ti -1c
+.RI "char * \fBstruct2str\fP (\fBMYDAY\fP md)"
+.br
+.ti -1c
+.RI "int \fBfind_age\fP (\fBMYDAY\fP md)"
+.br
+.ti -1c
+.RI "int \fBstring_isyn\fP (const char *address)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for common functions used in the software\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Prathmesh Ranaut, Ragunath Anbarasu 
+.RE
+.PP
+
+.PP
+Definition in file \fBcommons\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void print_json (\fBcJSON\fP * root)"
+
+.PP
+Common functions used in the software\&. @detail This code is a collection of inout validation and other commonly used codes in the software
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.PP
+Definition at line 24 of file commons\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.
