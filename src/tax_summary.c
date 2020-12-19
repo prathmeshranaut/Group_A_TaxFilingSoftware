@@ -2,6 +2,7 @@
  * @file tax_summary.c
  *
  * @brief Contains the definition for displaying the tax summary
+ * @author Shreya Dhanani
  * */
 
 #include<string.h>
