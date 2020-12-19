@@ -17,8 +17,8 @@ typedef struct {
     char relationship[20];
     char dependent_dob[10];
     double dependent_net_income;
-    char disability[40];
-    char claim_child_care_benefits[10];
+    char disability[1];
+    char claim_child_care_benefits[1];
 	int dependent_age;
 } dependent_details;
 

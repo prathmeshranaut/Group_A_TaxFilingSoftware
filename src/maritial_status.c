@@ -18,7 +18,7 @@
   * */
 
 int input_maritial_status(cJSON* root) {
-	maritial_status m_status = { "", "n", ""};
+	maritial_status m_status = { "", "" , "" };
 	MYDAY md;
 	printf("\n\t\t#######################################################################################\n");
 	printf("\n\n\t\t\t\tMarital Status as of 31st December 2019\n\n\n");
@@ -27,10 +27,11 @@ int input_maritial_status(cJSON* root) {
 	printf("\n\t\tEnter your Current Marital Status (single/married/divorced/widowed) : ");
 	scanf("%s", m_status.current_maritial_status);
 	} while (!string_isvalid(m_status.current_maritial_status));
+
 	do {
 	printf("\n\t\tIs change of Maritial Status in tax filing year? (y/n) : ");
 	scanf("%s", m_status.is_change_of_status);
-	} while (!string_isyn(m_status.current_maritial_status));
+	} while (!string_isyn(m_status.is_change_of_status));
 
 	if (strcmp(m_status.is_change_of_status, "y") == 0) {
 
