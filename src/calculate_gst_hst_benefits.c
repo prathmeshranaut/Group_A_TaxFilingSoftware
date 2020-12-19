@@ -1,13 +1,25 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+/**
+ * @file calculate_gst_hst_bebefits.c
+ *
+ * @brief Contains the definition for calculating GST/HST Benefits
+ * @author Ragunath Anbarasu
+ * */
 #include "headers/new_taxfile.h"
 #include "headers/spouse_details.h"
 #include "headers/dependent_details.h"
 #include "headers/gst_hst.h"
 
+ /** @brief Contains the definition for calculating GST/HST Benefits
+  *
+  * @detail Uses the details collected before to calcualte the GST/HST Benefits
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
+
 int calculate_gst_hst_benefits(cJSON* root) {
-	gst_hst benefit;
+	gst_hst benefit = { 0 };
 
 	cJSON* applicant_object = cJSON_GetObjectItem(root, BASIC_DETAILS_KEY);
 	cJSON* spouse_object = cJSON_GetObjectItem(root, SPOUSE_DETAILS_KEY);

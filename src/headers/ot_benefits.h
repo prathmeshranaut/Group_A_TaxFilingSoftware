@@ -33,9 +33,12 @@
 #define FIRST_NATIONS_RESERVE_COST "first_nations_reserve_energy_cost"
 #define NORTHERN_ONTARIO "northern_ontario"
 
+#define ENERGE_BENEFITS "energy_benefits"
+#define SALES_TAX_BENEFITS "sales_tax_benefits"
+#define NORTHERN_BENEFITS "northern_benefits"
+#define CALCULATED_OTB "calcualted_otb"
 
-
-
+#define OTB_CALCULATE_KEY "otb_calculate"
 
 typedef struct {
     char age[5];
@@ -68,6 +71,14 @@ typedef struct {
     
 } ot_benefits;
 
+typedef struct {
+	double energy_benefits;
+	double sales_tax_benefits;
+	double northern_benefits;
+	double calcualted_otb;
+} otb_calculate;
+
 int input_ot_benefits(cJSON *root);
+int calcualte_otbenefits(cJSON* root);
 
 #endif //GROUP_A_TAXFILINGSOFTWARE_OT_BENEFITS_H

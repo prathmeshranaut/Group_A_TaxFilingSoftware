@@ -2,6 +2,7 @@
  * @file input_mailing_address.c
  *
  * @brief Contains the definition for getting users Mailing address details
+ * @author Ragunath Anbarasu
  * */
 
 #include "headers/mailing_address.h"

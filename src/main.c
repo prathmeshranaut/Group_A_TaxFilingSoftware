@@ -21,6 +21,7 @@
 #include "headers/t2202.h"
 #include "headers/spouse_details.h"
 #include "headers/dependent_details.h"
+#include "headers/ot_benefits.h"
 #include "headers/generate_pdf.h"
 #include "headers/gst_hst.h"
 
@@ -62,24 +63,25 @@ int main(void) {
 			printf("\n\n\t\t\t\t\tFile New Tax\n\n\n");
             cJSON *root = cJSON_CreateObject();
             input_new_taxfile(root); //Get basic details from user
-            input_mailing_address(root); //Get mailing details from user
-            input_primary_residence(root); //Get primary residence details from user
-            input_entry_status(root); //Get entry status details from user
-            input_world_income(root); //Get world income details from user
-            input_maritial_status(root); //Get maritial status details from user
+            //input_mailing_address(root); //Get mailing details from user
+            //input_primary_residence(root); //Get primary residence details from user
+            //input_entry_status(root); //Get entry status details from user
+            //input_world_income(root); //Get world income details from user
+            //input_maritial_status(root); //Get maritial status details from user
             input_t4_details(root); //Get t4 details from user
             input_t2202_details(root); //Get t2202 details from user
 			input_dependent_details(root); //Get dependent details from user
 			input_spouse_details(root); //Get spouse details from user
-/*
+
 			do {
 				printf("\n\t\tWould you like to Opt in for Ontario Trillium Benefits (y/n) : ");
 				scanf(" %c", &opt);
 				if (opt == 'y') {
 					input_ot_benefits(root); //Get OTB details from user
+					calcualte_otbenefits(root);
 				}
 			} while (opt != 'y' && opt != 'n');
-*/
+
 			do {
 				printf("\n\t\tWould you like to Opt in for GST/HST Benefits (y/n) : ");
 				scanf(" %c", &opt);
@@ -90,7 +92,7 @@ int main(void) {
 
 
 			//child_benifits(root);
-            //otb_benefits(root);
+            
             calculate_tax(root); //Calculate tax of user
             //print_json(root); // display JSON details (developer feature)
             create_new_taxfile(root); //Write details to JSON file
