@@ -15,10 +15,10 @@
 typedef struct {
     char dependent_name[1024];
     char relationship[20];
-    char dependent_dob[10];
-    double dependent_net_income;
     char disability[1];
-    char claim_child_care_benefits[1];
+	char claim_child_care_benefits[1];
+	double dependent_net_income;
+	char dependent_dob[10];
 	int dependent_age;
 } dependent_details;
 

@@ -5,7 +5,7 @@
  * @author Ragunath Anbarasu
  * */
 
-
+#include<string.h>
 #include "headers/ot_benefits.h"
 #include "headers/commons.h"
 
