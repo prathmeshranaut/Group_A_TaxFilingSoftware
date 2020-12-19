@@ -2,6 +2,7 @@
  * @file commons.c
  *
  * @brief Contains the definition for common functions used in the software
+ * @author Prathmesh Ranaut, Ragunath Anbarasu
  * */
 #include<stdio.h>
 #include<time.h>

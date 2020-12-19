@@ -52,9 +52,21 @@ extern void test_input_t4_details_incorrectly_retries_3_times();
 //T2202 Tests
 extern void test_input_t2202_details_aborts_if_root_passed_is_null();
 extern void test_input_t2202_details_add_t2202_key_to_json();
-extern void test_input_t2202_details_correctly_increases_array_size();
 extern void test_input_t2202_details_correctly_and_returns();
 extern void test_input_t2202_details_correctly_adds_value_for_fields();
 extern void test_input_t2202_details_incorrectly_retries_3_times();
+
+//Spouse Tests
+extern void test_input_spouse_details_aborts_if_root_passed_is_null();
+extern void test_input_spouse_details_add_spouse_key_to_json();
+extern void test_input_spouse_details_correctly_and_returns();
+extern void test_input_spouse_details_correctly_adds_value_for_fields();
+
+//Dependent Tests
+extern void test_input_dependent_details_aborts_if_root_passed_is_null();
+extern void test_input_dependent_details_add_dependent_key_to_json();
+extern void test_input_dependent_details_correctly_and_returns();
+extern void test_input_dependent_details_correctly_adds_value_for_fields();
+
 
 #endif //GROUP_A_TAXFILINGSOFTWARE_RUNNER_H

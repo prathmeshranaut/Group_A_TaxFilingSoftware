@@ -21,7 +21,7 @@
   * */
 
 int input_dependent_details(cJSON *root) {
-	dependent_details details={ "", "", "", 0, "n", "n", 0 };
+	dependent_details details={ "", "", "",  "", 0, "", 0 };
 	char opt='y';
 
 	MYDAY md;
@@ -42,6 +42,20 @@ int input_dependent_details(cJSON *root) {
 			scanf("%s", details.relationship);
 		} while (!string_isvalid(details.relationship));
 
+		do {
+		printf("\n\t\tEnter Dependent status of  Disability (y/n) : ");
+		scanf("%s", details.disability);
+		} while (!string_isyn(details.disability));
+
+		do {
+		printf("\n\t\tWould you like to claim for child care benefits? (y/n) : ");
+		scanf("%s", details.claim_child_care_benefits);
+		} while (!string_isyn(details.claim_child_care_benefits));
+
+		printf("\n\t\tEnter your Dependent Net Income : ");
+		DOUBLE_VALUE_INPUT(&details.dependent_net_income);
+			   
+
 	re_date:
 		printf("\n\t\tEnter your Dependent Date of birth(YYYY-MM-DD) : ");
 		if ((scanf("%4d-%2d-%2d", &md.year, &md.month, &md.day)) != 3)
@@ -60,18 +74,6 @@ int input_dependent_details(cJSON *root) {
 				goto re_date;
 
 		}
-
-		printf("\n\t\tEnter your Dependent Net Income : ");
-		DOUBLE_VALUE_INPUT(&details.dependent_net_income);
-
-		do {
-			printf("\n\t\tEnter Dependent status of  Disability (y/n) : ");
-			scanf("%s", details.disability);
-		} while (!string_isyn(details.disability));
-		do {
-			printf("\n\t\tWould you like to claim for child care benefits? (y/n) : ");
-			scanf("%s", details.claim_child_care_benefits);
-		} while (!string_isyn(details.claim_child_care_benefits));
 	}
 
    
@@ -80,10 +82,10 @@ int input_dependent_details(cJSON *root) {
 
 	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_NAME, cJSON_CreateString(details.dependent_name));
 	cJSON_AddItemToObject(dependent_details_object, RELATIONSHIP, cJSON_CreateString(details.relationship));
-	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_DOB, cJSON_CreateString(details.dependent_dob));
-	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_NET_INCOME, cJSON_CreateNumber(details.dependent_net_income));
 	cJSON_AddItemToObject(dependent_details_object, DISABILITY, cJSON_CreateString(details.disability));
 	cJSON_AddItemToObject(dependent_details_object, CLAIM_CHILD_CARE_BENEFITS, cJSON_CreateString(details.claim_child_care_benefits));
+	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_NET_INCOME, cJSON_CreateNumber(details.dependent_net_income));
+	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_DOB, cJSON_CreateString(details.dependent_dob));
 	cJSON_AddItemToObject(dependent_details_object, DEPENDENT_AGE, cJSON_CreateNumber(details.dependent_age));
 
 	cJSON_AddItemToObject(root, DEPENDENT_DETAILS_KEY, dependent_details_object);

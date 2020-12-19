@@ -2,6 +2,7 @@
  * @file create_new_taxfile.c
  *
  * @brief Contains the definition for writing the data collected and computed into a json file.
+ * @author Ragunath Anbarasu
  * */
 
 #include<string.h>

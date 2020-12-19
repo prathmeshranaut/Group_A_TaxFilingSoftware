@@ -9,6 +9,8 @@
 #include "headers/new_taxfile.h"
 #include "headers/calculate_tax.h"
 #include "headers/t4.h"
+#include "headers/ot_benefits.h"
+#include "headers/gst_hst.h"
 
  /** @brief Display tax summary
   *
@@ -32,7 +34,8 @@ int display_tax_summary(cJSON *root)
    double c_income_tax = 0.0;
    double c_payable = 0.0;
    double c_refund = 0.0;
-
+   double c_otb = 0.0;
+   double gst_hst = 0.0;
 
    cJSON* t4_object = cJSON_GetObjectItem(root, T4_KEY);
    cJSON* t4_details = cJSON_GetArrayItem(t4_object, 0);
@@ -52,6 +55,13 @@ int display_tax_summary(cJSON *root)
    strcpy(personal_details.date_of_birth,cJSON_GetObjectItem(personal_details_object, DATE_OF_BIRTH)->valuestring);
    strcpy(personal_details.sin,cJSON_GetObjectItem(personal_details_object, SIN)->valuestring);
 
+   cJSON* otb_object = cJSON_GetObjectItem(root, OTB_CALCULATE_KEY);
+   c_otb = cJSON_GetObjectItem(otb_object, CALCULATED_OTB)->valuedouble;
+
+   cJSON* gst_object = cJSON_GetObjectItem(root, GST_HST_KEY);
+   gst_hst = cJSON_GetObjectItem(gst_object, GST_HST_CREDIT)->valuedouble;
+
+
    printf("\n\t\t\t First Name = %s", personal_details.first_name);
    printf("\n\t\t\t Last Name = %s", personal_details.last_name);
    printf("\n\t\t\t Date of Birth = %s", personal_details.date_of_birth);
@@ -62,6 +72,9 @@ int display_tax_summary(cJSON *root)
    printf("\n\t\t\t Total Tax = %lf", c_income_tax);
    printf("\n\t\t\t Payable Amount = %lf", c_payable);
    printf("\n\t\t\t Refund Amount = %lf\n\n", c_refund);
+   printf("\n\t\t\t Ontario Trillium Benefits credits = %lf\n\n", c_otb);
+   printf("\n\t\t\t GST/HST credits = %lf\n\n", gst_hst);
+
 
 return 0;
 }

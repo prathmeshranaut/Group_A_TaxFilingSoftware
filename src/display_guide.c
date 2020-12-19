@@ -2,6 +2,7 @@
  * @file display_guide.c
  *
  * @brief Contains the definition for displaying the User manual
+ * @author Ragunath Anbarasu
  * */
 #include<stdio.h>
 #include<stdlib.h>

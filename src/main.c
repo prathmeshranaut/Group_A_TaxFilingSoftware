@@ -2,6 +2,7 @@
  * @file main.c
  *
  * @brief Contains the definition for executing the tax calcualte function
+ * @author Ragunath Anbrasu, Prathmesh Ranaut , Shreya Dhanani
  * */
 
 #include <stdio.h>
@@ -21,6 +22,7 @@
 #include "headers/t2202.h"
 #include "headers/spouse_details.h"
 #include "headers/dependent_details.h"
+#include "headers/ot_benefits.h"
 #include "headers/generate_pdf.h"
 #include "headers/gst_hst.h"
 
@@ -36,9 +38,8 @@
 int main(void) {
     //Declaring and initializing variabless
     int attempt, max_attempt = 5;
-    char choice,save,opt;
+    char choice,save;
 	save = 'y';
-	opt = 'y';
     topmenu:
 
     printf("\t\t#######################################################################################\n");
@@ -69,28 +70,12 @@ int main(void) {
             input_maritial_status(root); //Get maritial status details from user
             input_t4_details(root); //Get t4 details from user
             input_t2202_details(root); //Get t2202 details from user
-			input_dependent_details(root); //Get dependent details from user
 			input_spouse_details(root); //Get spouse details from user
-/*
-			do {
-				printf("\n\t\tWould you like to Opt in for Ontario Trillium Benefits (y/n) : ");
-				scanf(" %c", &opt);
-				if (opt == 'y') {
-					input_ot_benefits(root); //Get OTB details from user
-				}
-			} while (opt != 'y' && opt != 'n');
-*/
-			do {
-				printf("\n\t\tWould you like to Opt in for GST/HST Benefits (y/n) : ");
-				scanf(" %c", &opt);
-				if (opt == 'y') {
-					calculate_gst_hst_benefits(root); //Add GST/HST benifits
-				}
-			} while (opt != 'y' && opt != 'n');
-
-
-			//child_benifits(root);
-            //otb_benefits(root);
+			input_dependent_details(root); //Get dependent details from user
+			input_ot_benefits(root); //Get OTB details from user
+			calcualte_otbenefits(root);//Calculate OTB 
+			calculate_gst_hst_benefits(root); //Add GST/HST benifits
+			//child_benifits(root); // Not included          
             calculate_tax(root); //Calculate tax of user
             //print_json(root); // display JSON details (developer feature)
             create_new_taxfile(root); //Write details to JSON file

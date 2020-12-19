@@ -22,179 +22,185 @@
 
 
 int input_ot_benefits(cJSON *root) {
-    ot_benefits otb = {"", 0, "y", 0, 0, "y", "", 0, "y", 0, 0, "y", "y", "", "", 0, "y", "", 0, 0, 0, "y", "", "y", "y", 0, "y" };
-    printf("\n#######################################################################################\n");
-    printf("Enter Details to Calculate OT Benefits\n");
-    printf("\n#######################################################################################\n");
+    ot_benefits otb = {"", 0, "n", 0, 0, "n", "", 0, "n", 0, 0, "n", "n", "", "", 0, "n", "", 0, 0, 0, "n", "", "n", "n", 0, "n" };
+	char opt = 'y';
+	printf("\n\t\t#######################################################################################\n");
+	printf("\n\n\t\t\t\t\t\tOntario Trillium Benefits\n");
+	printf("\n\t\t#######################################################################################\n");
+	do {
+		printf("\n\t\tWould you like to Opt in for Ontario Trillium Benefits (y/n) : ");
+		scanf(" %c", &opt);
+	} while (opt != 'y' && opt != 'n');
+	if (opt == 'y') {
+		do {
+			printf("\n\t\tHow old were you on December 31, 2019? :  ");
+			scanf("%s", otb.age);
+		} while (!number_isvalid(otb.age));
 
-    do { 
-    printf("How old were you on December 31, 2019? :  ");
-    scanf("%s", otb.age);
-    } while(!number_isvalid(otb.age));
+		printf("\n\t\tWhat was your estimated income in 2019? :  ");
+		while (scanf("%lf", &otb.income) == 0) {
+			printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+			scanf("%*s");
+		}
+
+		do {
+			printf("\n\t\tDid you receive or repay any social assistance benefits income in 2019? (y/n)\n\t\tIncludes Employment Insurance (EI) benefit, Universal child care benefit (UCCB),\n\t\t and Registered disability savings plan (RDSP)\t: ");
+			scanf("%s", otb.social_assistance);
+		} while (!string_isyn(otb.social_assistance));
+
+		if (strcmp(otb.social_assistance, "y") == 0) {
+			printf("\n\t\tHow much did you Receive (CAD) : ");
+			while (scanf("%lf", &otb.social_assistance_receive) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+
+			printf("\n\t\tHow much did you Repay (CAD) : ");
+			while (scanf("%lf", &otb.social_assistance_repay) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+		}
+
+		do {
+			printf("\n\t\tDid you have a spouse/common-law partner on December 31, 2019? (y/n) : ");
+			scanf("%s", otb.spouse);
+		} while (!string_isyn(otb.spouse));
+
+		if (strcmp(otb.spouse, "y") == 0) {
+			do {
+				printf("\n\t\tHow old were they on December 31, 2019? : ");
+				scanf("%s", otb.spouse_age);
+			} while (!number_isvalid(otb.spouse_age));
+
+			printf("\n\t\tWhat was their estimated income in 2019? : ");
+			while (scanf("%lf", &otb.spouse_income) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+
+			do {
+				printf("\n\t\tDid they receive or repay any social assistance benefits income in 2019? (y/n)\n\t\tIncludes Employment Insurance (EI) benefit, Universal child care benefit (UCCB),\n\t\t and Registered disability savings plan (RDSP) : ");
+				scanf("%s", otb.spouse_social_assistance);
+			} while (!string_isyn(otb.spouse_social_assistance));
+
+			if (strcmp(otb.spouse_social_assistance, "y") == 0) {
+				printf("\n\t\tHow much did they Receive (CAD) : ");
+				while (scanf("%lf", &otb.spouse_social_assistance_receive) == 0) {
+					printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+					scanf("%*s");
+				}
+
+				printf("\n\t\tHow much did they Repay (CAD) : ");
+				while (scanf("%lf", &otb.spouse_social_assistance_repay) == 0) {
+					printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+					scanf("%*s");
+				}
+			}
+
+		}
+
+		do {
+			printf("\n\t\tDid you have children living with you in 2019? (y/n) : ");
+			scanf("%s", otb.children);
+		} while (!string_isyn(otb.children));
+
+		if (strcmp(otb.children, "y") == 0) {
+			do {
+				printf("\n\t\tHas the child been approved by Canada Revenue Agency for the \n\t\tdisability tax credit? (y/n) : ");
+				scanf("%s", otb.children_dtc);
+			} while (!string_isyn(otb.children_dtc));
+
+			do {
+				printf("\n\t\tHow old was the child on December 31, 2019?\n\t\tEnter 1 for a child less than a year old : ");
+				scanf("%s", otb.children_age);
+			} while (!number_isvalid(otb.children_age));
+		}
+
+		do {
+			printf("\n\t\tIn 2019, did you rent or own the place you lived in? \n\t\t(Enter R for rent , O for own, RO for both) : ");
+			scanf("%s", otb.house);
+		} while (!string_isvalid(otb.house));
+
+		if (strcmp(otb.house, "R") == 0) {
+			printf("\n\t\tHow much rent did you pay in 2019? (CAD) :");
+			while (scanf("%lf", &otb.house_r_rent) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+
+			do {
+				printf("\n\t\tDid you live in a long-term care home in 2019? (y/n) :");
+				scanf("%s", otb.house_r_long_term_care);
+			} while (!string_isyn(otb.house_r_long_term_care));
+
+			if (strcmp(otb.house_r_long_term_care, "y") == 0) {
+				do {
+					printf("\n\t\tWas it a public or private long-term care home? :");
+					scanf("%s", otb.house_r_long_term_care_type);
+				} while (!string_isvalid(otb.house_r_long_term_care_type));
+			}
+		}
+
+		if (strcmp(otb.house, "O") == 0) {
+			printf("\n\t\tHow much property tax did you pay in 2019? (CAD) :");
+			while (scanf("%lf", &otb.house_o_tax) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+		}
+
+		if (strcmp(otb.house, "RO") == 0) {
+			printf("\n\t\tHow much rent did you pay in 2019? (CAD) :");
+			while (scanf("%lf", &otb.house_ro_rent) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+
+			printf("\n\t\tHow much property tax did you pay in 2019? (CAD) :");
+			while (scanf("%lf", &otb.house_ro_tax) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+
+			do {
+				printf("\n\t\tDid you live in a long-term care home in 2019? (y/n) :");
+				scanf("%s", otb.house_ro_long_term_care);
+			} while (!string_isyn(otb.house_ro_long_term_care));
+
+			if (strcmp(otb.house_ro_long_term_care, "y") == 0) {
+				do {
+					printf("\n\t\tWas it a public or private long-term care home? :");
+					scanf("%s", otb.house_ro_long_term_care_type);
+				} while (!string_isvalid(otb.house_ro_long_term_care_type));
+			}
+		}
+
+		do {
+			printf("\n\t\tDid you live on residence at an eligible Ontario university \n\t\tor college residence in 2019? (y/n) : ");
+			scanf("%s", otb.college_residence);
+		} while (!string_isyn(otb.college_residence));
+
+		do {
+			printf("\n\t\tDid you live on a First Nations reserve in Ontario in 2019? (y/n) : ");
+			scanf("%s", otb.first_nations_reserve);
+		} while (!string_isyn(otb.first_nations_reserve));
+
+		if (strcmp(otb.first_nations_reserve, "y") == 0) {
+			printf("\n\t\tHow much did you spend on home energy costs in 2019? : ");
+			while (scanf("%lf", &otb.first_nations_reserve_energy_cost) == 0) {
+				printf("\n\t\tInvalid input. Please enter a number, such as 1.5, or 3:");
+				scanf("%*s");
+			}
+		}
+
+		do {
+			printf("\n\t\tDid you live in Northern Ontario on December 31, 2019? (y/n) : ");
+			scanf("%s", otb.northern_ontario);
+		} while (!string_isyn(otb.northern_ontario));
+	}
     
-    printf("What was your estimated income in 2019? :  ");
-    while (scanf("%lf", &otb.income) == 0) {
-             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-             scanf("%*s");
-    }
-
-    do {
-    printf("Did you receive or repay any social assistance benefits income in 2019? (y/n)\nIncludes Employment Insurance (EI) benefit, Universal child care benefit (UCCB), and Registered disability savings plan (RDSP)\t:");
-    scanf("%s", otb.social_assistance);
-    } while(!string_isyn(otb.social_assistance));
-
-    if(strcmp(otb.social_assistance,"y")==0) {
-        printf("How much did you Receive (CAD) :");
-        while (scanf("%lf", &otb.social_assistance_receive) == 0) {
-             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-             scanf("%*s");
-        }
-
-        printf("How much did you Repay (CAD) :");
-        while (scanf("%lf", &otb.social_assistance_repay) == 0) {
-             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-             scanf("%*s");
-        }
-    }
-
-    do {
-    printf("Did you have a spouse/common-law partner on December 31, 2019? (y/n) : ");
-    scanf("%s", otb.spouse);
-    } while(!string_isyn(otb.spouse));
-
-    if(strcmp(otb.spouse,"y")==0) {
-        do {
-        printf("How old were they on December 31, 2019? : ");
-        scanf("%s", otb.spouse_age);
-        } while(!number_isvalid(otb.spouse_age));
-
-    	printf("What was their estimated income in 2019? : ");
-    	while (scanf("%lf", &otb.spouse_income) == 0) {
-             printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-             scanf("%*s");
-        }
-
-        do {
-    	printf("Did they receive or repay any social assistance benefits income in 2019? (y/n)\nIncludes Employment Insurance (EI) benefit, Universal child care benefit (UCCB), and Registered disability savings plan (RDSP)\t:");
-    	scanf("%s", otb.spouse_social_assistance);
-        } while(!string_isyn(otb.spouse_social_assistance));
-
-   	 if(strcmp(otb.spouse_social_assistance,"y")==0) {
-        	printf("How much did they Receive (CAD) :");
-		while (scanf("%lf", &otb.spouse_social_assistance_receive) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                } 
-
-        	printf("How much did they Repay (CAD) :");
-        	while (scanf("%lf", &otb.spouse_social_assistance_repay) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-          }
-
-    }
-
-    do {
-    printf("Did you have children living with you in 2019? (y/n) : ");
-    scanf("%s", otb.children);
-    } while(!string_isyn(otb.children));
-
-    if(strcmp(otb.children,"y")==0) {
-        do {
-        printf("Has the child been approved by Canada Revenue Agency for the disability tax credit? (y/n) :");
-        scanf("%s", otb.children_dtc);
-        } while(!string_isyn(otb.children_dtc));
-
-        do {
-        printf("How old was the child on December 31, 2019?\nEnter 1 for a child less than a year old :");
-        scanf("%s", otb.children_age);
-        } while(!number_isvalid(otb.children_age));
-    }
-
-    do {
-    printf("In 2019, did you rent or own the place you lived in? (Enter R for rent , O for own, RO for both) : ");
-    scanf("%s", otb.house);
-    } while(!string_isvalid(otb.house));
-
-    if(strcmp(otb.house,"R")==0) {
-        	printf("How much rent did you pay in 2019? (CAD) :");
-                while (scanf("%lf", &otb.house_r_rent) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-          
-                do {
-        	printf("Did you live in a long-term care home in 2019? (y/n) :");
-        	scanf("%s", otb.house_r_long_term_care);
-                } while(!string_isyn(otb.house_r_long_term_care));
-
-		if(strcmp(otb.house_r_long_term_care,"y")==0) {
-                        do {
-        		printf("Was it a public or private long-term care home? :");
-        		scanf("%s", otb.house_r_long_term_care_type);
-                        } while(!string_isvalid(otb.house_r_long_term_care_type));
-    		}
-     }
-
-     if(strcmp(otb.house,"O")==0) {
-        	printf("How much property tax did you pay in 2019? (CAD) :");
-                while (scanf("%lf", &otb.house_o_tax) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-     }
-
-     if(strcmp(otb.house,"RO")==0) {
-                printf("How much rent did you pay in 2019? (CAD) :");
-        	while (scanf("%lf", &otb.house_ro_rent) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-		 
-        	printf("How much property tax did you pay in 2019? (CAD) :");
-        	while (scanf("%lf", &otb.house_ro_tax) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-
-                do {
-        	printf("Did you live in a long-term care home in 2019? (y/n) :");
-        	scanf("%s", otb.house_ro_long_term_care);
-                } while(!string_isyn(otb.house_ro_long_term_care));
-
-		if(strcmp(otb.house_ro_long_term_care,"y")==0) {
-                        do {
-        		printf("Was it a public or private long-term care home? :");
-        		scanf("%s", otb.house_ro_long_term_care_type);
-                        } while (!string_isvalid(otb.house_ro_long_term_care_type));
-    		}
-     }
-
-     do {
-     printf("Did you live on residence at an eligible Ontario university or college residence in 2019? (y/n) : ");
-     scanf("%s", otb.college_residence);
-     } while(!string_isyn(otb.college_residence));
-
-     do {
-     printf("Did you live on a First Nations reserve in Ontario in 2019? (y/n) : ");
-     scanf("%s", otb.first_nations_reserve);
-     } while(!string_isyn(otb.first_nations_reserve));
-
-     if(strcmp(otb.first_nations_reserve,"y")==0) {
-        	printf("How much did you spend on home energy costs in 2019? : ");
-                while (scanf("%lf", &otb.first_nations_reserve_energy_cost) == 0) {
-                       printf("Invalid input. Please enter a number, such as 1.5, or 3:");
-                       scanf("%*s");
-                }
-    }
-
-    do {
-    printf("Did you live in Northern Ontario on December 31, 2019? (y/n) : ");
-    scanf("%s", otb.northern_ontario);
-    } while(!string_isyn(otb.northern_ontario));
-
-
+	
     cJSON *otb_object = cJSON_CreateObject();
 
     cJSON_AddItemToObject(otb_object, AGE, cJSON_CreateString(otb.age));

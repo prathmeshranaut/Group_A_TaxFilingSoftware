@@ -4,6 +4,7 @@
 #ifndef GROUP_A_TAXFILINGSOFTWARE_CALCULATE_TAX_H
 #define GROUP_A_TAXFILINGSOFTWARE_CALCULATE_TAX_H
 
+#define CALCULATE_TAX_KEY "tax"
 #define FEDERAL_TAX "federal_tax"
 #define INCOME_TAX "income_tax"
 #define PROVENCIAL_TAX "provencial_tax"

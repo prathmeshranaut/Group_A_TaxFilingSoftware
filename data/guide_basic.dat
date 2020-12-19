@@ -4,43 +4,41 @@
 		#                                                                                     #
 		#######################################################################################
 
-				This guide will detail out the necessary documents and steps to be followed 
-			for tax filing.The future work on the software will have GUI for entering details. 
-			As of now the software will get input from user through CLI. 
-			The user has to be careful in entering the details, the software doesnot allow 
-			the user to change the details once entered until it is executed completely.
-			The software will accept only valid data with respect to the field, 
-			it will keep asking input form the field from the user until the proper 
-			input is obtained. 
+			This guide will detail out the necessary documents and steps to be followed 
+		for tax filing.The future work on the software will have GUI for entering details. 
+		As of now the software will get input from user through CLI. 
+		The user has to be careful in entering the details, the software doesnot allow 
+		the user to change the details once entered until it is executed completely.
+		The software will accept only valid data with respect to the field, 
+		it will keep asking input form the field from the user until the proper 
+		input is obtained. 
 			
-			List of documents required before filing:
-			It is highly recommended to have a copy of the following documents as the 
-			details from the documents are necessary for filing income tax.  
+		List of documents required before filing:
+		It is highly recommended to have a copy of the following documents as the 
+		details from the documents are necessary for filing income tax.  
 			
 			
-			1) Social Insurance Number (SIN) 
-			2) T2202A  – Tuition receipt
-			3) T4 Slip (if you were employed and paid in Canada)
+		1) Social Insurance Number (SIN) 
+		2) T2202A  – Tuition receipt
+		3) T4 Slip (if you were employed and paid in Canada)
 	  
-			The software will request input from user, you need to enter all the requested 
-			details.	  
-			The following details will be needed for successful tax filing.
+		The software will request input from user, you need to enter all the requested 
+		details.	  
+		The following details will be needed for successful tax filing.
 			
-			Basic details - Name, SIN, email, date of birth.
-			Mailing details - Address, contact number.
-			Primary address details - Residential address, contact number.
-			Entry status - Date of entry to country, province of entry.
-			World income - Income outside country.
-			Maritial status - Maritial status, change on status.
-			T4 details - Employer details, Employee income details, deductions.
-			T2202 details - Tution Amount.
+		Basic details - Name, SIN, email, date of birth.
+		Mailing details - Address, contact number.
+		Primary address details - Residential address, contact number.
+		Entry status - Date of entry to country, province of entry.
+		World income - Income outside country.
+		Maritial status - Maritial status, change on status.
+		T4 details - Employer details, Employee income details, deductions.
+		T2202 details - Tution Amount.
 		
-			After entering all the necessary details, the software calculate the tax 
-			refund and displays the summary of tax. The first T4 details entered is considerd
-			as the master T4 and is used for calculation. The software allows only one 
-			dependent detail to be added.
+		After entering all the necessary details, the software calculate the tax 
+		refund and displays the summary of tax. The first T4 details entered is considerd
+		as the master T4 and is used for calculation. The software allows only one 
+		dependent detail to be added.
   
-	  
-	  
-	  
+	    
 		########################################################################################
