@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "cJSON.h"
+
 #ifndef GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H
 #define GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H
 
@@ -12,14 +13,13 @@
 #define SPOUSE_AGE "spouse_age"
 
 
-
 typedef struct {
     char spouse_name[1024];
-    char spouse_dob[10];
+    char spouse_dob[20];
     double spouse_net_income;
-	char spouse_sin[10];
-    char spouse_care_benefits[1];
-	int spouse_age;
+    char spouse_sin[20];
+    char spouse_care_benefits[5];
+    int spouse_age;
 } spouse_details;
 
 int input_spouse_details(cJSON *root);

@@ -1,0 +1,57 @@
+\hypertarget{maritial__status_8c}{}\doxysection{src/maritial\+\_\+status.c File Reference}
+\label{maritial__status_8c}\index{src/maritial\_status.c@{src/maritial\_status.c}}
+
+
+Contains the definition for getting users marital status details.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/maritial\+\_\+status.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/commons.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{maritial__status_8c_aecf13b8dc783db2202ca5c34fe117fc3}\label{maritial__status_8c_aecf13b8dc783db2202ca5c34fe117fc3}} 
+\#define {\bfseries M\+A\+X\+\_\+\+R\+E\+T\+R\+I\+ES}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{maritial__status_8c_a35c1332ecba83536f59ffc17c6dba380}{input\+\_\+maritial\+\_\+status}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Gets Marital details from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the definition for getting users marital status details. 
+
+\begin{DoxyAuthor}{Author}
+Shreya Dhanani 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{maritial__status_8c_a35c1332ecba83536f59ffc17c6dba380}\label{maritial__status_8c_a35c1332ecba83536f59ffc17c6dba380}} 
+\index{maritial\_status.c@{maritial\_status.c}!input\_maritial\_status@{input\_maritial\_status}}
+\index{input\_maritial\_status@{input\_maritial\_status}!maritial\_status.c@{maritial\_status.c}}
+\doxysubsubsection{\texorpdfstring{input\_maritial\_status()}{input\_maritial\_status()}}
+{\footnotesize\ttfamily int input\+\_\+maritial\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Gets Marital details from the user. 
+
+@detail Asks user to fill in marital details so that it can be used in calculation of tax
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file maritial\+\_\+status.\+c.
+

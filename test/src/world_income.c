@@ -38,10 +38,11 @@ void test_input_world_income_correctly_adds_value_for_fields() {
 
     cJSON *world_income = cJSON_GetObjectItem(root, WORLD_INCOME_KEY);
 
-    TEST_ASSERT_DOUBLE_WITHIN(0.001, 50000.00, cJSON_GetObjectItem(world_income, CANADIAN_SOURCE_OF_INCOME)->valuedouble);
-    TEST_ASSERT_DOUBLE_WITHIN(0.001, 10000.00, cJSON_GetObjectItem(world_income, FOREIGN_SOURCE_OF_INCOME)->valuedouble);
-    
-    
+    TEST_ASSERT_DOUBLE_WITHIN(0.001, 50000.00,
+                              cJSON_GetObjectItem(world_income, CANADIAN_SOURCE_OF_INCOME)->valuedouble);
+    TEST_ASSERT_DOUBLE_WITHIN(0.001, 10000.00,
+                              cJSON_GetObjectItem(world_income, FOREIGN_SOURCE_OF_INCOME)->valuedouble);
+
 
     fclose(stdin);
 }

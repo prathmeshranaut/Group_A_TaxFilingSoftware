@@ -1,4 +1,4 @@
-.TH "src/primary_address.c" 3 "Thu Dec 3 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.TH "src/primary_address.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,7 +9,18 @@ src/primary_address.c \- Contains the definition for getting users primary addre
 .PP
 \fC#include 'headers/primary_address\&.h'\fP
 .br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'headers/commons\&.h'\fP
+.br
 
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_RETRIES\fP   3"
+.br
+.in -1c
 .SS "Functions"
 
 .in +1c
@@ -22,6 +33,13 @@ src/primary_address.c \- Contains the definition for getting users primary addre
 .PP 
 Contains the definition for getting users primary address details\&. 
 
+
+.PP
+\fBAuthor\fP
+.RS 4
+Prathmesh Ranaut 
+.RE
+.PP
 
 .PP
 Definition in file \fBprimary_address\&.c\fP\&.
@@ -44,7 +62,7 @@ Gets primary address details from the user\&. @detail Asks user to fill in detai
 .PP
 
 .PP
-Definition at line 18 of file primary_address\&.c\&.
+Definition at line 23 of file primary_address\&.c\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Tax Filing Software from the source code\&.

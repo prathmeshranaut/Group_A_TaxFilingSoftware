@@ -71,41 +71,62 @@ $(function() {
 <div class="title">maritial_status.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;headers/maritial_status.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;string.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">int</span> input_maritial_status(<a class="code" href="structc_j_s_o_n.html">cJSON</a> *root) {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="structmaritial__status.html">maritial_status</a> m_status;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    printf(<span class="stringliteral">&quot;\n#######################################################################################\n&quot;</span>);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    printf(<span class="stringliteral">&quot;Enter Details for your Maritial Status as of 31st December 2019\n&quot;</span>);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    printf(<span class="stringliteral">&quot;\n#######################################################################################\n&quot;</span>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    printf(<span class="stringliteral">&quot;Enter your Current Maritial Status:&quot;</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    scanf(<span class="stringliteral">&quot;%s&quot;</span>, m_status.current_maritial_status);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    printf(<span class="stringliteral">&quot;Is change of Maritial Status in tax filing year? (y/n) :&quot;</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    scanf(<span class="stringliteral">&quot;%s&quot;</span>, m_status.is_change_of_status);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span>(strcmp(m_status.is_change_of_status,<span class="stringliteral">&quot;y&quot;</span>)==0) {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        printf(<span class="stringliteral">&quot;Enter Date of change in status (YYYY-MM-DD):&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        scanf(<span class="stringliteral">&quot;%s&quot;</span>, m_status.date_of_change);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="structc_j_s_o_n.html">cJSON</a> *m_status_object = cJSON_CreateObject();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    cJSON_AddItemToObject(m_status_object, CURRENT_MARITIAL_STATUS, cJSON_CreateString(m_status.current_maritial_status));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    cJSON_AddItemToObject(m_status_object, IS_CHANGE_OF_STATUS, cJSON_CreateString(m_status.is_change_of_status));</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    cJSON_AddItemToObject(m_status_object, DATE_OF_CHANGE, cJSON_CreateString(m_status.date_of_change));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;   </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    cJSON_AddItemToObject(root, MARITIAL_STATUS_KEY, m_status_object);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<a href="maritial__status_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include&lt;string.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;headers/maritial_status.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;headers/commons.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define MAX_RETRIES 3</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="maritial__status_8c.html#a35c1332ecba83536f59ffc17c6dba380">   23</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="maritial__status_8c.html#a35c1332ecba83536f59ffc17c6dba380">input_maritial_status</a>(<a class="code" href="structc_j_s_o_n.html">cJSON</a> *root) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="structmaritial__status.html">maritial_status</a> m_status = {<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="struct_m_y_d_a_y.html">MYDAY</a> md;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    printf(<span class="stringliteral">&quot;\n\t\t#######################################################################################\n&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    printf(<span class="stringliteral">&quot;\n\n\t\t\t\tMarital Status as of 31st December 2019\n\n\n&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    printf(<span class="stringliteral">&quot;\t\t#######################################################################################\n&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        printf(<span class="stringliteral">&quot;\n\t\tEnter your Current Marital Status (single/married/divorced/widowed) : &quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        scanf(<span class="stringliteral">&quot;%s&quot;</span>, m_status.current_maritial_status);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    } <span class="keywordflow">while</span> (!string_isvalid(m_status.current_maritial_status));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        printf(<span class="stringliteral">&quot;\n\t\tIs change of Maritial Status in tax filing year? (y/n) : &quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        scanf(<span class="stringliteral">&quot;%s&quot;</span>, m_status.is_change_of_status);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    } <span class="keywordflow">while</span> (!string_isyn(m_status.is_change_of_status));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (strcmp(m_status.is_change_of_status, <span class="stringliteral">&quot;y&quot;</span>) == 0) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        re_date:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        printf(<span class="stringliteral">&quot;\n\t\tEnter Date of change in status (YYYY-MM-DD)  : &quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> ((scanf(<span class="stringliteral">&quot;%4d-%2d-%2d&quot;</span>, &amp;md.year, &amp;md.month, &amp;md.day)) != 3) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            scanf(<span class="stringliteral">&quot;%*[^\n]&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            scanf(<span class="stringliteral">&quot;%*c&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">goto</span> re_date;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> ((validate_date(md))) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                strcpy(m_status.date_of_change, struct2str(md));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">goto</span> re_date;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="structc_j_s_o_n.html">cJSON</a> *m_status_object = cJSON_CreateObject();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    cJSON_AddItemToObject(m_status_object, CURRENT_MARITIAL_STATUS,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                          cJSON_CreateString(m_status.current_maritial_status));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    cJSON_AddItemToObject(m_status_object, IS_CHANGE_OF_STATUS, cJSON_CreateString(m_status.is_change_of_status));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    cJSON_AddItemToObject(m_status_object, DATE_OF_CHANGE, cJSON_CreateString(m_status.date_of_change));</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    cJSON_AddItemToObject(root, MARITIAL_STATUS_KEY, m_status_object);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructc_j_s_o_n_html"><div class="ttname"><a href="structc_j_s_o_n.html">cJSON</a></div><div class="ttdef"><b>Definition:</b> <a href="c_j_s_o_n_8h_source.html#l00103">cJSON.h:104</a></div></div>
+<div class="ttc" id="astruct_m_y_d_a_y_html"><div class="ttname"><a href="struct_m_y_d_a_y.html">MYDAY</a></div><div class="ttdef"><b>Definition:</b> <a href="commons_8h_source.html#l00005">commons.h:5</a></div></div>
 <div class="ttc" id="astructmaritial__status_html"><div class="ttname"><a href="structmaritial__status.html">maritial_status</a></div><div class="ttdef"><b>Definition:</b> <a href="maritial__status_8h_source.html#l00013">maritial_status.h:13</a></div></div>
+<div class="ttc" id="amaritial__status_8c_html_a35c1332ecba83536f59ffc17c6dba380"><div class="ttname"><a href="maritial__status_8c.html#a35c1332ecba83536f59ffc17c6dba380">input_maritial_status</a></div><div class="ttdeci">int input_maritial_status(cJSON *root)</div><div class="ttdoc">Gets Marital details from the user.</div><div class="ttdef"><b>Definition:</b> <a href="maritial__status_8c_source.html#l00023">maritial_status.c:23</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

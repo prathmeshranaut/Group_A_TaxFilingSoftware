@@ -73,30 +73,35 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;cJSON.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define SPOUSE_DETAILS_KEY &quot;spouse_details&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define SPOUSE_NAME &quot;spouse_name&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define SPOUSE_DOB &quot;spouse_dob&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SIN &quot;sin&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define NET_INCOME &quot;net_income&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define CHILD_CARE_BENEFITS &quot;child_care_benefits&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structspouse__details.html">   13</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">char</span> spouse_name[1024];</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">char</span> spouse_dob[10];</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> sin;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span> net_income;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">char</span> child_care_benefits[1024];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <a class="code" href="structspouse__details.html">spouse_details</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> input_spouse_details(<a class="code" href="structc_j_s_o_n.html">cJSON</a> *root);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif //GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define SPOUSE_DETAILS_KEY &quot;spouse_details&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define SPOUSE_NAME &quot;spouse_name&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SPOUSE_DOB &quot;spouse_dob&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define SPOUSE_SIN &quot;spouse_sin&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SPOUSE_NET_INCOME &quot;spouse_net_income&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define SPOUSE_CARE_BENEFITS &quot;spouse_care_benefits&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define SPOUSE_AGE &quot;spouse_age&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structspouse__details.html">   16</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">char</span> spouse_name[1024];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">char</span> spouse_dob[20];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">double</span> spouse_net_income;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">char</span> spouse_sin[20];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">char</span> spouse_care_benefits[5];</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> spouse_age;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <a class="code" href="structspouse__details.html">spouse_details</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="spouse__details_8c.html#aed430d884bd818ea48f4d6dee62781bb">input_spouse_details</a>(<a class="code" href="structc_j_s_o_n.html">cJSON</a> *root);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif //GROUP_A_TAXFILINGSOFTWARE_SPOUSE_DETAILS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructc_j_s_o_n_html"><div class="ttname"><a href="structc_j_s_o_n.html">cJSON</a></div><div class="ttdef"><b>Definition:</b> <a href="c_j_s_o_n_8h_source.html#l00103">cJSON.h:104</a></div></div>
-<div class="ttc" id="astructspouse__details_html"><div class="ttname"><a href="structspouse__details.html">spouse_details</a></div><div class="ttdef"><b>Definition:</b> <a href="spouse__details_8h_source.html#l00013">spouse_details.h:13</a></div></div>
+<div class="ttc" id="astructspouse__details_html"><div class="ttname"><a href="structspouse__details.html">spouse_details</a></div><div class="ttdef"><b>Definition:</b> <a href="spouse__details_8h_source.html#l00016">spouse_details.h:16</a></div></div>
+<div class="ttc" id="aspouse__details_8c_html_aed430d884bd818ea48f4d6dee62781bb"><div class="ttname"><a href="spouse__details_8c.html#aed430d884bd818ea48f4d6dee62781bb">input_spouse_details</a></div><div class="ttdeci">int input_spouse_details(cJSON *root)</div><div class="ttdoc">Gets Spouse details from the user.</div><div class="ttdef"><b>Definition:</b> <a href="spouse__details_8c_source.html#l00023">spouse_details.c:23</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

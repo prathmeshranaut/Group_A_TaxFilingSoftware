@@ -1,0 +1,29 @@
+\hypertarget{group__subsystem}{}\doxysection{Simple P\+DF Generation}
+\label{group__subsystem}\index{Simple PDF Generation@{Simple PDF Generation}}
+Allows for quick generation of simple P\+DF documents. This is useful for producing easily printed output from C code, where advanced formatting is not required
+
+Note\+: All coordinates/sizes are in points (1/72 of an inch). All coordinates are based on 0,0 being the bottom left of the page. All colours are specified as a packed 32-\/bit value -\/ see \mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}. Text strings are interpreted as U\+T\+F-\/8 encoded, but only a small subset of characters beyond 7-\/bit ascii are supported (see \mbox{\hyperlink{pdfgen_8h_afd2de622b15e4ca5084922b445000e72}{pdf\+\_\+add\+\_\+text}} for details).
+
+\begin{DoxyParagraph}{P\+DF library example\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pdfgen_8h}{pdfgen.h}}"{}}}
+\DoxyCodeLine{ ...}
+\DoxyCodeLine{struct \mbox{\hyperlink{structpdf__info}{pdf\_info}} info = \{}
+\DoxyCodeLine{         .\mbox{\hyperlink{structpdf__info_a73616f175d6a216d0aab9814171d4186}{creator}} = \textcolor{stringliteral}{"{}My software"{}},}
+\DoxyCodeLine{         .producer = \textcolor{stringliteral}{"{}My software"{}},}
+\DoxyCodeLine{         .title = \textcolor{stringliteral}{"{}My document"{}},}
+\DoxyCodeLine{         .author = \textcolor{stringliteral}{"{}My name"{}},}
+\DoxyCodeLine{         .subject = \textcolor{stringliteral}{"{}My subject"{}},}
+\DoxyCodeLine{         .date = \textcolor{stringliteral}{"{}Today"{}}}
+\DoxyCodeLine{         \};}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structpdf__doc}{pdf\_doc}} *pdf = \mbox{\hyperlink{pdfgen_8h_a5f36f2534fa272b28e4a630fe165bfe8}{pdf\_create}}(\mbox{\hyperlink{pdfgen_8h_a86e54e7bcb56e610ca8cd44ce1f4047b}{PDF\_A4\_WIDTH}}, \mbox{\hyperlink{pdfgen_8h_aa6a977707a3049ef8af5fb7ffc23cbf5}{PDF\_A4\_HEIGHT}}, \&info);}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_a9df848d68915f7531183b74f34167b36}{pdf\_set\_font}}(pdf, \textcolor{stringliteral}{"{}Times-\/Roman"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_a4bf4422cc0b86496e6b9dcc8865c710c}{pdf\_append\_page}}(pdf);}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_afd2de622b15e4ca5084922b445000e72}{pdf\_add\_text}}(pdf, NULL, \textcolor{stringliteral}{"{}This is text"{}}, 12, 50, 20, \mbox{\hyperlink{pdfgen_8h_ab58c1407a99e90a0c574b15ae733061b}{PDF\_BLACK}});}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_aadd66080fe4651a648abe1b14b713979}{pdf\_add\_line}}(pdf, NULL, 50, 24, 150, 24);}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_ae5df962f7d14871d02ac588cb46628fd}{pdf\_save}}(pdf, \textcolor{stringliteral}{"{}output.pdf"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{pdfgen_8h_a834ce8588a19cc0aee7c57e46a98034a}{pdf\_destroy}}(pdf);}
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}

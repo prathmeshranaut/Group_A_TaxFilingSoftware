@@ -13,13 +13,14 @@
 #define MAILING_CONTACT_NUMBER "contact_number"
 
 typedef struct {
-	char street_number[32];
-	char street_name[32];
-	char city[32];
-	char province[32];
-	char postal_code[8];
-	char contact_number[20];
+    char street_number[32];
+    char street_name[32];
+    char city[32];
+    char province[32];
+    char postal_code[8];
+    char contact_number[20];
 } mailing_address;
 
-int input_mailing_address(cJSON* root);
+int input_mailing_address(cJSON *root);
+
 #endif //GROUP_A_TAXFILINGSOFTWARE_MAILING_ADDRESS_H

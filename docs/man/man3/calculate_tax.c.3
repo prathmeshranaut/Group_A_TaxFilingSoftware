@@ -1,0 +1,61 @@
+.TH "src/calculate_tax.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/calculate_tax.c \- Contains the definition for calculating basic tax\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'headers/calculate_tax\&.h'\fP
+.br
+\fC#include 'headers/t4\&.h'\fP
+.br
+\fC#include 'headers/t2202\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcalculate_tax\fP (\fBcJSON\fP *root)"
+.br
+.RI "Contains the definition for calculating basic tax\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for calculating basic tax\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Ragunath Anbarasu 
+.RE
+.PP
+
+.PP
+Definition in file \fBcalculate_tax\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int calculate_tax (\fBcJSON\fP * root)"
+
+.PP
+Contains the definition for calculating basic tax\&. @detail Uses the details collected before to calcualte the tax
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file calculate_tax\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

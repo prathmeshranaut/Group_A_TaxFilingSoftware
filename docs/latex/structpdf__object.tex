@@ -1,0 +1,56 @@
+\hypertarget{structpdf__object}{}\doxysection{pdf\+\_\+object Struct Reference}
+\label{structpdf__object}\index{pdf\_object@{pdf\_object}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structpdf__object_a8f9d5725fcf6c3d36f25dc56bf33c9bd}\label{structpdf__object_a8f9d5725fcf6c3d36f25dc56bf33c9bd}} 
+int {\bfseries type}
+\item 
+\mbox{\Hypertarget{structpdf__object_a5f624c39fc28b52d3eab6b3d88b6efe0}\label{structpdf__object_a5f624c39fc28b52d3eab6b3d88b6efe0}} 
+int {\bfseries index}
+\item 
+\mbox{\Hypertarget{structpdf__object_aaf6d072a01e2f6711902a54b0abfdcf4}\label{structpdf__object_aaf6d072a01e2f6711902a54b0abfdcf4}} 
+int {\bfseries offset}
+\item 
+\mbox{\Hypertarget{structpdf__object_a48c22d0c260164dccd28a5d29be36fd3}\label{structpdf__object_a48c22d0c260164dccd28a5d29be36fd3}} 
+struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$ {\bfseries prev}
+\item 
+\mbox{\Hypertarget{structpdf__object_a076e0b9f2aeffbe609242ccbda77a7c0}\label{structpdf__object_a076e0b9f2aeffbe609242ccbda77a7c0}} 
+struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$ {\bfseries next}
+\item 
+\mbox{\Hypertarget{structpdf__object_af86f74a5f78a1f39dd2957d93823de66}\label{structpdf__object_af86f74a5f78a1f39dd2957d93823de66}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>struct \mbox{\hyperlink{structpdf__object}{pdf\_object}} $\ast$ {\bfseries page}\\
+\>\>char {\bfseries name} \mbox{[}64\mbox{]}\\
+\>\>struct \mbox{\hyperlink{structpdf__object}{pdf\_object}} $\ast$ {\bfseries parent}\\
+\>\>struct \mbox{\hyperlink{structflexarray}{flexarray}} {\bfseries children}\\
+\>\} {\bfseries bookmark}\\
+\>struct \mbox{\hyperlink{structdstr}{dstr}} {\bfseries stream}\\
+\>struct \{\\
+\>\>float {\bfseries width}\\
+\>\>float {\bfseries height}\\
+\>\>struct \mbox{\hyperlink{structflexarray}{flexarray}} {\bfseries children}\\
+\>\} {\bfseries page}\\
+\>struct \mbox{\hyperlink{structpdf__info}{pdf\_info}} $\ast$ {\bfseries info}\\
+\>struct \{\\
+\>\>char {\bfseries name} \mbox{[}64\mbox{]}\\
+\>\>int {\bfseries index}\\
+\>\} {\bfseries font}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 183 of file pdfgen.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/pdfgen.\+c\end{DoxyCompactItemize}

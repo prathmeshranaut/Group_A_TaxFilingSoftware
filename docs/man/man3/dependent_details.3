@@ -1,4 +1,4 @@
-.TH "dependent_details" 3 "Thu Dec 3 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.TH "dependent_details" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,21 +16,24 @@ dependent_details
 .RI "char \fBrelationship\fP [20]"
 .br
 .ti -1c
-.RI "char \fBdependent_dob\fP [10]"
+.RI "char \fBdisability\fP [5]"
 .br
 .ti -1c
-.RI "double \fBnet_income\fP"
+.RI "char \fBclaim_child_care_benefits\fP [5]"
 .br
 .ti -1c
-.RI "char \fBdisability\fP [40]"
+.RI "double \fBdependent_net_income\fP"
 .br
 .ti -1c
-.RI "char \fBclaim_child_care_benefits\fP [10]"
+.RI "char \fBdependent_dob\fP [20]"
+.br
+.ti -1c
+.RI "int \fBdependent_age\fP"
 .br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line 14 of file dependent_details\&.h\&.
+Definition at line 16 of file dependent_details\&.h\&.
 
 .SH "Author"
 .PP 

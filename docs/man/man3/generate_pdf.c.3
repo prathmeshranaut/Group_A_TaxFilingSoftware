@@ -1,0 +1,83 @@
+.TH "src/generate_pdf.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/generate_pdf.c \- Generate the PDF\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'headers/generate_pdf\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgenerate_pdf\fP (\fBcJSON\fP *root)"
+.br
+.RI "Generates the PDF file from tax data\&. "
+.ti -1c
+.RI "void \fBadd_long_to_pdf\fP (\fBcJSON\fP *object, char *key, char *name, struct \fBpdf_doc\fP *pdf, int *y_offset)"
+.br
+.ti -1c
+.RI "void \fBadd_string_to_pdf\fP (\fBcJSON\fP *object, char *key, char *name, struct \fBpdf_doc\fP *pdf, int *y_offset)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Generate the PDF\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Prathmesh Ranaut 
+.RE
+.PP
+
+.PP
+Definition in file \fBgenerate_pdf\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int generate_pdf (\fBcJSON\fP * root)"
+
+.PP
+Generates the PDF file from tax data\&. @detail Uses the JSON root object to generate a PDF for the user so he can easily verify and keep details for future
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+Personal Details
+.PP
+Mailing Address
+.PP
+Primary Residence
+.PP
+Entry Status
+.PP
+World Income (Long)
+.PP
+Martial Status
+.PP
+T4 Details
+.PP
+T2202 Details
+.PP
+Tax calculate Details
+.PP
+Ontario Trillium Benefits Details
+.PP
+GST/HST Details
+.PP
+Definition at line 19 of file generate_pdf\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

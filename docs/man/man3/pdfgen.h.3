@@ -1,0 +1,1065 @@
+.TH "include/pdfgen.h" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pdfgen.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpdf_info\fP"
+.br
+.ti -1c
+.RI "struct \fBpdf_path_operation\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPDF_INCH_TO_POINT\fP(inch)   ((float)((inch)*72\&.0f))"
+.br
+.ti -1c
+.RI "#define \fBPDF_MM_TO_POINT\fP(mm)   ((float)((mm)*72\&.0f / 25\&.4f))"
+.br
+.ti -1c
+.RI "#define \fBPDF_LETTER_WIDTH\fP   \fBPDF_INCH_TO_POINT\fP(8\&.5f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_LETTER_HEIGHT\fP   \fBPDF_INCH_TO_POINT\fP(11\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_A4_WIDTH\fP   \fBPDF_MM_TO_POINT\fP(210\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_A4_HEIGHT\fP   \fBPDF_MM_TO_POINT\fP(297\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_A3_WIDTH\fP   \fBPDF_MM_TO_POINT\fP(297\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_A3_HEIGHT\fP   \fBPDF_MM_TO_POINT\fP(420\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBPDF_RGB\fP(r,  g,  b)       (uint32_t)((((r)&0xff) << 16) | (((g)&0xff) << 8) | (((b)&0xff)))"
+.br
+.ti -1c
+.RI "#define \fBPDF_ARGB\fP(a,  r,  g,  b)"
+.br
+.ti -1c
+.RI "#define \fBPDF_RED\fP   \fBPDF_RGB\fP(0xff, 0, 0)"
+.br
+.ti -1c
+.RI "#define \fBPDF_GREEN\fP   \fBPDF_RGB\fP(0, 0xff, 0)"
+.br
+.ti -1c
+.RI "#define \fBPDF_BLUE\fP   \fBPDF_RGB\fP(0, 0, 0xff)"
+.br
+.ti -1c
+.RI "#define \fBPDF_BLACK\fP   \fBPDF_RGB\fP(0, 0, 0)"
+.br
+.ti -1c
+.RI "#define \fBPDF_WHITE\fP   \fBPDF_RGB\fP(0xff, 0xff, 0xff)"
+.br
+.ti -1c
+.RI "#define \fBPDF_TRANSPARENT\fP   (uint32_t)(0xffu << 24)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBOBJ_none\fP, \fBOBJ_info\fP, \fBOBJ_stream\fP, \fBOBJ_font\fP, \fBOBJ_page\fP, \fBOBJ_bookmark\fP, \fBOBJ_outline\fP, \fBOBJ_catalog\fP, \fBOBJ_pages\fP, \fBOBJ_image\fP, \fBOBJ_count\fP, \fBPDF_ALIGN_LEFT\fP, \fBPDF_ALIGN_RIGHT\fP, \fBPDF_ALIGN_CENTER\fP, \fBPDF_ALIGN_JUSTIFY\fP, \fBPDF_ALIGN_JUSTIFY_ALL\fP, \fBPDF_ALIGN_NO_WRITE\fP }"
+.br
+.ti -1c
+.RI "enum { \fBPDF_BARCODE_128A\fP, \fBPDF_BARCODE_39\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpdf_doc\fP * \fBpdf_create\fP (float width, float height, const struct \fBpdf_info\fP *info)"
+.br
+.ti -1c
+.RI "void \fBpdf_destroy\fP (struct \fBpdf_doc\fP *pdf)"
+.br
+.ti -1c
+.RI "const char * \fBpdf_get_err\fP (const struct \fBpdf_doc\fP *pdf, int *errval)"
+.br
+.ti -1c
+.RI "void \fBpdf_clear_err\fP (struct \fBpdf_doc\fP *pdf)"
+.br
+.ti -1c
+.RI "int \fBpdf_set_font\fP (struct \fBpdf_doc\fP *pdf, const char *font)"
+.br
+.ti -1c
+.RI "int \fBpdf_get_font_text_width\fP (struct \fBpdf_doc\fP *pdf, const char *font_name, const char *text, float size, float *text_width)"
+.br
+.ti -1c
+.RI "float \fBpdf_height\fP (const struct \fBpdf_doc\fP *pdf)"
+.br
+.ti -1c
+.RI "float \fBpdf_width\fP (const struct \fBpdf_doc\fP *pdf)"
+.br
+.ti -1c
+.RI "struct \fBpdf_object\fP * \fBpdf_append_page\fP (struct \fBpdf_doc\fP *pdf)"
+.br
+.ti -1c
+.RI "int \fBpdf_page_set_size\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float width, float height)"
+.br
+.ti -1c
+.RI "int \fBpdf_save\fP (struct \fBpdf_doc\fP *pdf, const char *filename)"
+.br
+.ti -1c
+.RI "int \fBpdf_save_file\fP (struct \fBpdf_doc\fP *pdf, FILE *fp)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_text\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, const char *text, float size, float xoff, float yoff, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_text_wrap\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, const char *text, float size, float xoff, float yoff, uint32_t colour, float wrap_width, int align, float *height)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_line\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x1, float y1, float x2, float y2, float width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_cubic_bezier\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x1, float y1, float x2, float y2, float xq1, float yq1, float xq2, float yq2, float width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_quadratic_bezier\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x1, float y1, float x2, float y2, float xq1, float yq1, float width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_custom_path\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, struct \fBpdf_path_operation\fP *operations, int operation_count, float stroke_width, uint32_t stroke_colour, uint32_t fill_colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_ellipse\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float xradius, float yradius, float width, uint32_t colour, uint32_t fill_colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_circle\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float radius, float width, uint32_t colour, uint32_t fill_colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_rectangle\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float width, float height, float border_width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_filled_rectangle\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float width, float height, float border_width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_polygon\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x[], float y[], int count, float border_width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_filled_polygon\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x[], float y[], int count, float border_width, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_bookmark\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, int parent, const char *name)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_barcode\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, int code, float x, float y, float width, float height, const char *string, uint32_t colour)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_ppm\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float display_width, float display_height, const char *ppm_file)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_jpeg\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float display_width, float display_height, const char *jpeg_file)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_jpeg_data\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float display_width, float display_height, const unsigned char *jpeg_data, size_t len)"
+.br
+.ti -1c
+.RI "int \fBpdf_add_rgb24\fP (struct \fBpdf_doc\fP *pdf, struct \fBpdf_object\fP *page, float x, float y, float display_width, float display_height, const uint8_t *data, unsigned width, unsigned height)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Simple engine for creating PDF files\&. It supports text, shapes, images etc\&.\&.\&. Capable of handling millions of objects without too much performance penalty\&. Public domain license - no warrenty implied; use at your own risk\&. 
+.PP
+Definition in file \fBpdfgen\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PDF_A3_HEIGHT   \fBPDF_MM_TO_POINT\fP(420\&.0f)"
+Point height of a standard A3 page 
+.PP
+Definition at line 120 of file pdfgen\&.h\&.
+.SS "#define PDF_A3_WIDTH   \fBPDF_MM_TO_POINT\fP(297\&.0f)"
+Point width of a standard A3 page 
+.PP
+Definition at line 117 of file pdfgen\&.h\&.
+.SS "#define PDF_A4_HEIGHT   \fBPDF_MM_TO_POINT\fP(297\&.0f)"
+Point height of a standard A4 page 
+.PP
+Definition at line 114 of file pdfgen\&.h\&.
+.SS "#define PDF_A4_WIDTH   \fBPDF_MM_TO_POINT\fP(210\&.0f)"
+Point width of a standard A4 page 
+.PP
+Definition at line 111 of file pdfgen\&.h\&.
+.SS "#define PDF_ARGB(a, r, g, b)"
+\fBValue:\fP
+.PP
+.nf
+    (uint32_t)(((uint32_t)((a)&0xff) << 24) | (((r)&0xff) << 16) |           \
+               (((g)&0xff) << 8) | (((b)&0xff)))
+.fi
+Convert four 8-bit ARGB values into a single packed 32-bit colour\&. These 32-bit colours are used by various functions in PDFGen\&. Alpha values range from 0 (opaque) to 0xff (transparent) 
+.PP
+Definition at line 136 of file pdfgen\&.h\&.
+.SS "#define PDF_BLACK   \fBPDF_RGB\fP(0, 0, 0)"
+Utility macro to provide black 
+.PP
+Definition at line 150 of file pdfgen\&.h\&.
+.SS "#define PDF_BLUE   \fBPDF_RGB\fP(0, 0, 0xff)"
+Utility macro to provide bright blue 
+.PP
+Definition at line 147 of file pdfgen\&.h\&.
+.SS "#define PDF_GREEN   \fBPDF_RGB\fP(0, 0xff, 0)"
+Utility macro to provide bright green 
+.PP
+Definition at line 144 of file pdfgen\&.h\&.
+.SS "#define PDF_INCH_TO_POINT(inch)   ((float)((inch)*72\&.0f))"
+Convert a value in inches into a number of points\&. Always returns an integer value 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinch\fP inches value to convert to points 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file pdfgen\&.h\&.
+.SS "#define PDF_LETTER_HEIGHT   \fBPDF_INCH_TO_POINT\fP(11\&.0f)"
+Point height of a standard US-Letter page 
+.PP
+Definition at line 108 of file pdfgen\&.h\&.
+.SS "#define PDF_LETTER_WIDTH   \fBPDF_INCH_TO_POINT\fP(8\&.5f)"
+Point width of a standard US-Letter page 
+.PP
+Definition at line 105 of file pdfgen\&.h\&.
+.SS "#define PDF_MM_TO_POINT(mm)   ((float)((mm)*72\&.0f / 25\&.4f))"
+Convert a value in milli-meters into a number of points\&. Always returns an integer value 
+.PP
+\fBParameters\fP
+.RS 4
+\fImm\fP millimeter value to convert to points 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file pdfgen\&.h\&.
+.SS "#define PDF_RED   \fBPDF_RGB\fP(0xff, 0, 0)"
+Utility macro to provide bright red 
+.PP
+Definition at line 141 of file pdfgen\&.h\&.
+.SS "#define PDF_RGB(r, g, b)       (uint32_t)((((r)&0xff) << 16) | (((g)&0xff) << 8) | (((b)&0xff)))"
+Convert three 8-bit RGB values into a single packed 32-bit colour\&. These 32-bit colours are used by various functions in PDFGen 
+.PP
+Definition at line 127 of file pdfgen\&.h\&.
+.SS "#define PDF_TRANSPARENT   (uint32_t)(0xffu << 24)"
+Utility macro to provide a transparent colour This is used in some places for 'fill' colours, where no fill is required 
+.PP
+Definition at line 159 of file pdfgen\&.h\&.
+.SS "#define PDF_WHITE   \fBPDF_RGB\fP(0xff, 0xff, 0xff)"
+Utility macro to provide white 
+.PP
+Definition at line 153 of file pdfgen\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+Different alignment options for rendering text 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPDF_ALIGN_LEFT \fP\fP
+Align text to the left\&. 
+.TP
+\fB\fIPDF_ALIGN_RIGHT \fP\fP
+Align text to the right\&. 
+.TP
+\fB\fIPDF_ALIGN_CENTER \fP\fP
+Align text in the center\&. 
+.TP
+\fB\fIPDF_ALIGN_JUSTIFY \fP\fP
+available space Align text in the center, with padding to fill the 
+.TP
+\fB\fIPDF_ALIGN_JUSTIFY_ALL \fP\fP
+lines will be fully justified Like PDF_ALIGN_JUSTIFY, except even short 
+.TP
+\fB\fIPDF_ALIGN_NO_WRITE \fP\fP
+no writes Fake alignment for only checking wrap height with 
+.PP
+Definition at line 164 of file pdfgen\&.h\&.
+.SS "anonymous enum"
+List of different barcode encodings that are supported 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPDF_BARCODE_128A \fP\fP
+Produce code-128A style barcodes\&. 
+.TP
+\fB\fIPDF_BARCODE_39 \fP\fP
+Produce code-39 style barcodes\&. 
+.PP
+Definition at line 504 of file pdfgen\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "int pdf_add_barcode (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, int code, float x, float y, float width, float height, const char * string, uint32_t colour)"
+Add a barcode to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add barcode to 
+.br
+\fIpage\fP Page to add barcode to (NULL => most recently added page) 
+.br
+\fIcode\fP Type of barcode to add (PDF_BARCODE_xxx) 
+.br
+\fIx\fP X offset to put barcode at 
+.br
+\fIy\fP Y offset to put barcode at 
+.br
+\fIwidth\fP Width of barcode 
+.br
+\fIheight\fP Height of barcode 
+.br
+\fIstring\fP Barcode contents 
+.br
+\fIcolour\fP Colour to draw barcode 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 2110 of file pdfgen\&.c\&.
+.SS "int pdf_add_bookmark (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, int parent, const char * name)"
+Add a bookmark to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add bookmark to 
+.br
+\fIpage\fP Page to jump to for bookmark (or NULL for the most recently added page) 
+.br
+\fIparent\fP ID of a previously created bookmark that is the parent of this one\&. -1 if this should be a top-level bookmark\&. 
+.br
+\fIname\fP String to associate with the bookmark 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, new bookmark id on success 
+.RE
+.PP
+
+.PP
+Definition at line 1057 of file pdfgen\&.c\&.
+.SS "int pdf_add_circle (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float radius, float width, uint32_t colour, uint32_t fill_colour)"
+Add a circle to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP X offset of the center of the circle 
+.br
+\fIy\fP Y offset of the center of the circle 
+.br
+\fIradius\fP Radius of the circle 
+.br
+\fIwidth\fP Width of the circle outline stroke 
+.br
+\fIcolour\fP Colour to draw the circle outline stroke 
+.br
+\fIfill_colour\fP Colour to fill the circle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1826 of file pdfgen\&.c\&.
+.SS "int pdf_add_cubic_bezier (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x1, float y1, float x2, float y2, float xq1, float yq1, float xq2, float yq2, float width, uint32_t colour)"
+Add a cubic bezier curve to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx1\fP X offset of the initial point of the curve 
+.br
+\fIy1\fP Y offset of the initial point of the curve 
+.br
+\fIx2\fP X offset of the final point of the curve 
+.br
+\fIy2\fP Y offset of the final point of the curve 
+.br
+\fIxq1\fP X offset of the first control point of the curve 
+.br
+\fIyq1\fP Y offset of the first control point of the curve 
+.br
+\fIxq2\fP X offset of the second control of the curve 
+.br
+\fIyq2\fP Y offset of the second control of the curve 
+.br
+\fIwidth\fP Width of the curve 
+.br
+\fIcolour\fP Colour to draw the curve 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1683 of file pdfgen\&.c\&.
+.SS "int pdf_add_custom_path (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, struct \fBpdf_path_operation\fP * operations, int operation_count, float stroke_width, uint32_t stroke_colour, uint32_t fill_colour)"
+Add a custom path to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIoperations\fP Array of drawing operations 
+.br
+\fIoperation_count\fP The number of operations 
+.br
+\fIstroke_width\fP Width of the stroke 
+.br
+\fIstroke_colour\fP Colour to stroke the curve 
+.br
+\fIfill_colour\fP Colour to fill the path 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1718 of file pdfgen\&.c\&.
+.SS "int pdf_add_ellipse (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float xradius, float yradius, float width, uint32_t colour, uint32_t fill_colour)"
+Add an ellipse to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP X offset of the center of the ellipse 
+.br
+\fIy\fP Y offset of the center of the ellipse 
+.br
+\fIxradius\fP Radius of the ellipse in the X axis 
+.br
+\fIyradius\fP Radius of the ellipse in the Y axis 
+.br
+\fIcolour\fP Colour to draw the ellipse outline stroke 
+.br
+\fIwidth\fP Width of the ellipse outline stroke 
+.br
+\fIfill_colour\fP Colour to fill the ellipse 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1777 of file pdfgen\&.c\&.
+.SS "int pdf_add_filled_polygon (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x[], float y[], int count, float border_width, uint32_t colour)"
+Add a filled polygon to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP array of X offsets of points comprising the polygon 
+.br
+\fIy\fP array of Y offsets of points comprising the polygon 
+.br
+\fIcount\fP Number of points comprising the polygon 
+.br
+\fIborder_width\fP Width of polygon border 
+.br
+\fIcolour\fP Colour to draw the polygon 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1891 of file pdfgen\&.c\&.
+.SS "int pdf_add_filled_rectangle (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float width, float height, float border_width, uint32_t colour)"
+Add a filled rectangle to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to start rectangle at 
+.br
+\fIy\fP Y offset to start rectangle at 
+.br
+\fIwidth\fP Width of rectangle 
+.br
+\fIheight\fP Height of rectangle 
+.br
+\fIborder_width\fP Width of rectangle border 
+.br
+\fIcolour\fP Colour to draw the rectangle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1852 of file pdfgen\&.c\&.
+.SS "int pdf_add_jpeg (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float display_width, float display_height, const char * jpeg_file)"
+Add a JPEG file as an image to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add JPEG to 
+.br
+\fIpage\fP Page to add JPEG to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to put JPEG at 
+.br
+\fIy\fP Y offset to put JPEG at 
+.br
+\fIdisplay_width\fP Displayed width of image 
+.br
+\fIdisplay_height\fP Displayed height of image 
+.br
+\fIjpeg_file\fP Filename of JPEG file to display 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 2368 of file pdfgen\&.c\&.
+.SS "int pdf_add_jpeg_data (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float display_width, float display_height, const unsigned char * jpeg_data, size_t len)"
+Add JPEG data as an image to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add JPEG to 
+.br
+\fIpage\fP Page to add JPEG to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to put JPEG at 
+.br
+\fIy\fP Y offset to put JPEG at 
+.br
+\fIdisplay_width\fP Displayed width of image 
+.br
+\fIdisplay_height\fP Displayed height of image 
+.br
+\fIjpeg_data\fP JPEG data to add 
+.br
+\fIlen\fP Length of JPEG data 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 2381 of file pdfgen\&.c\&.
+.SS "int pdf_add_line (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x1, float y1, float x2, float y2, float width, uint32_t colour)"
+Add a line to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx1\fP X offset of start of line 
+.br
+\fIy1\fP Y offset of start of line 
+.br
+\fIx2\fP X offset of end of line 
+.br
+\fIy2\fP Y offset of end of line 
+.br
+\fIwidth\fP Width of the line 
+.br
+\fIcolour\fP Colour to draw the line 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1664 of file pdfgen\&.c\&.
+.SS "int pdf_add_polygon (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x[], float y[], int count, float border_width, uint32_t colour)"
+Add an outline polygon to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP array of X offsets for points comprising the polygon 
+.br
+\fIy\fP array of Y offsets for points comprising the polygon 
+.br
+\fIcount\fP Number of points comprising the polygon 
+.br
+\fIborder_width\fP Width of polygon border 
+.br
+\fIcolour\fP Colour to draw the polygon 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1870 of file pdfgen\&.c\&.
+.SS "int pdf_add_ppm (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float display_width, float display_height, const char * ppm_file)"
+Add a PPM file as an image to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add PPM to 
+.br
+\fIpage\fP Page to add PPM to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to put PPM at 
+.br
+\fIy\fP Y offset to put PPM at 
+.br
+\fIdisplay_width\fP Displayed width of image 
+.br
+\fIdisplay_height\fP Displayed height of image 
+.br
+\fIppm_file\fP Filename of P6 (binary) ppm file to display 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 2293 of file pdfgen\&.c\&.
+.SS "int pdf_add_quadratic_bezier (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x1, float y1, float x2, float y2, float xq1, float yq1, float width, uint32_t colour)"
+Add a quadratic bezier curve to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx1\fP X offset of the initial point of the curve 
+.br
+\fIy1\fP Y offset of the initial point of the curve 
+.br
+\fIx2\fP X offset of the final point of the curve 
+.br
+\fIy2\fP Y offset of the final point of the curve 
+.br
+\fIxq1\fP X offset of the control point of the curve 
+.br
+\fIyq1\fP Y offset of the control point of the curve 
+.br
+\fIwidth\fP Width of the curve 
+.br
+\fIcolour\fP Colour to draw the curve 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1705 of file pdfgen\&.c\&.
+.SS "int pdf_add_rectangle (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float width, float height, float border_width, uint32_t colour)"
+Add an outline rectangle to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to start rectangle at 
+.br
+\fIy\fP Y offset to start rectangle at 
+.br
+\fIwidth\fP Width of rectangle 
+.br
+\fIheight\fP Height of rectangle 
+.br
+\fIborder_width\fP Width of rectangle border 
+.br
+\fIcolour\fP Colour to draw the rectangle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1834 of file pdfgen\&.c\&.
+.SS "int pdf_add_rgb24 (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float x, float y, float display_width, float display_height, const uint8_t * data, unsigned width, unsigned height)"
+Add a 24 bit per pixel RGB buffer as an image to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add image to 
+.br
+\fIpage\fP Page to add image to (NULL => most recently added page) 
+.br
+\fIx\fP X offset to put image at 
+.br
+\fIy\fP Y offset to put image at 
+.br
+\fIdisplay_width\fP Displayed width of image 
+.br
+\fIdisplay_height\fP Displayed height of image 
+.br
+\fIdata\fP RGB data to add 
+.br
+\fIwidth\fP width of image in pixels 
+.br
+\fIheight\fP height of image in pixels 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 2394 of file pdfgen\&.c\&.
+.SS "int pdf_add_text (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, const char * text, float size, float xoff, float yoff, uint32_t colour)"
+Add a text string to the document 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fItext\fP String to display 
+.br
+\fIsize\fP Point size of the font 
+.br
+\fIxoff\fP X location to put it in 
+.br
+\fIyoff\fP Y location to put it in 
+.br
+\fIcolour\fP Colour to draw the text 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, < 0 on failure 
+.RE
+.PP
+
+.PP
+Definition at line 1216 of file pdfgen\&.c\&.
+.SS "int pdf_add_text_wrap (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, const char * text, float size, float xoff, float yoff, uint32_t colour, float wrap_width, int align, float * height)"
+Add a text string to the document, making it wrap if it is too long 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to add to 
+.br
+\fIpage\fP Page to add object to (NULL => most recently added page) 
+.br
+\fItext\fP String to display 
+.br
+\fIsize\fP Point size of the font 
+.br
+\fIxoff\fP X location to put it in 
+.br
+\fIyoff\fP Y location to put it in 
+.br
+\fIcolour\fP Colour to draw the text 
+.br
+\fIwrap_width\fP Width at which to wrap the text 
+.br
+\fIalign\fP Text alignment (see PDF_ALIGN_xxx) 
+.br
+\fIheight\fP Store the final height of the wrapped text here (optional) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 1553 of file pdfgen\&.c\&.
+.SS "struct \fBpdf_object\fP* pdf_append_page (struct \fBpdf_doc\fP * pdf)"
+Add a new page to the given pdf 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to append page to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+new page object 
+.RE
+.PP
+
+.PP
+Definition at line 713 of file pdfgen\&.c\&.
+.SS "void pdf_clear_err (struct \fBpdf_doc\fP * pdf)"
+Acknowledge an outstanding pdf error 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP pdf document to clear the error message from 
+.RE
+.PP
+
+.PP
+Definition at line 475 of file pdfgen\&.c\&.
+.SS "struct \fBpdf_doc\fP* pdf_create (float width, float height, const struct \fBpdf_info\fP * info)"
+Create a new PDF object, with the given page width/height 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwidth\fP Width of the page 
+.br
+\fIheight\fP Height of the page 
+.br
+\fIinfo\fP Optional information to be put into the PDF header 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PDF document object, or NULL on failure 
+.RE
+.PP
+
+.PP
+Definition at line 577 of file pdfgen\&.c\&.
+.SS "void pdf_destroy (struct \fBpdf_doc\fP * pdf)"
+Destroy the pdf object, and all of its associated memory 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to clean up 
+.RE
+.PP
+
+.PP
+Definition at line 664 of file pdfgen\&.c\&.
+.SS "const char* pdf_get_err (const struct \fBpdf_doc\fP * pdf, int * errval)"
+Retrieve the error message if any operation fails 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP pdf document to retrieve error message from 
+.br
+\fIerrval\fP optional pointer to an integer to be set to the error code 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+NULL if no error message, string description of error otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 464 of file pdfgen\&.c\&.
+.SS "int pdf_get_font_text_width (struct \fBpdf_doc\fP * pdf, const char * font_name, const char * text, float size, float * text_width)"
+Calculate the width of a given string in the current font 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document 
+.br
+\fIfont_name\fP Name of the font to get the width of\&. This must be one of the standard PDF fonts: Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique, Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic, Times-BoldItalic, Symbol or ZapfDingbats 
+.br
+\fItext\fP Text to determine width of 
+.br
+\fIsize\fP Size of the text, in points 
+.br
+\fItext_width\fP area to store calculated width in 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 1532 of file pdfgen\&.c\&.
+.SS "float pdf_height (const struct \fBpdf_doc\fP * pdf)"
+Retrieves a PDF document height 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to get height of 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+height of PDF document (in points) 
+.RE
+.PP
+
+.PP
+Definition at line 659 of file pdfgen\&.c\&.
+.SS "int pdf_page_set_size (struct \fBpdf_doc\fP * pdf, struct \fBpdf_object\fP * page, float width, float height)"
+Adjust the width/height of a specific page 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document that the page belongs to 
+.br
+\fIpage\fP object returned from \fBpdf_append_page\fP 
+.br
+\fIwidth\fP Width of the page in points 
+.br
+\fIheight\fP Height of the page in points 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 728 of file pdfgen\&.c\&.
+.SS "int pdf_save (struct \fBpdf_doc\fP * pdf, const char * filename)"
+Save the given pdf document to the supplied filename\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to save 
+.br
+\fIfilename\fP Name of the file to store the PDF into (NULL for stdout) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 1008 of file pdfgen\&.c\&.
+.SS "int pdf_save_file (struct \fBpdf_doc\fP * pdf, FILE * fp)"
+Save the given pdf document to the given FILE output 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to save 
+.br
+\fIfp\fP FILE pointer to store the data into (must be writable) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, >= 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 958 of file pdfgen\&.c\&.
+.SS "int pdf_set_font (struct \fBpdf_doc\fP * pdf, const char * font)"
+Sets the font to use for text objects\&. Default value is Times-Roman if this function is not called\&. Note: The font selection should be done before text is output, and will remain until pdf_set_font is called again\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to update font on 
+.br
+\fIfont\fP New font to use\&. This must be one of the standard PDF fonts: Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique, Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic, Times-BoldItalic, Symbol or ZapfDingbats 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+< 0 on failure, 0 on success 
+.RE
+.PP
+
+.PP
+Definition at line 686 of file pdfgen\&.c\&.
+.SS "float pdf_width (const struct \fBpdf_doc\fP * pdf)"
+Retrieves a PDF document width 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpdf\fP PDF document to get width of 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+width of PDF document (in points) 
+.RE
+.PP
+
+.PP
+Definition at line 654 of file pdfgen\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

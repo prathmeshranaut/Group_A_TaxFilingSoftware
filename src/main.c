@@ -26,20 +26,20 @@
 #include "headers/generate_pdf.h"
 #include "headers/gst_hst.h"
 
- /** @brief Gets details and calculate tax from the user
-  *
-  * @detail Asks user to fill in the necessary details for calculation of tax and output a PDF file.
-  *
-  * @param
-  *
-  * @return 0 in case of success or 1 in case of failure
-  * */
+/** @brief Gets details and calculate tax from the user
+ *
+ * @detail Asks user to fill in the necessary details for calculation of tax and output a PDF file.
+ *
+ * @param
+ *
+ * @return 0 in case of success or 1 in case of failure
+ * */
 
 int main(void) {
     //Declaring and initializing variabless
     int attempt, max_attempt = 5;
-    char choice,save;
-	save = 'y';
+    char choice, save;
+    save = 'y';
     topmenu:
 
     printf("\t\t#######################################################################################\n");
@@ -60,7 +60,7 @@ int main(void) {
     } while (choice != 'a' && choice != 'b' && choice != 'c' && attempt <= max_attempt);
     switch (choice) {
         case 'a':
-			printf("\n\n\t\t\t\t\tFile New Tax\n\n\n");
+            printf("\n\n\t\t\t\t\tFile New Tax\n\n\n");
             cJSON *root = cJSON_CreateObject();
             input_new_taxfile(root); //Get basic details from user
             input_mailing_address(root); //Get mailing details from user
@@ -70,27 +70,27 @@ int main(void) {
             input_maritial_status(root); //Get maritial status details from user
             input_t4_details(root); //Get t4 details from user
             input_t2202_details(root); //Get t2202 details from user
-			input_spouse_details(root); //Get spouse details from user
-			input_dependent_details(root); //Get dependent details from user
-			input_ot_benefits(root); //Get OTB details from user
-			calcualte_otbenefits(root);//Calculate OTB 
-			calculate_gst_hst_benefits(root); //Add GST/HST benifits
-			//child_benifits(root); // Not included          
+            input_spouse_details(root); //Get spouse details from user
+            input_dependent_details(root); //Get dependent details from user
+            input_ot_benefits(root); //Get OTB details from user
+            calcualte_otbenefits(root);//Calculate OTB
+            calculate_gst_hst_benefits(root); //Add GST/HST benifits
+            //child_benifits(root); // Not included
             calculate_tax(root); //Calculate tax of user
             //print_json(root); // display JSON details (developer feature)
             create_new_taxfile(root); //Write details to JSON file
             display_tax_summary(root);
-			printf("\n\n\t\t\tDo you want to save the summary as PDF ? (y/n) : ");
-			scanf(" %c", &save);
-			if (save == 'y') {
-				printf("\n\t\t\tFile tax_details.pdf generated\n");
-				generate_pdf(root);
-			}				
+            printf("\n\n\t\t\tDo you want to save the summary as PDF ? (y/n) : ");
+            scanf(" %c", &save);
+            if (save == 'y') {
+                printf("\n\t\t\tFile tax_details.pdf generated\n");
+                generate_pdf(root);
+            }
             cJSON_Delete(root);
             goto topmenu;
             break;
         case 'b':
-			/*printf("\t\t\t\tGuide\n\n\n");*/
+            /*printf("\t\t\t\tGuide\n\n\n");*/
             /* Guide menu */
             display_guide();
             goto menu;
@@ -105,7 +105,7 @@ int main(void) {
     }
 
 
- exit:
+    exit:
     printf("\t\t#######################################################################################\n");
     printf("\n\n\t\t\t\t\tThankyou for using Tax Filing Software\n\n\n");
     printf("\t\t#######################################################################################\n");

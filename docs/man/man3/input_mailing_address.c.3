@@ -1,0 +1,68 @@
+.TH "src/input_mailing_address.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/input_mailing_address.c \- Contains the definition for getting users Mailing address details\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'headers/mailing_address\&.h'\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'headers/commons\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_RETRIES\fP   3"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBinput_mailing_address\fP (\fBcJSON\fP *root)"
+.br
+.RI "Gets Mailing address details from the user\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for getting users Mailing address details\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Ragunath Anbarasu 
+.RE
+.PP
+
+.PP
+Definition in file \fBinput_mailing_address\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int input_mailing_address (\fBcJSON\fP * root)"
+
+.PP
+Gets Mailing address details from the user\&. @detail Asks user to fill in details of their mailing address so that can be used in calculation of tax
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file input_mailing_address\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

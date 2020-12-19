@@ -1,0 +1,54 @@
+\hypertarget{spouse__details_8c}{}\doxysection{src/spouse\+\_\+details.c File Reference}
+\label{spouse__details_8c}\index{src/spouse\_details.c@{src/spouse\_details.c}}
+
+
+Contains the definition for getting users spouse details.  
+
+
+{\ttfamily \#include \char`\"{}headers/spouse\+\_\+details.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/commons.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{spouse__details_8c_aecf13b8dc783db2202ca5c34fe117fc3}\label{spouse__details_8c_aecf13b8dc783db2202ca5c34fe117fc3}} 
+\#define {\bfseries M\+A\+X\+\_\+\+R\+E\+T\+R\+I\+ES}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{spouse__details_8c_aed430d884bd818ea48f4d6dee62781bb}{input\+\_\+spouse\+\_\+details}} (\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em Gets Spouse details from the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the definition for getting users spouse details. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{spouse__details_8c_aed430d884bd818ea48f4d6dee62781bb}\label{spouse__details_8c_aed430d884bd818ea48f4d6dee62781bb}} 
+\index{spouse\_details.c@{spouse\_details.c}!input\_spouse\_details@{input\_spouse\_details}}
+\index{input\_spouse\_details@{input\_spouse\_details}!spouse\_details.c@{spouse\_details.c}}
+\doxysubsubsection{\texorpdfstring{input\_spouse\_details()}{input\_spouse\_details()}}
+{\footnotesize\ttfamily int input\+\_\+spouse\+\_\+details (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structc_j_s_o_n}{c\+J\+S\+ON}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+Gets Spouse details from the user. 
+
+@detail Asks user to fill in thier spouse details so that can be used in calculation of tax
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em J\+S\+ON} & root element\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 in case of success or 1 in case of failure 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file spouse\+\_\+details.\+c.
+

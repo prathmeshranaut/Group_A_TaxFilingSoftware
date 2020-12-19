@@ -2,13 +2,11 @@
 #define GROUP_A_TAXFILINGSOFTWARE_COMMONS_H
 
 
-
 typedef struct {
-	int year;
-	int month;
-	int day;
-}MYDAY;
-
+    int year;
+    int month;
+    int day;
+} MYDAY;
 
 
 #define DOUBLE_VALUE_INPUT(variable) { \
@@ -35,15 +33,26 @@ typedef struct {
     } \
 }
 
-void print_json(cJSON* root);
-int spc_email_isvalid(const char* address);
-int string_isvalid(const char* address);
-int sin_isvalid(const char* address);
+void print_json(cJSON *root);
+
+int spc_email_isvalid(const char *address);
+
+int string_isvalid(const char *address);
+
+int sin_isvalid(const char *address);
+
 int validate_date(MYDAY md);
-char* struct2str(MYDAY md);
+
+char *struct2str(MYDAY md);
+
 int find_age(MYDAY md);
-int string_isyn(const char* address);
-int phone_isvalid(const char* address);
-int zip_isvalid(const char* address);
-int number_isvalid(const char* address);
+
+int string_isyn(const char *address);
+
+int phone_isvalid(const char *address);
+
+int zip_isvalid(const char *address);
+
+int number_isvalid(const char *address);
+
 #endif //GROUP_A_TAXFILINGSOFTWARE_COMMONS_H

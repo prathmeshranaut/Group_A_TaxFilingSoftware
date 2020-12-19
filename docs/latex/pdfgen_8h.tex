@@ -1,0 +1,1194 @@
+\hypertarget{pdfgen_8h}{}\doxysection{include/pdfgen.h File Reference}
+\label{pdfgen_8h}\index{include/pdfgen.h@{include/pdfgen.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpdf__info}{pdf\+\_\+info}}
+\item 
+struct \mbox{\hyperlink{structpdf__path__operation}{pdf\+\_\+path\+\_\+operation}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}{P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(inch)~((float)((inch)$\ast$72.\+0f))
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(mm)~((float)((mm)$\ast$72.\+0f / 25.\+4f))
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a2afd5069769d1f46db959014a685d171}{P\+D\+F\+\_\+\+L\+E\+T\+T\+E\+R\+\_\+\+W\+I\+D\+TH}}~\mbox{\hyperlink{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}{P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(8.\+5f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_adcd2c4864846503b8b2c847b0eea6990}{P\+D\+F\+\_\+\+L\+E\+T\+T\+E\+R\+\_\+\+H\+E\+I\+G\+HT}}~\mbox{\hyperlink{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}{P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(11.\+0f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a86e54e7bcb56e610ca8cd44ce1f4047b}{P\+D\+F\+\_\+\+A4\+\_\+\+W\+I\+D\+TH}}~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(210.\+0f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_aa6a977707a3049ef8af5fb7ffc23cbf5}{P\+D\+F\+\_\+\+A4\+\_\+\+H\+E\+I\+G\+HT}}~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(297.\+0f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a6d5cba977f4522bd42708ec0f40873ad}{P\+D\+F\+\_\+\+A3\+\_\+\+W\+I\+D\+TH}}~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(297.\+0f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_ad46a4a61c3500d61038f7253a0897945}{P\+D\+F\+\_\+\+A3\+\_\+\+H\+E\+I\+G\+HT}}~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(420.\+0f)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(r,  g,  b)~    (uint32\+\_\+t)((((r)\&0xff) $<$$<$ 16) $\vert$ (((g)\&0xff) $<$$<$ 8) $\vert$ (((b)\&0xff)))
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a76e8ae832b30717790ab632e1ab38653}{P\+D\+F\+\_\+\+A\+R\+GB}}(a,  r,  g,  b)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a438cd5b3386556df61bce1af6b386b5f}{P\+D\+F\+\_\+\+R\+ED}}~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0xff, 0, 0)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_add3f7a28dca15b964590d42079162b44}{P\+D\+F\+\_\+\+G\+R\+E\+EN}}~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0xff, 0)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a8673f02bfba1b4f37777cfa909051dee}{P\+D\+F\+\_\+\+B\+L\+UE}}~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0, 0xff)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_ab58c1407a99e90a0c574b15ae733061b}{P\+D\+F\+\_\+\+B\+L\+A\+CK}}~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0, 0)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a1b3bd3d45eafa4a56c07c905a9ab11de}{P\+D\+F\+\_\+\+W\+H\+I\+TE}}~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0xff, 0xff, 0xff)
+\item 
+\#define \mbox{\hyperlink{pdfgen_8h_a351d3678a4d86794aa07d4233a5db838}{P\+D\+F\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+NT}}~(uint32\+\_\+t)(0xffu $<$$<$ 24)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+{\bfseries O\+B\+J\+\_\+none}, 
+{\bfseries O\+B\+J\+\_\+info}, 
+{\bfseries O\+B\+J\+\_\+stream}, 
+{\bfseries O\+B\+J\+\_\+font}, 
+\newline
+{\bfseries O\+B\+J\+\_\+page}, 
+{\bfseries O\+B\+J\+\_\+bookmark}, 
+{\bfseries O\+B\+J\+\_\+outline}, 
+{\bfseries O\+B\+J\+\_\+catalog}, 
+\newline
+{\bfseries O\+B\+J\+\_\+pages}, 
+{\bfseries O\+B\+J\+\_\+image}, 
+{\bfseries O\+B\+J\+\_\+count}, 
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55bac0f2d0c8c4b08d6b9b6cee05c52544b0}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+L\+E\+FT}}, 
+\newline
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa55c011c9760ba04d5ef3a1f585c2ea5}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+R\+I\+G\+HT}}, 
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa359cce335b1665ea4fcd34695d71c33}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+C\+E\+N\+T\+ER}}, 
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba087425f3df88a38dc72e7a1bc4b0b1d7}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+J\+U\+S\+T\+I\+FY}}, 
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba659f42819313c89145136d366c1dbfb8}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+J\+U\+S\+T\+I\+F\+Y\+\_\+\+A\+LL}}, 
+\newline
+\mbox{\hyperlink{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baf07ed799ebddfcfbd485be58f7797d29}{P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+N\+O\+\_\+\+W\+R\+I\+TE}}
+ \}
+\item 
+enum \{ \mbox{\hyperlink{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1ee6b31a8d34e9b1971d2423efe09be0}{P\+D\+F\+\_\+\+B\+A\+R\+C\+O\+D\+E\+\_\+128A}}, 
+\mbox{\hyperlink{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1870b82d709ee2ed2a1da392fe007b19}{P\+D\+F\+\_\+\+B\+A\+R\+C\+O\+D\+E\+\_\+39}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$ \mbox{\hyperlink{pdfgen_8h_a5f36f2534fa272b28e4a630fe165bfe8}{pdf\+\_\+create}} (float width, float height, const struct \mbox{\hyperlink{structpdf__info}{pdf\+\_\+info}} $\ast$info)
+\item 
+void \mbox{\hyperlink{pdfgen_8h_a834ce8588a19cc0aee7c57e46a98034a}{pdf\+\_\+destroy}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf)
+\item 
+const char $\ast$ \mbox{\hyperlink{pdfgen_8h_a26d553f4f2c645c6fe99dd98a53047fa}{pdf\+\_\+get\+\_\+err}} (const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, int $\ast$errval)
+\item 
+void \mbox{\hyperlink{pdfgen_8h_ae3e3a979e6c58242511ca0aa2178b5d6}{pdf\+\_\+clear\+\_\+err}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a9df848d68915f7531183b74f34167b36}{pdf\+\_\+set\+\_\+font}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, const char $\ast$font)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_ae2a8638913b2f6ebf27077ab430cebd4}{pdf\+\_\+get\+\_\+font\+\_\+text\+\_\+width}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, const char $\ast$font\+\_\+name, const char $\ast$text, float size, float $\ast$text\+\_\+width)
+\item 
+float \mbox{\hyperlink{pdfgen_8h_ab164b4690d53d5e9b175fbbd653984d0}{pdf\+\_\+height}} (const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf)
+\item 
+float \mbox{\hyperlink{pdfgen_8h_a12efde46afeb7fafb6d639fcc786a29d}{pdf\+\_\+width}} (const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf)
+\item 
+struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$ \mbox{\hyperlink{pdfgen_8h_a4bf4422cc0b86496e6b9dcc8865c710c}{pdf\+\_\+append\+\_\+page}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_abff0332e416bfd72f9d9f1010ebec1a7}{pdf\+\_\+page\+\_\+set\+\_\+size}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float width, float height)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_ae5df962f7d14871d02ac588cb46628fd}{pdf\+\_\+save}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, const char $\ast$filename)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a4d87845799d75ac5c6db81593f681068}{pdf\+\_\+save\+\_\+file}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, F\+I\+LE $\ast$fp)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_afd2de622b15e4ca5084922b445000e72}{pdf\+\_\+add\+\_\+text}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, const char $\ast$text, float size, float xoff, float yoff, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_ac7f386e09b59074c8bd3e0429dd04e2f}{pdf\+\_\+add\+\_\+text\+\_\+wrap}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, const char $\ast$text, float size, float xoff, float yoff, uint32\+\_\+t colour, float wrap\+\_\+width, int align, float $\ast$height)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_aadd66080fe4651a648abe1b14b713979}{pdf\+\_\+add\+\_\+line}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x1, float y1, float x2, float y2, float width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a7adf4835ea0630cf4c8c192c26437021}{pdf\+\_\+add\+\_\+cubic\+\_\+bezier}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x1, float y1, float x2, float y2, float xq1, float yq1, float xq2, float yq2, float width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a659e5239430447c6425c238a574962c9}{pdf\+\_\+add\+\_\+quadratic\+\_\+bezier}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x1, float y1, float x2, float y2, float xq1, float yq1, float width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a3f976010679d276ddf530b2e95a2dc7c}{pdf\+\_\+add\+\_\+custom\+\_\+path}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, struct \mbox{\hyperlink{structpdf__path__operation}{pdf\+\_\+path\+\_\+operation}} $\ast$operations, int operation\+\_\+count, float stroke\+\_\+width, uint32\+\_\+t stroke\+\_\+colour, uint32\+\_\+t fill\+\_\+colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a9390523aad87e45038cfe4a546e70532}{pdf\+\_\+add\+\_\+ellipse}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float xradius, float yradius, float width, uint32\+\_\+t colour, uint32\+\_\+t fill\+\_\+colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a2924a0330b97a98d9bfcd72266ffafe3}{pdf\+\_\+add\+\_\+circle}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float radius, float width, uint32\+\_\+t colour, uint32\+\_\+t fill\+\_\+colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_afd0b756ab9ed68867cc25dae1f1a9d56}{pdf\+\_\+add\+\_\+rectangle}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float width, float height, float border\+\_\+width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_adc9e7cb85f489db6343f08dc2532879f}{pdf\+\_\+add\+\_\+filled\+\_\+rectangle}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float width, float height, float border\+\_\+width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_af978d891f571b05942e239f5e28b3fec}{pdf\+\_\+add\+\_\+polygon}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x\mbox{[}$\,$\mbox{]}, float y\mbox{[}$\,$\mbox{]}, int count, float border\+\_\+width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a099be1165de8d4b0572389eb9bdd6237}{pdf\+\_\+add\+\_\+filled\+\_\+polygon}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x\mbox{[}$\,$\mbox{]}, float y\mbox{[}$\,$\mbox{]}, int count, float border\+\_\+width, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a60b52a61a7d7aba970748c6daa70399b}{pdf\+\_\+add\+\_\+bookmark}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, int parent, const char $\ast$name)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a883e6916c104db07ec6705de32192c4e}{pdf\+\_\+add\+\_\+barcode}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, int code, float x, float y, float width, float height, const char $\ast$string, uint32\+\_\+t colour)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a4e9bb6025352d0bdf0a9afb983c75c9f}{pdf\+\_\+add\+\_\+ppm}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float display\+\_\+width, float display\+\_\+height, const char $\ast$ppm\+\_\+file)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a1dcb75b617ef2b4a9ccb8f2f400e729e}{pdf\+\_\+add\+\_\+jpeg}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float display\+\_\+width, float display\+\_\+height, const char $\ast$jpeg\+\_\+file)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_abe5adbf363beaaeabb2696cd54e8e68a}{pdf\+\_\+add\+\_\+jpeg\+\_\+data}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float display\+\_\+width, float display\+\_\+height, const unsigned char $\ast$jpeg\+\_\+data, size\+\_\+t len)
+\item 
+int \mbox{\hyperlink{pdfgen_8h_a152cac9b17d06c1c55f06dcf103f6284}{pdf\+\_\+add\+\_\+rgb24}} (struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$pdf, struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$page, float x, float y, float display\+\_\+width, float display\+\_\+height, const uint8\+\_\+t $\ast$data, unsigned width, unsigned height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple engine for creating P\+DF files. It supports text, shapes, images etc... Capable of handling millions of objects without too much performance penalty. Public domain license -\/ no warrenty implied; use at your own risk. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pdfgen_8h_ad46a4a61c3500d61038f7253a0897945}\label{pdfgen_8h_ad46a4a61c3500d61038f7253a0897945}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_A3\_HEIGHT@{PDF\_A3\_HEIGHT}}
+\index{PDF\_A3\_HEIGHT@{PDF\_A3\_HEIGHT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_A3\_HEIGHT}{PDF\_A3\_HEIGHT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+A3\+\_\+\+H\+E\+I\+G\+HT~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(420.\+0f)}
+
+Point height of a standard A3 page 
+
+Definition at line 120 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a6d5cba977f4522bd42708ec0f40873ad}\label{pdfgen_8h_a6d5cba977f4522bd42708ec0f40873ad}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_A3\_WIDTH@{PDF\_A3\_WIDTH}}
+\index{PDF\_A3\_WIDTH@{PDF\_A3\_WIDTH}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_A3\_WIDTH}{PDF\_A3\_WIDTH}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+A3\+\_\+\+W\+I\+D\+TH~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(297.\+0f)}
+
+Point width of a standard A3 page 
+
+Definition at line 117 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_aa6a977707a3049ef8af5fb7ffc23cbf5}\label{pdfgen_8h_aa6a977707a3049ef8af5fb7ffc23cbf5}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_A4\_HEIGHT@{PDF\_A4\_HEIGHT}}
+\index{PDF\_A4\_HEIGHT@{PDF\_A4\_HEIGHT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_A4\_HEIGHT}{PDF\_A4\_HEIGHT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+A4\+\_\+\+H\+E\+I\+G\+HT~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(297.\+0f)}
+
+Point height of a standard A4 page 
+
+Definition at line 114 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a86e54e7bcb56e610ca8cd44ce1f4047b}\label{pdfgen_8h_a86e54e7bcb56e610ca8cd44ce1f4047b}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_A4\_WIDTH@{PDF\_A4\_WIDTH}}
+\index{PDF\_A4\_WIDTH@{PDF\_A4\_WIDTH}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_A4\_WIDTH}{PDF\_A4\_WIDTH}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+A4\+\_\+\+W\+I\+D\+TH~\mbox{\hyperlink{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}{P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(210.\+0f)}
+
+Point width of a standard A4 page 
+
+Definition at line 111 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a76e8ae832b30717790ab632e1ab38653}\label{pdfgen_8h_a76e8ae832b30717790ab632e1ab38653}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_ARGB@{PDF\_ARGB}}
+\index{PDF\_ARGB@{PDF\_ARGB}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_ARGB}{PDF\_ARGB}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+A\+R\+GB(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{r,  }\item[{}]{g,  }\item[{}]{b }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    (uint32\_t)(((uint32\_t)((a)\&0xff) << 24) | (((r)\&0xff) << 16) |           \(\backslash\)}
+\DoxyCodeLine{               (((g)\&0xff) << 8) | (((b)\&0xff)))}
+
+\end{DoxyCode}
+Convert four 8-\/bit A\+R\+GB values into a single packed 32-\/bit colour. These 32-\/bit colours are used by various functions in P\+D\+F\+Gen. Alpha values range from 0 (opaque) to 0xff (transparent) 
+
+Definition at line 136 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_ab58c1407a99e90a0c574b15ae733061b}\label{pdfgen_8h_ab58c1407a99e90a0c574b15ae733061b}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_BLACK@{PDF\_BLACK}}
+\index{PDF\_BLACK@{PDF\_BLACK}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_BLACK}{PDF\_BLACK}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+B\+L\+A\+CK~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0, 0)}
+
+Utility macro to provide black 
+
+Definition at line 150 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a8673f02bfba1b4f37777cfa909051dee}\label{pdfgen_8h_a8673f02bfba1b4f37777cfa909051dee}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_BLUE@{PDF\_BLUE}}
+\index{PDF\_BLUE@{PDF\_BLUE}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_BLUE}{PDF\_BLUE}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+B\+L\+UE~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0, 0xff)}
+
+Utility macro to provide bright blue 
+
+Definition at line 147 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_add3f7a28dca15b964590d42079162b44}\label{pdfgen_8h_add3f7a28dca15b964590d42079162b44}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_GREEN@{PDF\_GREEN}}
+\index{PDF\_GREEN@{PDF\_GREEN}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_GREEN}{PDF\_GREEN}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+G\+R\+E\+EN~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0, 0xff, 0)}
+
+Utility macro to provide bright green 
+
+Definition at line 144 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}\label{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_INCH\_TO\_POINT@{PDF\_INCH\_TO\_POINT}}
+\index{PDF\_INCH\_TO\_POINT@{PDF\_INCH\_TO\_POINT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_INCH\_TO\_POINT}{PDF\_INCH\_TO\_POINT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT(\begin{DoxyParamCaption}\item[{}]{inch }\end{DoxyParamCaption})~((float)((inch)$\ast$72.\+0f))}
+
+Convert a value in inches into a number of points. Always returns an integer value 
+\begin{DoxyParams}{Parameters}
+{\em inch} & inches value to convert to points \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_adcd2c4864846503b8b2c847b0eea6990}\label{pdfgen_8h_adcd2c4864846503b8b2c847b0eea6990}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_LETTER\_HEIGHT@{PDF\_LETTER\_HEIGHT}}
+\index{PDF\_LETTER\_HEIGHT@{PDF\_LETTER\_HEIGHT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_LETTER\_HEIGHT}{PDF\_LETTER\_HEIGHT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+L\+E\+T\+T\+E\+R\+\_\+\+H\+E\+I\+G\+HT~\mbox{\hyperlink{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}{P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(11.\+0f)}
+
+Point height of a standard U\+S-\/\+Letter page 
+
+Definition at line 108 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a2afd5069769d1f46db959014a685d171}\label{pdfgen_8h_a2afd5069769d1f46db959014a685d171}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_LETTER\_WIDTH@{PDF\_LETTER\_WIDTH}}
+\index{PDF\_LETTER\_WIDTH@{PDF\_LETTER\_WIDTH}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_LETTER\_WIDTH}{PDF\_LETTER\_WIDTH}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+L\+E\+T\+T\+E\+R\+\_\+\+W\+I\+D\+TH~\mbox{\hyperlink{pdfgen_8h_ae73af7f2abe34089060cf9849892ac8f}{P\+D\+F\+\_\+\+I\+N\+C\+H\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT}}(8.\+5f)}
+
+Point width of a standard U\+S-\/\+Letter page 
+
+Definition at line 105 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}\label{pdfgen_8h_aa8a921e874289154c2dab9eca5c7dc3b}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_MM\_TO\_POINT@{PDF\_MM\_TO\_POINT}}
+\index{PDF\_MM\_TO\_POINT@{PDF\_MM\_TO\_POINT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_MM\_TO\_POINT}{PDF\_MM\_TO\_POINT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+M\+M\+\_\+\+T\+O\+\_\+\+P\+O\+I\+NT(\begin{DoxyParamCaption}\item[{}]{mm }\end{DoxyParamCaption})~((float)((mm)$\ast$72.\+0f / 25.\+4f))}
+
+Convert a value in milli-\/meters into a number of points. Always returns an integer value 
+\begin{DoxyParams}{Parameters}
+{\em mm} & millimeter value to convert to points \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a438cd5b3386556df61bce1af6b386b5f}\label{pdfgen_8h_a438cd5b3386556df61bce1af6b386b5f}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_RED@{PDF\_RED}}
+\index{PDF\_RED@{PDF\_RED}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_RED}{PDF\_RED}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+R\+ED~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0xff, 0, 0)}
+
+Utility macro to provide bright red 
+
+Definition at line 141 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a194b1db3376a39c5c11203977277f626}\label{pdfgen_8h_a194b1db3376a39c5c11203977277f626}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_RGB@{PDF\_RGB}}
+\index{PDF\_RGB@{PDF\_RGB}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_RGB}{PDF\_RGB}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+R\+GB(\begin{DoxyParamCaption}\item[{}]{r,  }\item[{}]{g,  }\item[{}]{b }\end{DoxyParamCaption})~    (uint32\+\_\+t)((((r)\&0xff) $<$$<$ 16) $\vert$ (((g)\&0xff) $<$$<$ 8) $\vert$ (((b)\&0xff)))}
+
+Convert three 8-\/bit R\+GB values into a single packed 32-\/bit colour. These 32-\/bit colours are used by various functions in P\+D\+F\+Gen 
+
+Definition at line 127 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a351d3678a4d86794aa07d4233a5db838}\label{pdfgen_8h_a351d3678a4d86794aa07d4233a5db838}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_TRANSPARENT@{PDF\_TRANSPARENT}}
+\index{PDF\_TRANSPARENT@{PDF\_TRANSPARENT}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_TRANSPARENT}{PDF\_TRANSPARENT}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+T\+R\+A\+N\+S\+P\+A\+R\+E\+NT~(uint32\+\_\+t)(0xffu $<$$<$ 24)}
+
+Utility macro to provide a transparent colour This is used in some places for \textquotesingle{}fill\textquotesingle{} colours, where no fill is required 
+
+Definition at line 159 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_a1b3bd3d45eafa4a56c07c905a9ab11de}\label{pdfgen_8h_a1b3bd3d45eafa4a56c07c905a9ab11de}} 
+\index{pdfgen.h@{pdfgen.h}!PDF\_WHITE@{PDF\_WHITE}}
+\index{PDF\_WHITE@{PDF\_WHITE}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{PDF\_WHITE}{PDF\_WHITE}}
+{\footnotesize\ttfamily \#define P\+D\+F\+\_\+\+W\+H\+I\+TE~\mbox{\hyperlink{pdfgen_8h_a194b1db3376a39c5c11203977277f626}{P\+D\+F\+\_\+\+R\+GB}}(0xff, 0xff, 0xff)}
+
+Utility macro to provide white 
+
+Definition at line 153 of file pdfgen.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+Different alignment options for rendering text \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_LEFT@{PDF\_ALIGN\_LEFT}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_LEFT@{PDF\_ALIGN\_LEFT}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55bac0f2d0c8c4b08d6b9b6cee05c52544b0}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55bac0f2d0c8c4b08d6b9b6cee05c52544b0}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+L\+E\+FT&Align text to the left. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_RIGHT@{PDF\_ALIGN\_RIGHT}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_RIGHT@{PDF\_ALIGN\_RIGHT}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa55c011c9760ba04d5ef3a1f585c2ea5}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa55c011c9760ba04d5ef3a1f585c2ea5}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+R\+I\+G\+HT&Align text to the right. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_CENTER@{PDF\_ALIGN\_CENTER}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_CENTER@{PDF\_ALIGN\_CENTER}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa359cce335b1665ea4fcd34695d71c33}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baa359cce335b1665ea4fcd34695d71c33}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+C\+E\+N\+T\+ER&Align text in the center. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_JUSTIFY@{PDF\_ALIGN\_JUSTIFY}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_JUSTIFY@{PDF\_ALIGN\_JUSTIFY}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba087425f3df88a38dc72e7a1bc4b0b1d7}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba087425f3df88a38dc72e7a1bc4b0b1d7}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+J\+U\+S\+T\+I\+FY&available space Align text in the center, with padding to fill the \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_JUSTIFY\_ALL@{PDF\_ALIGN\_JUSTIFY\_ALL}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_JUSTIFY\_ALL@{PDF\_ALIGN\_JUSTIFY\_ALL}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba659f42819313c89145136d366c1dbfb8}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55ba659f42819313c89145136d366c1dbfb8}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+J\+U\+S\+T\+I\+F\+Y\+\_\+\+A\+LL&lines will be fully justified Like P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+J\+U\+S\+T\+I\+FY, except even short \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_ALIGN\_NO\_WRITE@{PDF\_ALIGN\_NO\_WRITE}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_ALIGN\_NO\_WRITE@{PDF\_ALIGN\_NO\_WRITE}}}\mbox{\Hypertarget{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baf07ed799ebddfcfbd485be58f7797d29}\label{pdfgen_8h_a06fc87d81c62e9abb8790b6e5713c55baf07ed799ebddfcfbd485be58f7797d29}} 
+P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+\+N\+O\+\_\+\+W\+R\+I\+TE&no writes Fake alignment for only checking wrap height with \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 164 of file pdfgen.\+h.
+
+\mbox{\Hypertarget{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+List of different barcode encodings that are supported \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_BARCODE\_128A@{PDF\_BARCODE\_128A}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_BARCODE\_128A@{PDF\_BARCODE\_128A}}}\mbox{\Hypertarget{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1ee6b31a8d34e9b1971d2423efe09be0}\label{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1ee6b31a8d34e9b1971d2423efe09be0}} 
+P\+D\+F\+\_\+\+B\+A\+R\+C\+O\+D\+E\+\_\+128A&Produce code-\/128A style barcodes. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PDF\_BARCODE\_39@{PDF\_BARCODE\_39}!pdfgen.h@{pdfgen.h}}\index{pdfgen.h@{pdfgen.h}!PDF\_BARCODE\_39@{PDF\_BARCODE\_39}}}\mbox{\Hypertarget{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1870b82d709ee2ed2a1da392fe007b19}\label{pdfgen_8h_adf764cbdea00d65edcd07bb9953ad2b7a1870b82d709ee2ed2a1da392fe007b19}} 
+P\+D\+F\+\_\+\+B\+A\+R\+C\+O\+D\+E\+\_\+39&Produce code-\/39 style barcodes. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 504 of file pdfgen.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pdfgen_8h_a883e6916c104db07ec6705de32192c4e}\label{pdfgen_8h_a883e6916c104db07ec6705de32192c4e}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_barcode@{pdf\_add\_barcode}}
+\index{pdf\_add\_barcode@{pdf\_add\_barcode}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_barcode()}{pdf\_add\_barcode()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+barcode (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{int}]{code,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{const char $\ast$}]{string,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a barcode to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add barcode to \\
+\hline
+{\em page} & Page to add barcode to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em code} & Type of barcode to add (P\+D\+F\+\_\+\+B\+A\+R\+C\+O\+D\+E\+\_\+xxx) \\
+\hline
+{\em x} & X offset to put barcode at \\
+\hline
+{\em y} & Y offset to put barcode at \\
+\hline
+{\em width} & Width of barcode \\
+\hline
+{\em height} & Height of barcode \\
+\hline
+{\em string} & Barcode contents \\
+\hline
+{\em colour} & Colour to draw barcode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 2110 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a60b52a61a7d7aba970748c6daa70399b}\label{pdfgen_8h_a60b52a61a7d7aba970748c6daa70399b}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_bookmark@{pdf\_add\_bookmark}}
+\index{pdf\_add\_bookmark@{pdf\_add\_bookmark}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_bookmark()}{pdf\_add\_bookmark()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+bookmark (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{int}]{parent,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Add a bookmark to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add bookmark to \\
+\hline
+{\em page} & Page to jump to for bookmark (or N\+U\+LL for the most recently added page) \\
+\hline
+{\em parent} & ID of a previously created bookmark that is the parent of this one. -\/1 if this should be a top-\/level bookmark. \\
+\hline
+{\em name} & String to associate with the bookmark \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, new bookmark id on success 
+\end{DoxyReturn}
+
+
+Definition at line 1057 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a2924a0330b97a98d9bfcd72266ffafe3}\label{pdfgen_8h_a2924a0330b97a98d9bfcd72266ffafe3}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_circle@{pdf\_add\_circle}}
+\index{pdf\_add\_circle@{pdf\_add\_circle}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_circle()}{pdf\_add\_circle()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+circle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{radius,  }\item[{float}]{width,  }\item[{uint32\+\_\+t}]{colour,  }\item[{uint32\+\_\+t}]{fill\+\_\+colour }\end{DoxyParamCaption})}
+
+Add a circle to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset of the center of the circle \\
+\hline
+{\em y} & Y offset of the center of the circle \\
+\hline
+{\em radius} & Radius of the circle \\
+\hline
+{\em width} & Width of the circle outline stroke \\
+\hline
+{\em colour} & Colour to draw the circle outline stroke \\
+\hline
+{\em fill\+\_\+colour} & Colour to fill the circle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1826 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a7adf4835ea0630cf4c8c192c26437021}\label{pdfgen_8h_a7adf4835ea0630cf4c8c192c26437021}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_cubic\_bezier@{pdf\_add\_cubic\_bezier}}
+\index{pdf\_add\_cubic\_bezier@{pdf\_add\_cubic\_bezier}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_cubic\_bezier()}{pdf\_add\_cubic\_bezier()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+cubic\+\_\+bezier (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2,  }\item[{float}]{xq1,  }\item[{float}]{yq1,  }\item[{float}]{xq2,  }\item[{float}]{yq2,  }\item[{float}]{width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a cubic bezier curve to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x1} & X offset of the initial point of the curve \\
+\hline
+{\em y1} & Y offset of the initial point of the curve \\
+\hline
+{\em x2} & X offset of the final point of the curve \\
+\hline
+{\em y2} & Y offset of the final point of the curve \\
+\hline
+{\em xq1} & X offset of the first control point of the curve \\
+\hline
+{\em yq1} & Y offset of the first control point of the curve \\
+\hline
+{\em xq2} & X offset of the second control of the curve \\
+\hline
+{\em yq2} & Y offset of the second control of the curve \\
+\hline
+{\em width} & Width of the curve \\
+\hline
+{\em colour} & Colour to draw the curve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1683 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a3f976010679d276ddf530b2e95a2dc7c}\label{pdfgen_8h_a3f976010679d276ddf530b2e95a2dc7c}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_custom\_path@{pdf\_add\_custom\_path}}
+\index{pdf\_add\_custom\_path@{pdf\_add\_custom\_path}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_custom\_path()}{pdf\_add\_custom\_path()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+custom\+\_\+path (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{struct \mbox{\hyperlink{structpdf__path__operation}{pdf\+\_\+path\+\_\+operation}} $\ast$}]{operations,  }\item[{int}]{operation\+\_\+count,  }\item[{float}]{stroke\+\_\+width,  }\item[{uint32\+\_\+t}]{stroke\+\_\+colour,  }\item[{uint32\+\_\+t}]{fill\+\_\+colour }\end{DoxyParamCaption})}
+
+Add a custom path to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em operations} & Array of drawing operations \\
+\hline
+{\em operation\+\_\+count} & The number of operations \\
+\hline
+{\em stroke\+\_\+width} & Width of the stroke \\
+\hline
+{\em stroke\+\_\+colour} & Colour to stroke the curve \\
+\hline
+{\em fill\+\_\+colour} & Colour to fill the path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1718 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a9390523aad87e45038cfe4a546e70532}\label{pdfgen_8h_a9390523aad87e45038cfe4a546e70532}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_ellipse@{pdf\_add\_ellipse}}
+\index{pdf\_add\_ellipse@{pdf\_add\_ellipse}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_ellipse()}{pdf\_add\_ellipse()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+ellipse (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{xradius,  }\item[{float}]{yradius,  }\item[{float}]{width,  }\item[{uint32\+\_\+t}]{colour,  }\item[{uint32\+\_\+t}]{fill\+\_\+colour }\end{DoxyParamCaption})}
+
+Add an ellipse to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset of the center of the ellipse \\
+\hline
+{\em y} & Y offset of the center of the ellipse \\
+\hline
+{\em xradius} & Radius of the ellipse in the X axis \\
+\hline
+{\em yradius} & Radius of the ellipse in the Y axis \\
+\hline
+{\em colour} & Colour to draw the ellipse outline stroke \\
+\hline
+{\em width} & Width of the ellipse outline stroke \\
+\hline
+{\em fill\+\_\+colour} & Colour to fill the ellipse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1777 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a099be1165de8d4b0572389eb9bdd6237}\label{pdfgen_8h_a099be1165de8d4b0572389eb9bdd6237}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_filled\_polygon@{pdf\_add\_filled\_polygon}}
+\index{pdf\_add\_filled\_polygon@{pdf\_add\_filled\_polygon}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_filled\_polygon()}{pdf\_add\_filled\_polygon()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+filled\+\_\+polygon (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x\mbox{[}$\,$\mbox{]},  }\item[{float}]{y\mbox{[}$\,$\mbox{]},  }\item[{int}]{count,  }\item[{float}]{border\+\_\+width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a filled polygon to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & array of X offsets of points comprising the polygon \\
+\hline
+{\em y} & array of Y offsets of points comprising the polygon \\
+\hline
+{\em count} & Number of points comprising the polygon \\
+\hline
+{\em border\+\_\+width} & Width of polygon border \\
+\hline
+{\em colour} & Colour to draw the polygon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1891 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_adc9e7cb85f489db6343f08dc2532879f}\label{pdfgen_8h_adc9e7cb85f489db6343f08dc2532879f}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_filled\_rectangle@{pdf\_add\_filled\_rectangle}}
+\index{pdf\_add\_filled\_rectangle@{pdf\_add\_filled\_rectangle}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_filled\_rectangle()}{pdf\_add\_filled\_rectangle()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+filled\+\_\+rectangle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{border\+\_\+width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a filled rectangle to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to start rectangle at \\
+\hline
+{\em y} & Y offset to start rectangle at \\
+\hline
+{\em width} & Width of rectangle \\
+\hline
+{\em height} & Height of rectangle \\
+\hline
+{\em border\+\_\+width} & Width of rectangle border \\
+\hline
+{\em colour} & Colour to draw the rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1852 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a1dcb75b617ef2b4a9ccb8f2f400e729e}\label{pdfgen_8h_a1dcb75b617ef2b4a9ccb8f2f400e729e}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_jpeg@{pdf\_add\_jpeg}}
+\index{pdf\_add\_jpeg@{pdf\_add\_jpeg}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_jpeg()}{pdf\_add\_jpeg()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+jpeg (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{display\+\_\+width,  }\item[{float}]{display\+\_\+height,  }\item[{const char $\ast$}]{jpeg\+\_\+file }\end{DoxyParamCaption})}
+
+Add a J\+P\+EG file as an image to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add J\+P\+EG to \\
+\hline
+{\em page} & Page to add J\+P\+EG to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to put J\+P\+EG at \\
+\hline
+{\em y} & Y offset to put J\+P\+EG at \\
+\hline
+{\em display\+\_\+width} & Displayed width of image \\
+\hline
+{\em display\+\_\+height} & Displayed height of image \\
+\hline
+{\em jpeg\+\_\+file} & Filename of J\+P\+EG file to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 2368 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_abe5adbf363beaaeabb2696cd54e8e68a}\label{pdfgen_8h_abe5adbf363beaaeabb2696cd54e8e68a}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_jpeg\_data@{pdf\_add\_jpeg\_data}}
+\index{pdf\_add\_jpeg\_data@{pdf\_add\_jpeg\_data}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_jpeg\_data()}{pdf\_add\_jpeg\_data()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+jpeg\+\_\+data (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{display\+\_\+width,  }\item[{float}]{display\+\_\+height,  }\item[{const unsigned char $\ast$}]{jpeg\+\_\+data,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+Add J\+P\+EG data as an image to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add J\+P\+EG to \\
+\hline
+{\em page} & Page to add J\+P\+EG to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to put J\+P\+EG at \\
+\hline
+{\em y} & Y offset to put J\+P\+EG at \\
+\hline
+{\em display\+\_\+width} & Displayed width of image \\
+\hline
+{\em display\+\_\+height} & Displayed height of image \\
+\hline
+{\em jpeg\+\_\+data} & J\+P\+EG data to add \\
+\hline
+{\em len} & Length of J\+P\+EG data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 2381 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_aadd66080fe4651a648abe1b14b713979}\label{pdfgen_8h_aadd66080fe4651a648abe1b14b713979}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_line@{pdf\_add\_line}}
+\index{pdf\_add\_line@{pdf\_add\_line}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_line()}{pdf\_add\_line()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+line (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2,  }\item[{float}]{width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a line to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x1} & X offset of start of line \\
+\hline
+{\em y1} & Y offset of start of line \\
+\hline
+{\em x2} & X offset of end of line \\
+\hline
+{\em y2} & Y offset of end of line \\
+\hline
+{\em width} & Width of the line \\
+\hline
+{\em colour} & Colour to draw the line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1664 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_af978d891f571b05942e239f5e28b3fec}\label{pdfgen_8h_af978d891f571b05942e239f5e28b3fec}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_polygon@{pdf\_add\_polygon}}
+\index{pdf\_add\_polygon@{pdf\_add\_polygon}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_polygon()}{pdf\_add\_polygon()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+polygon (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x\mbox{[}$\,$\mbox{]},  }\item[{float}]{y\mbox{[}$\,$\mbox{]},  }\item[{int}]{count,  }\item[{float}]{border\+\_\+width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add an outline polygon to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & array of X offsets for points comprising the polygon \\
+\hline
+{\em y} & array of Y offsets for points comprising the polygon \\
+\hline
+{\em count} & Number of points comprising the polygon \\
+\hline
+{\em border\+\_\+width} & Width of polygon border \\
+\hline
+{\em colour} & Colour to draw the polygon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1870 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a4e9bb6025352d0bdf0a9afb983c75c9f}\label{pdfgen_8h_a4e9bb6025352d0bdf0a9afb983c75c9f}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_ppm@{pdf\_add\_ppm}}
+\index{pdf\_add\_ppm@{pdf\_add\_ppm}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_ppm()}{pdf\_add\_ppm()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+ppm (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{display\+\_\+width,  }\item[{float}]{display\+\_\+height,  }\item[{const char $\ast$}]{ppm\+\_\+file }\end{DoxyParamCaption})}
+
+Add a P\+PM file as an image to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add P\+PM to \\
+\hline
+{\em page} & Page to add P\+PM to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to put P\+PM at \\
+\hline
+{\em y} & Y offset to put P\+PM at \\
+\hline
+{\em display\+\_\+width} & Displayed width of image \\
+\hline
+{\em display\+\_\+height} & Displayed height of image \\
+\hline
+{\em ppm\+\_\+file} & Filename of P6 (binary) ppm file to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 2293 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a659e5239430447c6425c238a574962c9}\label{pdfgen_8h_a659e5239430447c6425c238a574962c9}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_quadratic\_bezier@{pdf\_add\_quadratic\_bezier}}
+\index{pdf\_add\_quadratic\_bezier@{pdf\_add\_quadratic\_bezier}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_quadratic\_bezier()}{pdf\_add\_quadratic\_bezier()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+quadratic\+\_\+bezier (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2,  }\item[{float}]{xq1,  }\item[{float}]{yq1,  }\item[{float}]{width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a quadratic bezier curve to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x1} & X offset of the initial point of the curve \\
+\hline
+{\em y1} & Y offset of the initial point of the curve \\
+\hline
+{\em x2} & X offset of the final point of the curve \\
+\hline
+{\em y2} & Y offset of the final point of the curve \\
+\hline
+{\em xq1} & X offset of the control point of the curve \\
+\hline
+{\em yq1} & Y offset of the control point of the curve \\
+\hline
+{\em width} & Width of the curve \\
+\hline
+{\em colour} & Colour to draw the curve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1705 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_afd0b756ab9ed68867cc25dae1f1a9d56}\label{pdfgen_8h_afd0b756ab9ed68867cc25dae1f1a9d56}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_rectangle@{pdf\_add\_rectangle}}
+\index{pdf\_add\_rectangle@{pdf\_add\_rectangle}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_rectangle()}{pdf\_add\_rectangle()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+rectangle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{border\+\_\+width,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add an outline rectangle to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to start rectangle at \\
+\hline
+{\em y} & Y offset to start rectangle at \\
+\hline
+{\em width} & Width of rectangle \\
+\hline
+{\em height} & Height of rectangle \\
+\hline
+{\em border\+\_\+width} & Width of rectangle border \\
+\hline
+{\em colour} & Colour to draw the rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1834 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a152cac9b17d06c1c55f06dcf103f6284}\label{pdfgen_8h_a152cac9b17d06c1c55f06dcf103f6284}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_rgb24@{pdf\_add\_rgb24}}
+\index{pdf\_add\_rgb24@{pdf\_add\_rgb24}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_rgb24()}{pdf\_add\_rgb24()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+rgb24 (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{display\+\_\+width,  }\item[{float}]{display\+\_\+height,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{unsigned}]{width,  }\item[{unsigned}]{height }\end{DoxyParamCaption})}
+
+Add a 24 bit per pixel R\+GB buffer as an image to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add image to \\
+\hline
+{\em page} & Page to add image to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em x} & X offset to put image at \\
+\hline
+{\em y} & Y offset to put image at \\
+\hline
+{\em display\+\_\+width} & Displayed width of image \\
+\hline
+{\em display\+\_\+height} & Displayed height of image \\
+\hline
+{\em data} & R\+GB data to add \\
+\hline
+{\em width} & width of image in pixels \\
+\hline
+{\em height} & height of image in pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 2394 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_afd2de622b15e4ca5084922b445000e72}\label{pdfgen_8h_afd2de622b15e4ca5084922b445000e72}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_text@{pdf\_add\_text}}
+\index{pdf\_add\_text@{pdf\_add\_text}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_text()}{pdf\_add\_text()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{const char $\ast$}]{text,  }\item[{float}]{size,  }\item[{float}]{xoff,  }\item[{float}]{yoff,  }\item[{uint32\+\_\+t}]{colour }\end{DoxyParamCaption})}
+
+Add a text string to the document 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em text} & String to display \\
+\hline
+{\em size} & Point size of the font \\
+\hline
+{\em xoff} & X location to put it in \\
+\hline
+{\em yoff} & Y location to put it in \\
+\hline
+{\em colour} & Colour to draw the text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, $<$ 0 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 1216 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_ac7f386e09b59074c8bd3e0429dd04e2f}\label{pdfgen_8h_ac7f386e09b59074c8bd3e0429dd04e2f}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_add\_text\_wrap@{pdf\_add\_text\_wrap}}
+\index{pdf\_add\_text\_wrap@{pdf\_add\_text\_wrap}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_add\_text\_wrap()}{pdf\_add\_text\_wrap()}}
+{\footnotesize\ttfamily int pdf\+\_\+add\+\_\+text\+\_\+wrap (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{const char $\ast$}]{text,  }\item[{float}]{size,  }\item[{float}]{xoff,  }\item[{float}]{yoff,  }\item[{uint32\+\_\+t}]{colour,  }\item[{float}]{wrap\+\_\+width,  }\item[{int}]{align,  }\item[{float $\ast$}]{height }\end{DoxyParamCaption})}
+
+Add a text string to the document, making it wrap if it is too long 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to add to \\
+\hline
+{\em page} & Page to add object to (N\+U\+LL =$>$ most recently added page) \\
+\hline
+{\em text} & String to display \\
+\hline
+{\em size} & Point size of the font \\
+\hline
+{\em xoff} & X location to put it in \\
+\hline
+{\em yoff} & Y location to put it in \\
+\hline
+{\em colour} & Colour to draw the text \\
+\hline
+{\em wrap\+\_\+width} & Width at which to wrap the text \\
+\hline
+{\em align} & Text alignment (see P\+D\+F\+\_\+\+A\+L\+I\+G\+N\+\_\+xxx) \\
+\hline
+{\em height} & Store the final height of the wrapped text here (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 1553 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a4bf4422cc0b86496e6b9dcc8865c710c}\label{pdfgen_8h_a4bf4422cc0b86496e6b9dcc8865c710c}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_append\_page@{pdf\_append\_page}}
+\index{pdf\_append\_page@{pdf\_append\_page}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_append\_page()}{pdf\_append\_page()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}}$\ast$ pdf\+\_\+append\+\_\+page (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf }\end{DoxyParamCaption})}
+
+Add a new page to the given pdf 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to append page to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new page object 
+\end{DoxyReturn}
+
+
+Definition at line 713 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_ae3e3a979e6c58242511ca0aa2178b5d6}\label{pdfgen_8h_ae3e3a979e6c58242511ca0aa2178b5d6}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_clear\_err@{pdf\_clear\_err}}
+\index{pdf\_clear\_err@{pdf\_clear\_err}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_clear\_err()}{pdf\_clear\_err()}}
+{\footnotesize\ttfamily void pdf\+\_\+clear\+\_\+err (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf }\end{DoxyParamCaption})}
+
+Acknowledge an outstanding pdf error 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & pdf document to clear the error message from \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 475 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a5f36f2534fa272b28e4a630fe165bfe8}\label{pdfgen_8h_a5f36f2534fa272b28e4a630fe165bfe8}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_create@{pdf\_create}}
+\index{pdf\_create@{pdf\_create}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_create()}{pdf\_create()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}}$\ast$ pdf\+\_\+create (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{height,  }\item[{const struct \mbox{\hyperlink{structpdf__info}{pdf\+\_\+info}} $\ast$}]{info }\end{DoxyParamCaption})}
+
+Create a new P\+DF object, with the given page width/height 
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the page \\
+\hline
+{\em height} & Height of the page \\
+\hline
+{\em info} & Optional information to be put into the P\+DF header \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\+DF document object, or N\+U\+LL on failure 
+\end{DoxyReturn}
+
+
+Definition at line 577 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a834ce8588a19cc0aee7c57e46a98034a}\label{pdfgen_8h_a834ce8588a19cc0aee7c57e46a98034a}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_destroy@{pdf\_destroy}}
+\index{pdf\_destroy@{pdf\_destroy}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_destroy()}{pdf\_destroy()}}
+{\footnotesize\ttfamily void pdf\+\_\+destroy (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf }\end{DoxyParamCaption})}
+
+Destroy the pdf object, and all of its associated memory 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to clean up \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 664 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a26d553f4f2c645c6fe99dd98a53047fa}\label{pdfgen_8h_a26d553f4f2c645c6fe99dd98a53047fa}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_get\_err@{pdf\_get\_err}}
+\index{pdf\_get\_err@{pdf\_get\_err}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_get\_err()}{pdf\_get\_err()}}
+{\footnotesize\ttfamily const char$\ast$ pdf\+\_\+get\+\_\+err (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{int $\ast$}]{errval }\end{DoxyParamCaption})}
+
+Retrieve the error message if any operation fails 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & pdf document to retrieve error message from \\
+\hline
+{\em errval} & optional pointer to an integer to be set to the error code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if no error message, string description of error otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 464 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_ae2a8638913b2f6ebf27077ab430cebd4}\label{pdfgen_8h_ae2a8638913b2f6ebf27077ab430cebd4}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_get\_font\_text\_width@{pdf\_get\_font\_text\_width}}
+\index{pdf\_get\_font\_text\_width@{pdf\_get\_font\_text\_width}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_get\_font\_text\_width()}{pdf\_get\_font\_text\_width()}}
+{\footnotesize\ttfamily int pdf\+\_\+get\+\_\+font\+\_\+text\+\_\+width (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{const char $\ast$}]{font\+\_\+name,  }\item[{const char $\ast$}]{text,  }\item[{float}]{size,  }\item[{float $\ast$}]{text\+\_\+width }\end{DoxyParamCaption})}
+
+Calculate the width of a given string in the current font 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document \\
+\hline
+{\em font\+\_\+name} & Name of the font to get the width of. This must be one of the standard P\+DF fonts\+: Courier, Courier-\/\+Bold, Courier-\/\+Bold\+Oblique, Courier-\/\+Oblique, Helvetica, Helvetica-\/\+Bold, Helvetica-\/\+Bold\+Oblique, Helvetica-\/\+Oblique, Times-\/\+Roman, Times-\/\+Bold, Times-\/\+Italic, Times-\/\+Bold\+Italic, Symbol or Zapf\+Dingbats \\
+\hline
+{\em text} & Text to determine width of \\
+\hline
+{\em size} & Size of the text, in points \\
+\hline
+{\em text\+\_\+width} & area to store calculated width in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 1532 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_ab164b4690d53d5e9b175fbbd653984d0}\label{pdfgen_8h_ab164b4690d53d5e9b175fbbd653984d0}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_height@{pdf\_height}}
+\index{pdf\_height@{pdf\_height}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_height()}{pdf\_height()}}
+{\footnotesize\ttfamily float pdf\+\_\+height (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf }\end{DoxyParamCaption})}
+
+Retrieves a P\+DF document height 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to get height of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+height of P\+DF document (in points) 
+\end{DoxyReturn}
+
+
+Definition at line 659 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_abff0332e416bfd72f9d9f1010ebec1a7}\label{pdfgen_8h_abff0332e416bfd72f9d9f1010ebec1a7}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_page\_set\_size@{pdf\_page\_set\_size}}
+\index{pdf\_page\_set\_size@{pdf\_page\_set\_size}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_page\_set\_size()}{pdf\_page\_set\_size()}}
+{\footnotesize\ttfamily int pdf\+\_\+page\+\_\+set\+\_\+size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{struct \mbox{\hyperlink{structpdf__object}{pdf\+\_\+object}} $\ast$}]{page,  }\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+Adjust the width/height of a specific page 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document that the page belongs to \\
+\hline
+{\em page} & object returned from \mbox{\hyperlink{pdfgen_8h_a4bf4422cc0b86496e6b9dcc8865c710c}{pdf\+\_\+append\+\_\+page}} \\
+\hline
+{\em width} & Width of the page in points \\
+\hline
+{\em height} & Height of the page in points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 728 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_ae5df962f7d14871d02ac588cb46628fd}\label{pdfgen_8h_ae5df962f7d14871d02ac588cb46628fd}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_save@{pdf\_save}}
+\index{pdf\_save@{pdf\_save}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_save()}{pdf\_save()}}
+{\footnotesize\ttfamily int pdf\+\_\+save (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+Save the given pdf document to the supplied filename. 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to save \\
+\hline
+{\em filename} & Name of the file to store the P\+DF into (N\+U\+LL for stdout) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 1008 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a4d87845799d75ac5c6db81593f681068}\label{pdfgen_8h_a4d87845799d75ac5c6db81593f681068}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_save\_file@{pdf\_save\_file}}
+\index{pdf\_save\_file@{pdf\_save\_file}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_save\_file()}{pdf\_save\_file()}}
+{\footnotesize\ttfamily int pdf\+\_\+save\+\_\+file (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+Save the given pdf document to the given F\+I\+LE output 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to save \\
+\hline
+{\em fp} & F\+I\+LE pointer to store the data into (must be writable) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, $>$= 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 958 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a9df848d68915f7531183b74f34167b36}\label{pdfgen_8h_a9df848d68915f7531183b74f34167b36}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_set\_font@{pdf\_set\_font}}
+\index{pdf\_set\_font@{pdf\_set\_font}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_set\_font()}{pdf\_set\_font()}}
+{\footnotesize\ttfamily int pdf\+\_\+set\+\_\+font (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf,  }\item[{const char $\ast$}]{font }\end{DoxyParamCaption})}
+
+Sets the font to use for text objects. Default value is Times-\/\+Roman if this function is not called. Note\+: The font selection should be done before text is output, and will remain until pdf\+\_\+set\+\_\+font is called again. 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to update font on \\
+\hline
+{\em font} & New font to use. This must be one of the standard P\+DF fonts\+: Courier, Courier-\/\+Bold, Courier-\/\+Bold\+Oblique, Courier-\/\+Oblique, Helvetica, Helvetica-\/\+Bold, Helvetica-\/\+Bold\+Oblique, Helvetica-\/\+Oblique, Times-\/\+Roman, Times-\/\+Bold, Times-\/\+Italic, Times-\/\+Bold\+Italic, Symbol or Zapf\+Dingbats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$ 0 on failure, 0 on success 
+\end{DoxyReturn}
+
+
+Definition at line 686 of file pdfgen.\+c.
+
+\mbox{\Hypertarget{pdfgen_8h_a12efde46afeb7fafb6d639fcc786a29d}\label{pdfgen_8h_a12efde46afeb7fafb6d639fcc786a29d}} 
+\index{pdfgen.h@{pdfgen.h}!pdf\_width@{pdf\_width}}
+\index{pdf\_width@{pdf\_width}!pdfgen.h@{pdfgen.h}}
+\doxysubsubsection{\texorpdfstring{pdf\_width()}{pdf\_width()}}
+{\footnotesize\ttfamily float pdf\+\_\+width (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpdf__doc}{pdf\+\_\+doc}} $\ast$}]{pdf }\end{DoxyParamCaption})}
+
+Retrieves a P\+DF document width 
+\begin{DoxyParams}{Parameters}
+{\em pdf} & P\+DF document to get width of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+width of P\+DF document (in points) 
+\end{DoxyReturn}
+
+
+Definition at line 654 of file pdfgen.\+c.
+

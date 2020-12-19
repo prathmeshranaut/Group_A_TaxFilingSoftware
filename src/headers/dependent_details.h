@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "cJSON.h"
+
 #ifndef GROUP_A_TAXFILINGSOFTWARE_DEPENDENT_DETAILS_H
 #define GROUP_A_TAXFILINGSOFTWARE_DEPENDENT_DETAILS_H
 
@@ -15,11 +16,11 @@
 typedef struct {
     char dependent_name[1024];
     char relationship[20];
-    char disability[1];
-	char claim_child_care_benefits[1];
-	double dependent_net_income;
-	char dependent_dob[10];
-	int dependent_age;
+    char disability[5];
+    char claim_child_care_benefits[5];
+    double dependent_net_income;
+    char dependent_dob[20];
+    int dependent_age;
 } dependent_details;
 
 int input_dependent_details(cJSON *root);

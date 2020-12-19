@@ -12,13 +12,14 @@
 #define PAYABLE "payable"
 
 
-typedef struct
-{
-	double federal_tax;
-	double income_tax;
-	double provencial_tax;
-	double refund;
-	double payable;
-}tax;
-int calculate_tax(cJSON* root);
+typedef struct {
+    double federal_tax;
+    double income_tax;
+    double provencial_tax;
+    double refund;
+    double payable;
+} tax;
+
+int calculate_tax(cJSON *root);
+
 #endif //GROUP_A_TAXFILINGSOFTWARE_CALCULATE_TAX_H

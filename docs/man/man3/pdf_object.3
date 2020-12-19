@@ -1,0 +1,91 @@
+.TH "pdf_object" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pdf_object
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBtype\fP"
+.br
+.ti -1c
+.RI "int \fBindex\fP"
+.br
+.ti -1c
+.RI "int \fBoffset\fP"
+.br
+.ti -1c
+.RI "struct \fBpdf_object\fP * \fBprev\fP"
+.br
+.ti -1c
+.RI "struct \fBpdf_object\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      struct \fBpdf_object\fP * \fBpage\fP"
+.br
+.ti -1c
+.RI "      char \fBname\fP [64]"
+.br
+.ti -1c
+.RI "      struct \fBpdf_object\fP * \fBparent\fP"
+.br
+.ti -1c
+.RI "      struct \fBflexarray\fP \fBchildren\fP"
+.br
+.ti -1c
+.RI "   } \fBbookmark\fP"
+.br
+.ti -1c
+.RI "   struct \fBdstr\fP \fBstream\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      float \fBwidth\fP"
+.br
+.ti -1c
+.RI "      float \fBheight\fP"
+.br
+.ti -1c
+.RI "      struct \fBflexarray\fP \fBchildren\fP"
+.br
+.ti -1c
+.RI "   } \fBpage\fP"
+.br
+.ti -1c
+.RI "   struct \fBpdf_info\fP * \fBinfo\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      char \fBname\fP [64]"
+.br
+.ti -1c
+.RI "      int \fBindex\fP"
+.br
+.ti -1c
+.RI "   } \fBfont\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 183 of file pdfgen\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.

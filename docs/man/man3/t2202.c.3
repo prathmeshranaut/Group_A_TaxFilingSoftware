@@ -1,0 +1,61 @@
+.TH "src/t2202.c" 3 "Sat Dec 19 2020" "Version 1.0" "Tax Filing Software" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/t2202.c \- Contains the definition for getting users T2202 details\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'headers/t2202\&.h'\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'headers/commons\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_RETRIES\fP   3"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBinput_t2202_details\fP (\fBcJSON\fP *root)"
+.br
+.RI "Gets T2202 details from the user\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains the definition for getting users T2202 details\&. 
+
+
+.PP
+Definition in file \fBt2202\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int input_t2202_details (\fBcJSON\fP * root)"
+
+.PP
+Gets T2202 details from the user\&. @detail Asks user to fill in details of their T2202 form so that can be used in calculation of tax
+.PP
+\fBParameters\fP
+.RS 4
+\fIJSON\fP root element
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 in case of success or 1 in case of failure 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file t2202\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tax Filing Software from the source code\&.
