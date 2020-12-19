@@ -2,6 +2,7 @@
  * @file maritial_status.c
  *
  * @brief Contains the definition for getting users marital status details
+ * @author Shreya Dhanani
  * */
 #include<string.h>
 #include "headers/maritial_status.h"
