@@ -25,6 +25,7 @@ int calculate_tax(cJSON* root)
 
 	tax worker;
 
+
 	json = root;	//Convert text string to cJSON object
 	if (NULL == json)	//If text is not in json format
 	{
@@ -35,8 +36,10 @@ int calculate_tax(cJSON* root)
 	if (cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble) {
 		c_employment_income = cJSON_GetObjectItem(first_t4_details, EMPLOYMENT_INCOME)->valuedouble;
 	}
-	else
+	else {
 		c_employment_income = 0;
+	}
+		
 
 
 	if (cJSON_GetObjectItem(first_t4_details, INCOME_TAX_DEDUCTED)->valuedouble) {

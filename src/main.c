@@ -22,6 +22,7 @@
 #include "headers/spouse_details.h"
 #include "headers/dependent_details.h"
 #include "headers/generate_pdf.h"
+#include "headers/gst_hst.h"
 
  /** @brief Gets details and calculate tax from the user
   *
@@ -35,7 +36,9 @@
 int main(void) {
     //Declaring and initializing variabless
     int attempt, max_attempt = 5;
-    char choice,save;
+    char choice,save,opt;
+	save = 'y';
+	opt = 'y';
     topmenu:
 
     printf("\t\t#######################################################################################\n");
@@ -68,8 +71,25 @@ int main(void) {
             input_t2202_details(root); //Get t2202 details from user
 			input_dependent_details(root); //Get dependent details from user
 			input_spouse_details(root); //Get spouse details from user
+/*
+			do {
+				printf("\n\t\tWould you like to Opt in for Ontario Trillium Benefits (y/n) : ");
+				scanf(" %c", &opt);
+				if (opt == 'y') {
+					input_ot_benefits(root); //Get OTB details from user
+				}
+			} while (opt != 'y' && opt != 'n');
+*/
+			do {
+				printf("\n\t\tWould you like to Opt in for GST/HST Benefits (y/n) : ");
+				scanf(" %c", &opt);
+				if (opt == 'y') {
+					calculate_gst_hst_benefits(root); //Add GST/HST benifits
+				}
+			} while (opt != 'y' && opt != 'n');
+
+
 			//child_benifits(root);
-			//gst_hst(root);
             //otb_benefits(root);
             calculate_tax(root); //Calculate tax of user
             //print_json(root); // display JSON details (developer feature)
@@ -78,6 +98,7 @@ int main(void) {
 			printf("\n\n\t\t\tDo you want to save the summary as PDF ? (y/n) : ");
 			scanf(" %c", &save);
 			if (save == 'y') {
+				printf("\n\t\t\tFile tax_details.pdf generated\n");
 				generate_pdf(root);
 			}				
             cJSON_Delete(root);

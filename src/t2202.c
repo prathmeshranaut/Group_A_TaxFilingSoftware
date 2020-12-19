@@ -18,10 +18,6 @@
 
 int input_t2202_details(cJSON *root) {
     char has_details = 'y';
-	do {
-    printf("\n\n\t\t\tAre you a post secondary student? (y/n) : ");
-    scanf(" %c", &has_details);
-	} while (!(has_details == 'y' || has_details == 'n') || (has_details == 'Y' || has_details == 'N'));
 
     if (has_details == 'y') {
         t2202 t2202_details = { "", "", "", "", "", 0 };
