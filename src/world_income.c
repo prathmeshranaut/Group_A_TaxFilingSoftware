@@ -1,4 +1,20 @@
+/**
+ * @file input_world_income.c
+ *
+ * @brief Contains the definition for getting income details from user
+ * @author Shreya Dhanani
+ * */
+
 #include "headers/world_income.h"
+
+/** @brief Gets income details from the user
+  *
+  * @detail Asks user to fill in their income details from Canadian Sources and Foreign Sources
+  *
+  * @param[in,out] JSON root element
+  *
+  * @return 0 in case of success or 1 in case of failure
+  * */
 
 int input_world_income(cJSON *root) {
     world_income income = { 0, 0 };
