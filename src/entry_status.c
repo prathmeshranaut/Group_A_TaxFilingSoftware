@@ -2,6 +2,7 @@
  * @file entry_status.c
  *
  * @brief Contains the definition for getting users entry status details
+ * @author Shreya Dhanani
  * */
 
 #include "headers/entry_status.h"
